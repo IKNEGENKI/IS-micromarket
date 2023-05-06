@@ -13,9 +13,12 @@ class productosController extends Controller
     {
         // Obtener todos los producto de la base de datos
         $producto = producto::all();
+        //$categoria = categoria::all();
 
+         // Retornar los productos como respuesta
+         return $producto;
         // Retornar los producto como respuesta
-        return response()->json(['producto' => $producto], 200);
+        //return response()->json(['producto' => $producto], 200);
     }
 
     public function create(Request $request)

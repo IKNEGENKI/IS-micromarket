@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\productosController;
-use App\Http\Controllers\lotesController;
+use App\Http\Controllers\stockController;
 use App\Http\Controllers\tiendasController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\ofertaController;
@@ -47,7 +47,7 @@ Route::delete('/delTiendas/{codtienda}', [tiendasController::class,'destroy']);
 Route::put('/putTiendas/{codtienda}', [tiendasController::class,'update']);
 
 //RUTAS PARA INGRESAR, MODIFICAR, ELIMINAR PRODUCTOS DESDE FORMULARIO
-Route::get('getProductos',[productosController::class,'index']);
+Route::get('/getProductos',[productosController::class,'index']);
 Route::post('postProductos', [productosController::class,'store']);
 Route::delete('delProductos/{codprod}', [productosController::class,'destroy']);
 Route::put('putProductos/{codprod}', [productosController::class,'update']);
@@ -68,9 +68,9 @@ Route::put('/putOferta/{id}', [ofertaController::class,'update']);
 
 //RUTAS PARA AGREGAR STOCK(LOTE)
 
-Route::get('/getStock',[lotesController::class,'index']);
-Route::post('/postStock', [lotesController::class,'store']);
-Route::delete('/delStock/{id}',[lotesController::class,'destroy']);
-Route::put('/putStock/{id}', [lotesController::class,'update']);
+Route::get('/getStock',[stockController::class,'index']);
+Route::post('/postStock', [stockController::class,'store']);
+Route::delete('/delStock/{id}',[stockController::class,'destroy']);
+Route::put('/putStock/{id}', [stockController::class,'update']);
 
 

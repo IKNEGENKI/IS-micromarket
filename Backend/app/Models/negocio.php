@@ -12,7 +12,4 @@ class negocio extends Model
     //protected $primaryKey = 'id';
     protected $fillable = ['nombrenegocio','direccion','nombrepropietario','correo','descripcion','telefono'];
     public $timestamps = false;
-
-       
-   
 }
