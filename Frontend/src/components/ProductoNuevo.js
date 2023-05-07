@@ -214,6 +214,7 @@ export const ProductoNuevo = () =>{
 					precio: precio.campo,
 					image: imagePreview.src,
 					codcat: cod_cat(),
+					stock: 0,
 					
 				}
 				

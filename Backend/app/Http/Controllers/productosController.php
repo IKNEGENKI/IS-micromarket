@@ -57,7 +57,8 @@ class productosController extends Controller
         'descripcion' => $request->input('descripcion'),
         'precio' => $request->input('precio'),
         'image' => $request->input('image'),
-        'codcat' => $request->input('codcat')
+        'codcat' => $request->input('codcat'),
+        'stock' => $request ->input('stock')
     ]);
 
     // Guardar el nuevo producto en la base de datos
@@ -84,7 +85,7 @@ public function update(Request $request, $id)
     $producto->precio = $request->input('precio');
     $producto->image = $request->input('image');
     $producto->codcat = $request->input('codcat');
-
+    $producto->stock = $request->input('stock');
     // Guardar los cambios en la base de datos
     $producto->save();
 
