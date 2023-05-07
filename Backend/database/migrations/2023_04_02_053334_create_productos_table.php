@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->decimal('precio', 10, 2);
             $table->string('image');
+            $table->integer('stock');
             $table->integer('codcat');
             $table->foreign('codcat')->references('codcat')->on('categoria');
 

@@ -15,36 +15,36 @@ class productoSeeder extends Seeder
     public function run(): void
     {
         DB::table('producto')->insert([
-            'codprod'=>'1',
+            
             'codcat' =>'1',
             'producto'=>'leche entera',
             'marca'=>'pil',
             'descripcion'=>'leche entera',
             'precio'=>'6',
             //'cantidadtotal'=>'15',
-            'image'=>'<img src="https://i.ibb.co/594X3R0/lechepil.jpg" alt="lechepil" border="0" />',        
+            'image'=>'https://res.cloudinary.com/dymazwyut/image/upload/v1683245687/IS/uuqw5ffymrdo2cbewgsx.jpg'      
         ]);
 
         DB::table('producto')->insert([
-            'codprod'=>'2',
+       
             'codcat' =>'1',
             'producto'=>'biogurt',
             'marca'=>'pil',
             'descripcion'=>'yogur elaborado de leche pasteurisa,saborizada',
             'precio'=>'9',
             //'cantidadtotal'=>'10',
-            'image'=>'<img src="https://i.ibb.co/WgRMbKW/biogurt.jpg" alt="biogurt" border="0" />',      
+            'image'=>'https://res.cloudinary.com/dymazwyut/image/upload/v1683167886/IS/cn4biysyhpajovhejmyb.jpg',      
         ]);
 
         DB::table('producto')->insert([
-            'codprod'=>'3',
+            
             'codcat' =>'2',
             'producto'=>'coca cola 3l',
             'marca'=>'the cocacola company',
             'descripcion'=>'refresco gaseoso a base de cola',
             'precio'=>'13',
             //'cantidadtotal'=>'6',
-            'image'=>'<img src="https://i.ibb.co/JyDcNHQ/cocacola3l.jpg" alt="cocacola3l" border="0" />',        
+            'image'=>'https://res.cloudinary.com/dymazwyut/image/upload/v1683305578/IS/s8z3shyrofnjarr3ipdu.jpg',        
         ]);
 
        

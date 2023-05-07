@@ -17,21 +17,19 @@ class Lista extends React.Component{
         this.state={
             productos:[],
             showModal:false,
-            productoSelec:"",
-            stocks:[]
+            productoSelec:""
 
         }
         this.getProductos = this.getProductos.bind(this);
-        this.getStocks = this.getStocks.bind(this);
+        
     }
     
 
     
     componentDidMount(){
         this.getProductos();
-        this.getStocks();
+       
     }
-
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
@@ -41,16 +39,7 @@ class Lista extends React.Component{
             console.log(error);
         });
     }
-    getStocks=async()=>{
-        await axios.get('http://127.0.0.1:8000/api/getStock')
-        .then(res=>{
-            this.setState({stocks: res.data});
-            console.log(res.data)
-        }).catch((error)=>{
-            console.log(error);
-        });
-    }
-
+    
     handleReset = () => {
         window.location.href = '/home';
     }
@@ -67,8 +56,8 @@ class Lista extends React.Component{
                 
                 <br></br>
                 <ContenedorBotonCentrado><h1>Productos registrados</h1></ContenedorBotonCentrado>
-                <table className="table" style={{marginRight:80}}>
-                    <thead className="thead-dark" style={{marginRight:80}}>
+                <table className="table">
+                    <thead className="thead-dark">
                         <br></br>
                         <tr>
                         <th scope='col'>Producto</th>
@@ -82,7 +71,7 @@ class Lista extends React.Component{
                             this.state.productos?.map(product=>
                                 <tr key={product.codprod}>
                                         <th>{product.producto}</th>
-                                        <th>{this.state.stocks.find(stock => stock.producto_id === product.id)?.codstock}</th>
+                                        <th></th>
                                         <th></th>
                                         <th className="container" >
                                          <a type="button" onClick={() => this.openModal(product.producto)}> <AddCircleOutlineIcon/> </a>

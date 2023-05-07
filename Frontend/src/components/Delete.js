@@ -31,7 +31,7 @@ class Delete extends Component{
     }
 
     deleteProducto = async(codprod) => {
-        await axios.delete('http://127.0.0.1:8000/api/delProductos/ '+ codprod);
+        await axios.delete('http://127.0.0.1:8000/api/delProductos/'+ codprod);
         this.getProductos();
     }
 
