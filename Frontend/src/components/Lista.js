@@ -58,7 +58,8 @@ class Lista extends Component{
                             this.state.productos?.map(product=>
                                 <tr key={product.id}>
                                         <th>{product.producto}</th>
-                                        <th>  0 </th>
+                                        <th>{product.stock}</th>
+                                        
                                     
                                 </tr>
                             )
