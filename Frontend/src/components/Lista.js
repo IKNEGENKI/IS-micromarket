@@ -10,20 +10,25 @@ import Stock from './Stock';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { ContenedorBotonCentrado, Boton } from "../elementos/Formularios";
 
-class Lista extends Component{
+class Lista extends React.Component{
+    
     constructor(props){
         super(props);
         this.state={
-            productos:[]
-        }
+            productos:[],
+            showModal:false,
+            productoSelec:""
 
- 
-        
+        }
         this.getProductos = this.getProductos.bind(this);
+        
     }
+    
+
     
     componentDidMount(){
         this.getProductos();
+       
     }
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
@@ -38,9 +43,17 @@ class Lista extends Component{
     handleReset = () => {
         window.location.href = '/home';
     }
+    
+    openModal = (producto) => {
+        this.setState({ showModal: true, productoSelec: producto });
+    }
+    
     render(){
+        
+
         return(
             <div class="home">
+                
                 <br></br>
                 <ContenedorBotonCentrado><h1>Productos registrados</h1></ContenedorBotonCentrado>
                 <table className="table">
@@ -56,19 +69,30 @@ class Lista extends Component{
                     <tbody>
                         {
                             this.state.productos?.map(product=>
-                                <tr key={product.id}>
+                                <tr key={product.codprod}>
                                         <th>{product.producto}</th>
-                                        <th>  0 </th>
+                                        <th></th>
+                                        <th></th>
+                                        <th className="container" >
+                                         <a type="button" onClick={() => this.openModal(product.producto)}> <AddCircleOutlineIcon/> </a>
+                                         {this.state.showModal && (
+                                            <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} actualizarProducto={this.state.productoSelec}/>
+                                            )}
+                                        </th>
                                     
                                 </tr>
                             )
                         }
+                        
                     </tbody>
                 </table>
                 <ContenedorBotonCentrado>
 				
                 <Boton id= "cancel"  type="button" className="btn" onClick={this.handleReset}> Volver </Boton>
                 </ContenedorBotonCentrado>
+
+        
+        
             </div>
            
         
