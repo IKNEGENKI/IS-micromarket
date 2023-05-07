@@ -3,7 +3,7 @@
   }
   .modal {
     position: absolute;
-    transform: translate(40%);
+    
     display: flex !important;
     justify-content: center;
     align-items: center;

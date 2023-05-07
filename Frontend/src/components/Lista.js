@@ -10,7 +10,7 @@ import Stock from './Stock';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { ContenedorBotonCentrado, Boton } from "../elementos/Formularios";
 
-class Lista extends React.Component{
+class Lista extends  Component{
     
     constructor(props){
         super(props);
@@ -42,12 +42,14 @@ class Lista extends React.Component{
         });
     }
     
+    
     handleReset = () => {
         window.location.href = '/home';
     }
     
     openModal = (producto,canti,cod) => {
         this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
+       
     }
     
     render(){
@@ -79,6 +81,7 @@ class Lista extends React.Component{
                                          <a type="button" onClick={() => this.openModal(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
                                          {this.state.showModal && (
                                             <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} cantidadActual={this.state.cantidad} codigo={this.codigoP}/>
+                                            
                                             )}
                                         </th>
                                     
