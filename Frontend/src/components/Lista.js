@@ -25,16 +25,16 @@ class Lista extends Component{
     componentDidMount(){
         this.getProductos();
     }
-
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
-            this.setState({productos: res.data.producto});
-            console.log(res.data.producto)
+            this.setState({productos: res.data});
+            console.log(res.data)
         }).catch((error)=>{
             console.log(error);
         });
     }
+    
     handleReset = () => {
         window.location.href = '/home';
     }
@@ -43,8 +43,8 @@ class Lista extends Component{
             <div class="home">
                 <br></br>
                 <ContenedorBotonCentrado><h1>Productos registrados</h1></ContenedorBotonCentrado>
-                <table className="table" style={{marginRight:80}}>
-                    <thead className="thead-dark" style={{marginRight:80}}>
+                <table className="table">
+                    <thead className="thead-dark">
                         <br></br>
                         <tr>
                         <th scope='col'>Producto</th>
@@ -55,7 +55,7 @@ class Lista extends Component{
                     </thead>
                     <tbody>
                         {
-                            this.state.productos.map(product=>
+                            this.state.productos?.map(product=>
                                 <tr key={product.id}>
                                         <th>{product.producto}</th>
                                         <th>  0 </th>

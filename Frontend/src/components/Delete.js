@@ -23,15 +23,15 @@ class Delete extends Component{
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
-            this.setState({productos: res.data.producto});
-            console.log(res.data.producto)
+            this.setState({productos: res.data});
+            console.log(res.data)
         }).catch((error)=>{
             console.log(error);
         });
     }
 
-    deleteP = async(codprod)=>{
-        await axios.delete('http://127.0.0.1:8000/api/delProductos/ '+ codprod);
+    deleteProducto = async(codprod) => {
+        await axios.delete('http://127.0.0.1:8000/api/delProductos/'+ codprod);
         this.getProductos();
     }
 
@@ -103,7 +103,7 @@ class Delete extends Component{
                     </thead>
                     <tbody>
                         {
-                            this.state.productos.map(product=>
+                            this.state.productos?.map(product=>
                                 <tr key={product.id}>
                                     <th id="products">{product.codprod}</th>
                                     <th id="products">{product.producto}</th>
