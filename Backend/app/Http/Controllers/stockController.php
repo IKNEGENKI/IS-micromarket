@@ -20,9 +20,7 @@ class stockController extends Controller
      */
     public function store(Request $request)
     {
-        //$lote = new lote ($request->all());
-        //$lote->save();
-        //return $lote;
+       
         $stock = new stock([
             'codprod' => $request->input('codprod'),
             'preciocompra' => $request->input('preciocompra'),
@@ -33,13 +31,7 @@ class stockController extends Controller
 
 
     }
-    //public function getstocks(){
-    //$stocks = stock::all();
-    //return response()->json($stocks);
-//}
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(string $id)
     {
         return stock::find($id);
