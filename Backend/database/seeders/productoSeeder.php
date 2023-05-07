@@ -15,7 +15,7 @@ class productoSeeder extends Seeder
     public function run(): void
     {
         DB::table('producto')->insert([
-            'codprod'=>'1',
+            
             'codcat' =>'1',
             'producto'=>'leche entera',
             'marca'=>'pil',
@@ -26,7 +26,7 @@ class productoSeeder extends Seeder
         ]);
 
         DB::table('producto')->insert([
-            'codprod'=>'2',
+       
             'codcat' =>'1',
             'producto'=>'biogurt',
             'marca'=>'pil',
@@ -37,7 +37,7 @@ class productoSeeder extends Seeder
         ]);
 
         DB::table('producto')->insert([
-            'codprod'=>'3',
+            
             'codcat' =>'2',
             'producto'=>'coca cola 3l',
             'marca'=>'the cocacola company',
