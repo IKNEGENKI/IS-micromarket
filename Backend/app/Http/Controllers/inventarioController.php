@@ -26,7 +26,7 @@ class inventarioController extends Controller
      */
     public function show(string $id)
     {
-        return modeloInventario::find($id);
+        //return modeloInventario::find($id);
     }
 
     
