@@ -11,7 +11,7 @@ class Stock extends Component{
         cantidad:0,
        
     }
-    this.updateProductos = this.updateProductos.bind(this);
+    this.updateProducto = this.updateProducto.bind(this);
     
 }
 componentDidMount(){
@@ -22,7 +22,7 @@ componentDidMount(){
 updateProducto = async () => {
   await axios
     .put(`http://127.0.0.1:8000/api/putProductos/${this.props.producto.codprod}`, {
-      
+
       ["stock"]: this.props.producto.stock + this.state.cantidad,
       
     })
@@ -36,7 +36,7 @@ updateProducto = async () => {
    handleSubmit = async (event) => {
     event.preventDefault();
     
-    this.updateProducto();
+    await this.updateProducto();
     this.props.isClose();
   }
    handleCantidadChange = (event) => {
@@ -52,7 +52,7 @@ updateProducto = async () => {
           <h4 className="modal-title">{producto.producto}</h4>
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-        <label htmlFor="cantidad actual">Cantidad actual:     {this.producto.stock}</label>
+        <label htmlFor="cantidad actual">Cantidad actual:     {producto.stock}</label>
           <br></br>
           <label htmlFor="cantidad">Agregar Cantidad: </label>
           <input
