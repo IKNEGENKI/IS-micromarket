@@ -17,7 +17,9 @@ class Lista extends React.Component{
         this.state={
             productos:[],
             showModal:false,
-            productoSelec:""
+            productoSelec:"",
+            cantidad:0,
+            codigoP:-1
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -44,8 +46,8 @@ class Lista extends React.Component{
         window.location.href = '/home';
     }
     
-    openModal = (producto) => {
-        this.setState({ showModal: true, productoSelec: producto });
+    openModal = (producto,canti,cod) => {
+        this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
     }
     
     render(){
@@ -71,12 +73,12 @@ class Lista extends React.Component{
                             this.state.productos?.map(product=>
                                 <tr key={product.codprod}>
                                         <th>{product.producto}</th>
-                                        <th></th>
+                                        <th>{product.stock}</th>
                                         <th></th>
                                         <th className="container" >
-                                         <a type="button" onClick={() => this.openModal(product.producto)}> <AddCircleOutlineIcon/> </a>
+                                         <a type="button" onClick={() => this.openModal(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
                                          {this.state.showModal && (
-                                            <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} actualizarProducto={this.state.productoSelec}/>
+                                            <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} cantidadActual={this.state.cantidad} codigo={this.codigoP}/>
                                             )}
                                         </th>
                                     
