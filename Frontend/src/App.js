@@ -21,6 +21,18 @@ import {EliminarP} from './components/EliminarP';
 import {HomeCliente} from './components/HomeCliente';
 import {default as Delete} from './components/Delete';
 import {default as Abarrotes} from './components/pagescli/Abarrotes';
+import {default as Bebidas} from './components/pagescli/Bebidas';
+import {default as BebidasA} from './components/pagescli/BebidasA';
+import {default as CuidadoP} from './components/pagescli/CuidadoP';
+import {default as Enlatados} from './components/pagescli/Enlatados';
+import {default as Farmacos} from './components/pagescli/Farmacos';
+import {default as FiamyEmb} from './components/pagescli/FiamyEmb';
+import {default as Golosinas} from './components/pagescli/Golosinas';
+import {default as Lacteos} from './components/pagescli/Lacteos';
+import {default as LimpiezaH} from './components/pagescli/LimpiezaH';
+import {default as Panaderia} from './components/pagescli/Panaderia';
+import {default as Snacks} from './components/pagescli/Snacks';
+import {default as Varios} from './components/pagescli/Varios';
 import {default as Lista} from './components/Lista';
 import "./elementos/modal.js"
 import React, { useState } from "react";
@@ -56,7 +68,18 @@ function App() {
         <Route exact path="/" element={<HomeCliente/>}/>
            <Route exact path="/home" element={<HomeCliente/>}/>
            <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
-  
+           <Route exact path="/Bebidas" element={<Bebidas/>}/>
+           <Route exact path="/BebidasA" element={<BebidasA/>}/>
+           <Route exact path="/CuidadoP" element={<CuidadoP/>}/>
+           <Route exact path="/Enlatados" element={<Enlatados/>}/>
+           <Route exact path="/Farmacos" element={<Farmacos/>}/>
+           <Route exact path="/FiamyEmb" element={<FiamyEmb/>}/>
+           <Route exact path="/Golosinas" element={<Golosinas/>}/>
+           <Route exact path="/Lacteos" element={<Lacteos/>}/>
+           <Route exact path="/LimpiezaH" element={<LimpiezaH/>}/>
+           <Route exact path="/Panaderia" element={<Panaderia/>}/>
+           <Route exact path="/Snacks" element={<Snacks/>}/>
+           <Route exact path="/Varios" element={<Varios/>}/>
            <Route exact path="*" element={<ErrorNotFound/>}/>
          
         </Routes>

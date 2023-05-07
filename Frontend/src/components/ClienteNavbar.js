@@ -64,7 +64,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/Bebidas" >
                               
                                 <a class="text nav-text">BEBIDAS</a>
                             </NavLink>
@@ -72,7 +72,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/BebidasA" >
                               
                                 <a class="text nav-text">BEBIDAS ALCOHOLICAS</a>
                             </NavLink>
@@ -80,7 +80,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/CuidadoP" >
                               
                                 <a class="text nav-text">CUIDADO PERSONAL</a>
                             </NavLink>
@@ -88,7 +88,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="Enlatados" >
                               
                                 <a class="text nav-text">ENLATADOS</a>
                             </NavLink>
@@ -96,7 +96,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/Farmacos" >
                               
                                 <a class="text nav-text">FARMACOS</a>
                             </NavLink>
@@ -104,7 +104,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/Golosinas" >
                               
                                 <a class="text nav-text">GOLOSINAS</a>
                             </NavLink>
@@ -112,7 +112,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/FiamyEmb" >
                               
                                 <a class="text nav-text">FIAMBRES Y EMBUTIDOS</a>
                             </NavLink>
@@ -120,7 +120,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/Lacteos" >
                               
                                 <a class="text nav-text">LACTEOS</a>
                             </NavLink>
@@ -128,7 +128,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/LimpiezaH" >
                               
                                 <a class="text nav-text">LIMPIEZA DEL HOGAR</a>
                             </NavLink>
@@ -136,7 +136,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/Panaderia" >
                               
                                 <a class="text nav-text">PANADERIA</a>
                             </NavLink>
@@ -144,14 +144,14 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/Snacks" >
                               
                                 <a class="text nav-text">SNACKS</a>
                             </NavLink>
                         </a>
                     </li> <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/Varios" >
                               
                                 <a class="text nav-text">VARIOS</a>
                             </NavLink>
