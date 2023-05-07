@@ -13,6 +13,7 @@ function Stock({ isClose, producto, actualizarProducto }) {
   const hoy = new Date();
   const maxFecha = new Date(hoy.getFullYear() + 1, hoy.getMonth(), hoy.getDate()).toISOString().split('T')[0];
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios.post('http://127.0.0.1:8000/api/updateStock', {
@@ -24,6 +25,7 @@ function Stock({ isClose, producto, actualizarProducto }) {
     }).catch((error)=>{
         console.log(error);
     });
+    
 }
   const handleCantidadChange = (event) => {
     setCantidad(parseInt(event.target.value));
@@ -40,10 +42,10 @@ function Stock({ isClose, producto, actualizarProducto }) {
     <div className="modal">
       <div className="modal-content">
       <Modal.Header closeButton onClick={isClose}>
-          <h4 className="modal-title">{producto.producto}</h4>
+          <h4 className="modal-title">{producto}</h4>
         </Modal.Header>
-        <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="cantidad actual">Cantidad actual:     {producto.cantidad}</label>
+        <form action="" onSubmit={handleSubmit} className="formulario">
+        <label htmlFor="cantidad actual">Cantidad actual:     {producto}</label>
           <label htmlFor="cantidad">Agregar Cantidad: </label>
           <input
             type="number"

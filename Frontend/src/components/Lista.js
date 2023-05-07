@@ -18,27 +18,39 @@ class Lista extends React.Component{
             productos:[],
             showModal:false,
             productoSelec:"",
-            isOpen:false
+            stocks:[]
+
         }
         this.getProductos = this.getProductos.bind(this);
-        
+        this.getStocks = this.getStocks.bind(this);
     }
     
 
     
     componentDidMount(){
         this.getProductos();
+        this.getStocks();
     }
 
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
-            this.setState({productos: res.data.producto});
+            this.setState({productos: res.data});
             console.log(res.data)
         }).catch((error)=>{
             console.log(error);
         });
     }
+    getStocks=async()=>{
+        await axios.get('http://127.0.0.1:8000/api/getStock')
+        .then(res=>{
+            this.setState({stocks: res.data});
+            console.log(res.data)
+        }).catch((error)=>{
+            console.log(error);
+        });
+    }
+
     handleReset = () => {
         window.location.href = '/home';
     }
@@ -46,14 +58,7 @@ class Lista extends React.Component{
     openModal = (producto) => {
         this.setState({ showModal: true, productoSelec: producto });
     }
-     handleOpenModal = () => {
     
-        this.setState({ isOpen: true });
-     }
-
-    handleCloseModal = () => {
-        this.setState({ isOpen: false });
-    }
     render(){
         
 
@@ -74,21 +79,22 @@ class Lista extends React.Component{
                     </thead>
                     <tbody>
                         {
-                            this.state.productos.map(product=>
-                                <tr key={product.id}>
+                            this.state.productos?.map(product=>
+                                <tr key={product.codprod}>
                                         <th>{product.producto}</th>
-                                        <th>  {} </th>
+                                        <th>{this.state.stocks.find(stock => stock.producto_id === product.id)?.codstock}</th>
                                         <th></th>
-                                        <th>
+                                        <th className="container" >
                                          <a type="button" onClick={() => this.openModal(product.producto)}> <AddCircleOutlineIcon/> </a>
-                                         {this.showModal && (
-                                                <Stock isClose={() => this.showModal=false} producto={this.productoSelec} actualizarProducto={this.productoSelec}/>
-                                                )}
+                                         {this.state.showModal && (
+                                            <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} actualizarProducto={this.state.productoSelec}/>
+                                            )}
                                         </th>
                                     
                                 </tr>
                             )
                         }
+                        
                     </tbody>
                 </table>
                 <ContenedorBotonCentrado>

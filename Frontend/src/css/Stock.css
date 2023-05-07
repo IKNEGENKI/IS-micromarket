@@ -1,9 +1,17 @@
   .modal-header {
     position: relative;
   }
-  
-  .modal-title {
+  .modal {
     position: absolute;
+    transform: translate(40%);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .modal-title {
+    position: relative;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -17,3 +25,10 @@
     justify-content: center;
     margin-top: 1rem;
   }
+  .modal-content{
+    display: flex;
+    position: relative;
+   font-size: 30px;
+   transform: scale(110%);
+  }
+ 
