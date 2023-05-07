@@ -56,9 +56,17 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                 <ul class="menu-linksCliente">
                 <li class="nav-link">
                         <a href="#">
-                            < NavLink to="" >
+                            < NavLink to="/Abarrotes" >
                               
                                 <a class="text nav-text">ABARROTES</a>
+                            </NavLink>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">BEBIDAS</a>
                             </NavLink>
                         </a>
                     </li>
@@ -88,6 +96,22 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">FARMACOS</a>
+                            </NavLink>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">GOLOSINAS</a>
+                            </NavLink>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
                             < NavLink to="" >
                               
                                 <a class="text nav-text">FIAMBRES Y EMBUTIDOS</a>
@@ -104,16 +128,35 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                     </li>
                     <li class="nav-link">
                         <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">LIMPIEZA DEL HOGAR</a>
+                            </NavLink>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
                             < NavLink to="" >
                               
                                 <a class="text nav-text">PANADERIA</a>
                             </NavLink>
                         </a>
                     </li>
-                    
-                   
-                  
-
+                    <li class="nav-link">
+                        <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">SNACKS</a>
+                            </NavLink>
+                        </a>
+                    </li> <li class="nav-link">
+                        <a href="#">
+                            < NavLink to="/Abarrotes" >
+                              
+                                <a class="text nav-text">VARIOS</a>
+                            </NavLink>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

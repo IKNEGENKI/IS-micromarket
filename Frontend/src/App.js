@@ -20,6 +20,7 @@ import {Eliminar} from './components/Eliminar';
 import {EliminarP} from './components/EliminarP';
 import {HomeCliente} from './components/HomeCliente';
 import {default as Delete} from './components/Delete';
+import {default as Abarrotes} from './components/pagescli/Abarrotes';
 import {default as Lista} from './components/Lista';
 import "./elementos/modal.js"
 import React, { useState } from "react";
@@ -54,6 +55,7 @@ function App() {
         <Routes>
         <Route exact path="/" element={<HomeCliente/>}/>
            <Route exact path="/home" element={<HomeCliente/>}/>
+           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
   
            <Route exact path="*" element={<ErrorNotFound/>}/>
          
