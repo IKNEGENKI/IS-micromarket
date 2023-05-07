@@ -3,8 +3,8 @@
   }
   .modal {
     position: absolute;
-    transform: translate(50%);
-    display: flex !important;
+   transform: translate(30%);
+    display: flex ;
     justify-content: center;
     align-items: center;
     height: 100%;
