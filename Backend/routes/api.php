@@ -9,6 +9,7 @@ use App\Http\Controllers\tiendasController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\ofertaController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
