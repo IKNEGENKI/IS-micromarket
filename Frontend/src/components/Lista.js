@@ -10,17 +10,21 @@ import Stock from './Stock';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { ContenedorBotonCentrado, Boton } from "../elementos/Formularios";
 
-class Lista extends Component{
+class Lista extends React.Component{
+    
     constructor(props){
         super(props);
         this.state={
-            productos:[]
+            productos:[],
+            showModal:false,
+            productoSelec:"",
+            isOpen:false
         }
-
- 
-        
         this.getProductos = this.getProductos.bind(this);
+        
     }
+    
+
     
     componentDidMount(){
         this.getProductos();
@@ -38,9 +42,24 @@ class Lista extends Component{
     handleReset = () => {
         window.location.href = '/home';
     }
+    
+    openModal = (producto) => {
+        this.setState({ showModal: true, productoSelec: producto });
+    }
+     handleOpenModal = () => {
+    
+        this.setState({ isOpen: true });
+     }
+
+    handleCloseModal = () => {
+        this.setState({ isOpen: false });
+    }
     render(){
+        
+
         return(
             <div class="home">
+                
                 <br></br>
                 <ContenedorBotonCentrado><h1>Productos registrados</h1></ContenedorBotonCentrado>
                 <table className="table" style={{marginRight:80}}>
@@ -58,7 +77,14 @@ class Lista extends Component{
                             this.state.productos.map(product=>
                                 <tr key={product.id}>
                                         <th>{product.producto}</th>
-                                        <th>  0 </th>
+                                        <th>  {} </th>
+                                        <th></th>
+                                        <th>
+                                         <a type="button" onClick={() => this.openModal(product.producto)}> <AddCircleOutlineIcon/> </a>
+                                         {this.showModal && (
+                                                <Stock isClose={() => this.showModal=false} producto={this.productoSelec} actualizarProducto={this.productoSelec}/>
+                                                )}
+                                        </th>
                                     
                                 </tr>
                             )
@@ -69,6 +95,9 @@ class Lista extends Component{
 				
                 <Boton id= "cancel"  type="button" className="btn" onClick={this.handleReset}> Volver </Boton>
                 </ContenedorBotonCentrado>
+
+        
+        
             </div>
            
         

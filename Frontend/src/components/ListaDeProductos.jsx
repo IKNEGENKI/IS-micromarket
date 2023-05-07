@@ -23,7 +23,7 @@ export const ListaDeProducto = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-
+  
     const handleOpenModal = () => {
       setIsOpen(true);
     };

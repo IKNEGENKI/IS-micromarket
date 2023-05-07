@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Boton} from '../elementos/MiniForm';
 import '../css/Stock.css';
 import {Modal} from 'react-bootstrap';
-
+import axios from 'axios';
 function Stock({ isClose, producto, actualizarProducto }) {
   const [cantidad, setCantidad] = useState(1);
   const [precioCompra, setPrecioCompra] = useState(0);
@@ -13,12 +13,18 @@ function Stock({ isClose, producto, actualizarProducto }) {
   const hoy = new Date();
   const maxFecha = new Date(hoy.getFullYear() + 1, hoy.getMonth(), hoy.getDate()).toISOString().split('T')[0];
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    actualizarProducto(producto, cantidad);
-    isClose();
-  };
-
+    await axios.post('http://127.0.0.1:8000/api/updateStock', {
+      
+        
+    }).then((response)=>{
+        console.log(response);
+        isClose(); // llamando a la función isClose
+    }).catch((error)=>{
+        console.log(error);
+    });
+}
   const handleCantidadChange = (event) => {
     setCantidad(parseInt(event.target.value));
   };
@@ -34,7 +40,7 @@ function Stock({ isClose, producto, actualizarProducto }) {
     <div className="modal">
       <div className="modal-content">
       <Modal.Header closeButton onClick={isClose}>
-          <h4 className="modal-title">{producto.nombre}</h4>
+          <h4 className="modal-title">{producto.producto}</h4>
         </Modal.Header>
         <form action="" onSubmit={handleSubmit}>
         <label htmlFor="cantidad actual">Cantidad actual:     {producto.cantidad}</label>
@@ -50,24 +56,7 @@ function Stock({ isClose, producto, actualizarProducto }) {
             value={cantidad}
             onChange={handleCantidadChange}
           />
-          <div  className='col' id= "calendar">
         
-            <label htmlFor="fechaVencimiento">Fecha de vencimiento*: </label>
-            <input 
-              type="date" 
-              className="form-control " 
-              name="fechaVencimiento" 
-              min={formattedDate} 
-              max={maxFecha} 
-              id="fechaVencimiento" 
-              placeholder='fecha-inicio*'
-              required 
-              value={fechaVencimiento} 
-              color= "transparent"
-              margin = "1"
-              border-bottom-color = "#000000"
-              onChange={handleFechaVencimientoChange} />
-        </div>
 
             <label htmlFor="precioCompra">Precio de compra*: </label>
             <input
