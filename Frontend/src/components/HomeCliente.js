@@ -48,7 +48,7 @@ class HomeCliente extends  Component{
         
 
         return(
-            <body>
+            <body id="bodyCard">
                 
                 <br></br>
                
@@ -57,30 +57,27 @@ class HomeCliente extends  Component{
                     {
 
                       
-                        this.state.productos?.map(product=>
-
-                         
-                          
-                            <div class="producto">
-                            
-                            <div class="container">
-							<center>
-								<div class="cardLista" id = "contenedorImagen"  >
-                  
-									<img id="img-preview" src={product.image}/>
-										
-								</div>
-							</center>
-						</div>
-            <h2>{product.producto}</h2>
-                            <p>{product.precio}</p>
-                            </div>
-                            )
+this.state.productos?.map(product=>
+  <div class="producto" id="tarjetas">
+  <center>
+    <div >
+   <center>
+      <h2>{product.producto}</h2>
+      <br></br>
+      <img  src={product.image}/>
+      <br></br><br></br>
+      <p>{product.desc} </p>
+      <p>Bs. {product.precio} </p>
+   </center>
+  </div>
+  </center>
+   </div>
+  )
                     }
                  
                 
         
-        
+                
            </body>
         
         )

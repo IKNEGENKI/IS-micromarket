@@ -528,7 +528,22 @@ body.dark .home .text{
     position: relative;
     font-size: 13px;
 }
+#tarjetas{
+    background: #ebc1ee;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #df99f8;
+    
+}
 
+#bodyCard{
+   margin-top: -45rem;
+}
+#cat{
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+}
 .card-footer {
     position: absolute;
     bottom: 0px;
