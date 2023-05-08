@@ -6,6 +6,7 @@ import '../css/estilos.css';
 import Input from '../components/Input';
 import Button from '../elementos/Button';
 import ModalForm from './ModalForm';
+import ModificarProducto from './ModProd';
 import Stock from './Stock';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { ContenedorBotonCentrado, Boton } from "../elementos/Formularios";
@@ -16,7 +17,8 @@ class Lista extends  Component{
         super(props);
         this.state={
             productos:[],
-            showModal:false,
+            showModalStock: false,
+            showModalModProd: false,
             productoSelec:"",
             cantidad:0,
             codigoP:-1
@@ -47,11 +49,22 @@ class Lista extends  Component{
         window.location.href = '/home';
     }
     
-    openModal = (producto,canti,cod) => {
-        this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
-       
-    }
+    openModalStock = (producto, canti, cod) => {
+        this.setState({ showModalStock: true, productoSelec: producto, cantidad: canti, codigoP: cod });
+      }
     
+    openModalModProd = (producto) => {
+        this.setState({ showModalModProd: true, productoSelec: producto });
+      }
+    
+    closeModalStock = () => {
+        this.setState({ showModalStock: false });
+      }
+    
+    closeModalModProd = () => {
+        this.setState({ showModalModProd: false });
+      }
+
     render(){
         
 
@@ -76,13 +89,26 @@ class Lista extends  Component{
                                 <tr key={product.codprod}>
                                         <th>{product.producto}</th>
                                         <th className="container">{product.stock}</th>
-                                        <th></th>
-                                        <th className="container" >
-                                         <a className="stock" type="button" onClick={() => this.openModal(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
-                                         {this.state.showModal && (
-                                            <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} cantidadActual={this.state.cantidad} codigo={this.codigoP}/>
-                                            
+                                        <th>
+                                            <a type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
+                                            {this.state.showModalModProd && (
+                                            <ModificarProducto
+                                                isClose={this.closeModalModProd}
+                                                producto={this.state.productoSelec}
+                                                codigo={this.codigoP}
+                                            />
                                             )}
+                                        </th>
+                                        <th className="container" >
+                                         <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
+                                         {this.state.showModalStock && (
+                                            <Stock 
+                                            isClose={this.closeModalStock}
+                                            producto={this.state.productoSelec} 
+                                            cantidadActual={this.state.cantidad} 
+                                            codigo={this.codigoP}
+                                            />
+                                         )}
                                         </th>
                                     
                                 </tr>

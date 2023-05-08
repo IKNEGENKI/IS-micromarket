@@ -55,7 +55,7 @@ class productosController extends Controller
         $producto = new producto([
         'producto' => $request->input('producto'),
         'marca' => $request->input('marca'),
-        'descripcion' => $request->input('descripcion'),
+        'desc' => $request->input('desc'),
         'precio' => $request->input('precio'),
         'image' => $request->input('image'),
         'codcat' => $request->input('codcat'),
