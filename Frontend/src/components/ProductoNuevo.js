@@ -34,7 +34,7 @@ export const ProductoNuevo = () =>{
 	const select_cat = document.getElementById("select_categorias");
 	const img_up = document.getElementById('img-uploader');
     const URL_PRODUCTO = "http://127.0.0.1:8000/api/postProductos";
-	const URLStock = "http://127.0.0.1:8000/api/postStock";
+	
 	
 	const expresiones = {
 		descripcion: /^[a-zA-Z]{1,2}([a-zA-Z0-9-|_|!|#|%|(|)|,|.\s]{9,98})$/, // Letras, numeros, guion y guion_bajo.

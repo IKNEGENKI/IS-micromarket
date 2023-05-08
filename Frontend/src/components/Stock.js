@@ -44,6 +44,7 @@ updateProducto = async () => {
     
     await this.updateProducto();
     this.props.isClose();
+    window.location.reload()
   }
    handleCantidadChange = (event) => {
    
@@ -59,7 +60,7 @@ updateProducto = async () => {
           <h4 className="modal-title">{producto.producto}</h4>
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}{this.state.id}</label>
+        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}</label>
           <br></br>
           <label htmlFor="cantidad">Agregar Cantidad: </label>
           <input
