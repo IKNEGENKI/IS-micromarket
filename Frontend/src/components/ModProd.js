@@ -11,7 +11,8 @@ class ModificarProducto extends Component {
       producto: props.producto,
       codprod: props.producto.codprod,
       nombre: props.producto.producto,
-      marca: props.producto.marca
+      marca: props.producto.marca,
+      id:this.props.producto.codprod,
     };
     this.updateProducto = this.updateProducto.bind(this);
   }
@@ -24,13 +25,14 @@ class ModificarProducto extends Component {
 
   updateProducto = async () => {
     await axios
-      .put('http://127.0.0.1:8000/api/putProductos/'+this.props.producto.codprod, {
-        'producto':this.props.producto.producto,
-        'codcat':this.props.producto.codcat,
-        'desc':this.props.producto.desc,
-        'precio':this.props.producto.precio,
-        'marca':this.props.producto.marca,
-        'image':this.props.producto.image,
+      .put('http://127.0.0.1:8000/api/putProductos/'+this.state.id, {
+      'producto':this.state.nombre,
+      'marca':this.props.producto.marca,
+      'desc':this.props.producto.desc,
+      'precio':this.props.producto.precio,
+      'image':this.props.producto.image,
+      'codcat':this.props.producto.codcat,
+      'stock': this.props.producto.stock
       })
       .then((res) => {
         console.log(res.data);
