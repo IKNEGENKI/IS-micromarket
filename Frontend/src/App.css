@@ -521,6 +521,14 @@ body.dark .home .text{
     font-size: 13px;
 }
 
+.cardLista {
+    border: 1px solid #610567;
+    height: 10rem;
+    width: 12rem;
+    position: relative;
+    font-size: 13px;
+}
+
 .card-footer {
     position: absolute;
     bottom: 0px;
