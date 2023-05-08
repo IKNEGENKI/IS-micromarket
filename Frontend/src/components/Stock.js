@@ -7,9 +7,9 @@ class Stock extends Component{
   constructor(props){
     super(props);
     this.state={
-        productos:[],
+        stockActual:this.props.producto.stock,
         cantidad:0,
-        id:this.props.producto.codprod
+        id:this.props.producto.codprod,
        
     }
     this.updateProducto = this.updateProducto.bind(this);
@@ -22,9 +22,9 @@ componentDidMount(){
 }
 updateProducto = async () => {
   await axios
-    .put(`http://127.0.0.1:8000/api/putProductos/`+this.props.producto.codprod, {
-
-      ["stock"]: this.props.producto.stock + this.state.cantidad,
+    .put(`http://127.0.0.1:8000/api/putProductos/`+this.state.id ,{
+  
+      ['stock']: this.state.stockActual + this.state.cantidad,
       
     })
     .then((res) => {
@@ -46,6 +46,7 @@ updateProducto = async () => {
   };
   render(){
     const { isClose, producto } = this.props;
+   
   return (
     <div className="modal">
       <div className="modal-content">
@@ -53,7 +54,7 @@ updateProducto = async () => {
           <h4 className="modal-title">{producto.producto}</h4>
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-        <label htmlFor="cantidad actual">Cantidad actual:     {producto.stock}{this.props.producto.codprod}</label>
+        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}{this.state.id}</label>
           <br></br>
           <label htmlFor="cantidad">Agregar Cantidad: </label>
           <input
