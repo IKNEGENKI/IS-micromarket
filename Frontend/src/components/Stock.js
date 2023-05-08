@@ -22,9 +22,14 @@ componentDidMount(){
 }
 updateProducto = async () => {
   await axios
-    .put(`http://127.0.0.1:8000/api/putProductos/`+this.state.id ,{
-  
-      ['stock']: this.state.stockActual + this.state.cantidad,
+    .put('http://127.0.0.1:8000/api/putProductos/'+this.props.producto.codprod, {
+      'producto':this.props.producto.producto,
+      'marca':this.props.producto.marca,
+      'desc':this.props.producto.desc,
+      'precio':this.props.producto.precio,
+      'image':this.props.producto.image,
+      'codcat':this.props.producto.codcat,
+      'stock': this.props.producto.stock + this.state.cantidad,
       
     })
     .then((res) => {
