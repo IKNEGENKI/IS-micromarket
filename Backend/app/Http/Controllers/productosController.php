@@ -50,7 +50,7 @@ class productosController extends Controller
 
     public function store(Request $request)
 {
-   
+   /* //console.log("Este es un mensaje entro a store 1");
     $producto = new producto([
         'producto' => $request->input('producto'),
         'marca' => $request->input('marca'),
@@ -66,6 +66,26 @@ class productosController extends Controller
 
     // Retornar una respuesta de éxito
     return response()->json(['mensaje' => 'Producto creado con éxito'], 201);
+    */
+    $producto = strtolower($request->input('producto'));
+    $count = producto::whereRaw('LOWER(producto) ilike ?', ["{$producto}%"])
+    ->count();
+    if ($count > 0) {
+        return response()->json(['mensaje' => 'El oroducto ya existe'], 409);
+    } else {
+        $producto = new producto([
+        'producto' => $request->input('producto'),
+        'marca' => $request->input('marca'),
+        'descripcion' => $request->input('descripcion'),
+        'precio' => $request->input('precio'),
+        'image' => $request->input('image'),
+        'codcat' => $request->input('codcat'),
+        'stock' => $request ->input('stock')
+        ]);
+        $producto->save();
+        return response()->json(['mensaje' => 'Producto creado con éxito'], 201);
+    }
+    
 }
 
 public function update(Request $request, $id)
