@@ -210,7 +210,7 @@ export const ProductoNuevo = () =>{
 					//consul log
 					producto: producto.campo,
 					marca: marca.campo,
-					descripcion: descripcion.campo,
+					desc: descripcion.campo,
 					precio: precio.campo,
 					image: imagePreview.src,
 					codcat: cod_cat(),
