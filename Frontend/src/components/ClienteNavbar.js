@@ -52,7 +52,14 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
         <div class="menu-bar ">
             <div class="menu">
 
-
+            <li class="nav-link">
+                        <a href="#">
+                            < NavLink to="/" >
+                              
+                                <a class="text nav-text">Inicio</a>
+                            </NavLink>
+                        </a>
+                    </li>
                 <ul class="menu-linksCliente">
                 <li class="nav-link">
                         <a href="#">
