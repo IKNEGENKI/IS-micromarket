@@ -23,28 +23,7 @@ class productosController extends Controller
 
     public function create(Request $request)
     {
-        /*
-        // Validar los datos del formulario de creación
-        $rules=[
-            'producto' => 'unique:producto',
-        ];
-        $request->validate($rules);
-        */
-        // Crear una nueva instancia del modelo producto con los datos del formulario
-        $producto = new producto([
-            'producto' => $request->input('producto'),
-            'marca' => $request->input('marca'),
-            'descripcion' => $request->input('descripcion'),
-            'precio' => $request->input('precio'),
-            'image' => $request->input('image'),
-            'codcat' => $request->input('codcat')
-        ]);
-
-        // Guardar el nuevo producto en la base de datos
-        $producto->save();
-
-        // Retornar una respuesta de éxito
-        return response()->json(['mensaje' => 'Producto creado con éxito'], 201);
+      //
     }
 
 
@@ -54,7 +33,7 @@ class productosController extends Controller
     $producto = new producto([
         'producto' => $request->input('producto'),
         'marca' => $request->input('marca'),
-        'descripcion' => $request->input('descripcion'),
+        'desc' => $request->input('desc'),
         'precio' => $request->input('precio'),
         'image' => $request->input('image'),
         'codcat' => $request->input('codcat'),
@@ -92,12 +71,7 @@ public function update(Request $request, $id)
 {
     
     // Buscar el producto existente en la base de datos por su ID
-    $producto = producto::find($id);
-
-    if (!is_null($producto)) {
-
-     //$producto->update($request->all());
-
+    $producto = producto::findorfail($id);
     // Actualizar los datos del producto con los datos del formulario
     $producto->producto = $request->input('producto');
     $producto->marca = $request->input('marca');
@@ -111,11 +85,6 @@ public function update(Request $request, $id)
 
     // Retornar una respuesta de éxito
     return response()->json(['mensaje' => 'Producto actualizado con éxito'], 200);
-       
-    }
-    else{
-        return response()->json(['mensaje' => 'Producto no encontrado'], 404);
-    }
   }
 
     
