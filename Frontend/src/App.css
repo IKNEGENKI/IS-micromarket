@@ -123,7 +123,7 @@ body.dark{
     top: 0;
     left: 0;
     height: 100%;
-    width: 500px;
+    width: 450px;
     padding: 35px 10px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
@@ -135,7 +135,7 @@ body.dark{
     
 }
 .sidebar.close{
-    width: 130px;
+    width: 150px;
 }
 
 /* ===== Reusable code - Here ===== */
@@ -153,6 +153,7 @@ body.dark{
     border-radius: 6px;
     align-items: center;
     padding-left: 10px;
+    
 }
 
 .sidebar .icon{
@@ -184,9 +185,11 @@ body.dark{
 }
 .sidebar #pie{
     opacity: 0;
-    font-size:x-small;
+    font-size:small;
+    text-align: center;
     
     }
+
 
 .sidebar.close #pie{
 opacity: 100;
@@ -304,7 +307,13 @@ body.dark .sidebar header .toggle{
 /*-----color cuando se pone el puntero*/
 .sidebar li a:hover{
     background-color: white;
+    height: 70px;
 }
+ .sidebar li p{
+    text-align: center;
+ }
+
+
 /*---------------------------------------*/
 /*-------cambio de color de iconos y texto-----*/
 .sidebar li a:hover .icon,
@@ -411,6 +420,23 @@ body.dark .switch::before{
     width: calc(100% - 250px);
     background-color: var(--body-color);
     transition: var(--tran-05);
+    
+    
+}
+
+.homeForm{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    margin-left: 25%;
+    transition: var(--tran-05);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #000000;
+    
+    
 }
 .home .text{
     font-size: 30px;
@@ -427,6 +453,8 @@ body.dark .switch::before{
 body.dark .home .text{
     color:green;
 }
+
+
 /*------------------------------barra css--------------------------------*/
 /*----------imagen en formulario----------------------*/
 
@@ -554,6 +582,11 @@ body.dark .home .text{
     background: #a246ff;
 }
 
+
+.dark #tarjetas{
+    background-color: #959698;
+    border-color: #000000;
+}
 .dark .card-footer{
     background-color: #50555b;
 }
@@ -586,6 +619,9 @@ body.dark .home .text{
 .card-footer input {
     text-align: center;
 }
+
+
+
 
 
 
