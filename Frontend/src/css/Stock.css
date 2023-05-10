@@ -2,7 +2,7 @@
     position: relative;
   }
   #cantidad{
-    width: 30%;
+    width: 10%;
     border: none;
     background-color: transparent;
     color: inherit;
@@ -18,30 +18,12 @@ input::-webkit-inner-spin-button {
 
  .stocki{
   position: fixed;
-    translate: 50%;
+    translate: 30%;
     transform: translateY(-50%);
     height: 70%;
-    width: 50%;
+    width: 70%;
  }
-  .modal {
-    
-    position: fixed;
-    top: 0;
-    left: 50%;
-    
-    
-    translate: 60%;
-    height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 1);
-    
-    backdrop-filter: unset;
-    z-index: 9999;
-    
-  }
+  
   .modal-title {
     position: relative;
     top: 0;
@@ -75,4 +57,12 @@ input::-webkit-inner-spin-button {
   .agregar{
     margin-top: 10px;
   }
- 
+ #menos{
+  margin-left: 30px;
+ }
+ .texto{
+  margin-left: 57px;
+ }
+ .texto1{
+  margin-left: 8px;
+ }

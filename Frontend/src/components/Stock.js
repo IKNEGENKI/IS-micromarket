@@ -75,14 +75,17 @@ updateProducto = async () => {
           
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-
-        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}</label>
-          
-          <br></br>
+        <div className="d-flex  align-items-center">
+        <div>Cantidad actual:</div> 
+         <div className="texto">{this.state.stockActual} </div>
+         <div className="texto1"> unidades</div>
+        </div>
+        
+          <div className="d-flex  align-items-center">
           <label htmlFor="cantidad"className="agregar">Agregar Cantidad: </label>
-          <div className="d-flex justify-content-center align-items-center">
-          <a onClick={this.decrement}><AiOutlineLine/></a>
-          <br></br>
+          
+          <a id="menos" onClick={this.decrement}><AiOutlineLine/></a>
+          
           <input
             type="number"
             className="form-control"
@@ -94,7 +97,7 @@ updateProducto = async () => {
             value={this.state.cantidad}
             onChange={this.handleCantidadChange}
           />
-          <br></br>
+         
           <a onClick={this.increment}><AiOutlinePlus/></a>
           </div>
         
