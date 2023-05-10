@@ -98,7 +98,7 @@ updateProducto = async () => {
             onChange={this.handleCantidadChange}
           />
          
-          <a onClick={this.increment}><AiOutlinePlus/></a>
+          <a onClick={this.increment} id="mas"><AiOutlinePlus/></a>
           </div>
         
 
