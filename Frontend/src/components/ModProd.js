@@ -10,6 +10,7 @@ class ModificarProducto extends Component {
     super(props);
     this.state = {
       producto: props.producto,
+      codprod: props.producto.codprod,
       nombre: props.producto.producto,
       id:this.props.producto.codprod,
       precio: props.producto.precio,
@@ -32,13 +33,12 @@ class ModificarProducto extends Component {
   updateProducto = async () => {
     await axios
       .put('http://127.0.0.1:8000/api/putProductos/'+this.props.producto.codprod, {
-      'producto':this.state.nombre,
-      'marca':this.state.marca,
-      'desc':this.state.desc,
-      'precio':this.state.precio,
-      'image':this.props.producto.image,
-      'codcat':this.props.producto.codcat,
-      'stock': this.props.producto.stock
+        'producto':this.props.producto.producto,
+        'codcat':this.props.producto.codcat,
+        'desc':this.props.producto.desc,
+        'precio':this.props.producto.precio,
+        'marca':this.props.producto.marca,
+        'image':this.props.producto.image,
       })
       .then((res) => {
         console.log(res.data);
@@ -103,7 +103,6 @@ class ModificarProducto extends Component {
             <h4 className="modal-title">Modificar Producto</h4>
           </Modal.Header>
           <form action="" onSubmit={this.handleSubmit} className="formulario">
-
             <div className="form-group">
               <label htmlFor="nombre">Nombre*:</label>
               <input

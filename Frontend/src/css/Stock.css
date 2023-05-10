@@ -1,15 +1,29 @@
   .modal-header {
     position: relative;
   }
-  .modal {
-    position: absolute;
-   transform: translate(30%);
-    display: flex ;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  #cantidad{
+    width: 10%;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    text-align: center;
   }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+ .stocki{
+  position: fixed;
+    translate: 30%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 70%;
+ }
+  
   .modal-title {
     position: relative;
     top: 0;
@@ -23,12 +37,32 @@
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
+    
   }
   .modal-content{
     display: flex;
     position: relative;
    font-size: 30px;
+   padding: 0px;
+   margin: 0px;
    
   }
- 
+  #botones{
+    transform: translateX(8%)
+  }
+  .formulario{
+    margin-top: 10px;
+  }
+  .agregar{
+    margin-top: 10px;
+  }
+ #menos{
+  margin-left: 30px;
+ }
+ .texto{
+  margin-left: 57px;
+ }
+ .texto1{
+  margin-left: 8px;
+ }

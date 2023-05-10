@@ -3,6 +3,8 @@ import { Boton} from '../elementos/MiniForm';
 import '../css/Stock.css';
 import {Modal} from 'react-bootstrap';
 import axios from 'axios';
+import {AiOutlineLine } from "react-icons/ai";
+import {AiOutlinePlus} from "react-icons/ai";
 class Stock extends Component{
   constructor(props){
     super(props);
@@ -46,6 +48,16 @@ updateProducto = async () => {
     this.props.isClose();
     window.location.reload()
   }
+   increment = () =>{
+    
+    this.setState({cantidad:this.state.cantidad+1});
+  }
+
+   decrement = () => {
+    if (this.state.cantidad > 0) {
+      this.setState({cantidad:this.state.cantidad-1});
+    }
+  }
    handleCantidadChange = (event) => {
    
     this.setState({cantidad: parseInt(event.target.value)});
@@ -54,15 +66,26 @@ updateProducto = async () => {
     const { isClose, producto } = this.props;
    
   return (
-    <div className="modal">
+    <div >
+    <div className="stocki">
       <div className="modal-content">
-      <Modal.Header closeButton onClick={isClose}>
-          <h4 className="modal-title">{producto.producto}</h4>
+      <Modal.Header >
+         
+          <h4 className="modal-title" >{producto.producto}</h4>
+          
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}</label>
-          <br></br>
-          <label htmlFor="cantidad">Agregar Cantidad: </label>
+        <div className="d-flex  align-items-center">
+        <div>Cantidad actual:</div> 
+         <div className="texto">{this.state.stockActual} </div>
+         <div className="texto1"> unidades</div>
+        </div>
+        
+          <div className="d-flex  align-items-center">
+          <label htmlFor="cantidad"className="agregar">Agregar Cantidad: </label>
+          
+          <a id="menos" onClick={this.decrement}><AiOutlineLine/></a>
+          
           <input
             type="number"
             className="form-control"
@@ -71,19 +94,25 @@ updateProducto = async () => {
             min="1"
             max="999"
             required
-            value={this.cantidad}
+            value={this.state.cantidad}
             onChange={this.handleCantidadChange}
           />
+         
+          <a onClick={this.increment}><AiOutlinePlus/></a>
+          </div>
         
 
            
 
-          <div className="button-container">
+          <div className="button-container" id="botones">
+            <br></br>
+            
               <Boton id="guardarP" type="submit">Guardar</Boton>
               <Boton id="borrarP" type="button" onClick={isClose} className="btn mx-5">Cancelar</Boton>
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
   }
