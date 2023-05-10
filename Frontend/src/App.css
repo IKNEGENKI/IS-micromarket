@@ -424,18 +424,18 @@ body.dark .switch::before{
     
 }
 
+
 .homeForm{
-    position: absolute;
-    top: 0;
-    top: 0;
+    
+    position:absolute;
+    top: 10px;
     left: 250px;
-    height: 100vh;
     margin-left: 25%;
+    transform: translate(250px, 25%);
     transition: var(--tran-05);
     border-radius: 15px;
     border-style:solid;
     border-color: #000000;
-    
     
 }
 .home .text{

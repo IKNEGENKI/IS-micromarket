@@ -2,7 +2,7 @@
     position: relative;
   }
   #cantidad{
-    width: 30%;
+    width: 20%;
     border: none;
     background-color: transparent;
     color: inherit;
@@ -15,20 +15,21 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-  .modal {
-    
-    position: absolute;
-    transform: translate(30%);
-    display: flex ;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-    
-  }
+
+ .stocki{
+  position: fixed;
+  top: 50%;
+  left: 73%;
+  transform: translate(-50%, -35%);
+  height: 66%;
+  width: 70%;
+ }
+  
   .modal-title {
     position: relative;
     top: 0;
+    margin: 0px;
+    padding: 0px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -39,15 +40,35 @@ input::-webkit-inner-spin-button {
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 4rem;
+    
   }
   .modal-content{
     display: flex;
     position: relative;
    font-size: 30px;
+   padding: 0px;
+   margin: 0px;
    
   }
   #botones{
-    transform: translateX(10%)
+    transform: translateX(5%)
   }
- 
+  .formulario{
+    margin-top: 10px;
+  }
+  .agregar{
+    margin-top: 10px;
+  }
+ #menos{
+  margin-left: 30px;
+ }
+ .texto{
+  margin-left: 57px;
+ }
+ .texto1{
+  margin-left: 8px;
+ }
+ #mas{
+  margin-left: 5px;
+ }
