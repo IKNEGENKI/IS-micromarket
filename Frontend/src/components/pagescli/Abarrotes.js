@@ -67,7 +67,8 @@ class Abarrotes extends  Component{
                             <center>
 								              <div >
                              <center>
-                                <h2>{product.producto}</h2>
+                                <h2>{product.producto} </h2>
+                                
                                 <br></br>
 									              <img  src={product.image}/>
                                 <br></br><br></br>
