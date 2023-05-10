@@ -18,10 +18,11 @@ input::-webkit-inner-spin-button {
 
  .stocki{
   position: fixed;
-    translate: 30%;
-    transform: translateY(-50%);
-    height: 70%;
-    width: 70%;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  height: 70%;
+  width: 70%;
  }
   
   .modal-title {

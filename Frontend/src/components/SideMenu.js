@@ -81,7 +81,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                 <i id = "iconobarra"><VscNotebook/>
                                 <p id = "pie">Productos</p>
                                 </i>
-                                <a class="text nav-text">Registrar producto</a>
+                                <a  class="text nav-text">Registrar producto</a>
                             </NavLink>
                         </a>
                     </li>
