@@ -66,7 +66,8 @@ updateProducto = async () => {
     const { isClose, producto } = this.props;
    
   return (
-    <div className="modal">
+    <div >
+    <div className="stocki">
       <div className="modal-content">
       <Modal.Header >
          
@@ -76,8 +77,9 @@ updateProducto = async () => {
         <form action="" onSubmit={this.handleSubmit} className="formulario">
 
         <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}</label>
+          
           <br></br>
-          <label htmlFor="cantidad">Agregar Cantidad: </label>
+          <label htmlFor="cantidad"className="agregar">Agregar Cantidad: </label>
           <div className="d-flex justify-content-center align-items-center">
           <a onClick={this.decrement}><AiOutlineLine/></a>
           <br></br>
@@ -101,11 +103,13 @@ updateProducto = async () => {
 
           <div className="button-container" id="botones">
             <br></br>
+            
               <Boton id="guardarP" type="submit">Guardar</Boton>
               <Boton id="borrarP" type="button" onClick={isClose} className="btn mx-5">Cancelar</Boton>
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
   }

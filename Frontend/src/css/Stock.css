@@ -15,15 +15,31 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+ .stocki{
+  position: fixed;
+    translate: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 50%;
+ }
   .modal {
     
-    position: absolute;
-    transform: translate(30%);
-    display: flex ;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    
+    
+    translate: 60%;
+    height: 100%;
+    width: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 70%;
-    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    
+    backdrop-filter: unset;
+    z-index: 9999;
     
   }
   .modal-title {
@@ -39,15 +55,24 @@ input::-webkit-inner-spin-button {
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
+    
   }
   .modal-content{
     display: flex;
     position: relative;
    font-size: 30px;
+   padding: 0px;
+   margin: 0px;
    
   }
   #botones{
-    transform: translateX(10%)
+    transform: translateX(8%)
+  }
+  .formulario{
+    margin-top: 10px;
+  }
+  .agregar{
+    margin-top: 10px;
   }
  
