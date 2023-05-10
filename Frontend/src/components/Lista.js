@@ -101,14 +101,7 @@ class Lista extends  Component{
                                         </th>
                                         <th className="container" >
                                          <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
-                                         {this.state.showModalStock && (
-                                            <Stock 
-                                            isClose={this.closeModalStock}
-                                            producto={this.state.productoSelec} 
-                                            cantidadActual={this.state.cantidad} 
-                                            codigo={this.codigoP}
-                                            />
-                                         )}
+                                         
                                         </th>
                                     
                                 </tr>
@@ -122,12 +115,22 @@ class Lista extends  Component{
                 <Boton id= "cancel"  type="button" className="btn" onClick={this.handleReset}> Volver </Boton>
                 </ContenedorBotonCentrado>
 
-        
-        
+                <div>
+                {this.state.showModalStock && (
+                                            <Stock 
+                                            isClose={this.closeModalStock}
+                                            producto={this.state.productoSelec} 
+                                            cantidadActual={this.state.cantidad} 
+                                            codigo={this.codigoP}
+                                            />
+                                         )}
+                </div>
             </div>
            
         
         )
+        
     }
+    
 }
 export default Lista;
