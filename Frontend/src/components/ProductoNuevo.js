@@ -406,8 +406,9 @@ export const ProductoNuevo = () =>{
 		<meta http-equiv="Access-Control-Allow-Origin" content="http://localhost:3000/"/>
 		
 		</head>
-		<div class="home">
-	 
+		<br></br>
+		<body class="homeForm">
+		<br></br>
 			<head>
 			<meta http-equiv="Access-Control-Allow-Origin" content="*"></meta>
 			</head>	
@@ -527,7 +528,7 @@ export const ProductoNuevo = () =>{
 			</main>
 			<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 			
-   		</div>
+   		</body>
 	</center>
 	);
 }

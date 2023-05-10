@@ -43,7 +43,9 @@ export const SideMenu = ({ toggleNavbar }) => {
                 </div>
                
             </div>
+            <NavLink to="/prods" >
             <a  className='bx ' onClick={toggleNavbar}><BsPersonCircle /></a>
+            </NavLink>
             <i class='bx bx-chevron-right toggle'></i>
         </header>
 
@@ -59,7 +61,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                               <i id = "iconobarra"><BiHomeHeart/>
                               <center>
 
-                              <a id = "pie">Inicio</a>
+                              <p id = "pie">Inicio</p>
                               </center>
                               </i>
                               
@@ -77,7 +79,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <a href="#">
                             <NavLink to="/registrarProductoN">
                                 <i id = "iconobarra"><VscNotebook/>
-                                <a id = "pie">Productos</a>
+                                <p id = "pie">Productos</p>
                                 </i>
                                 <a class="text nav-text">Registrar producto</a>
                             </NavLink>
@@ -88,7 +90,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <a href="#">
                              <NavLink to="/eliminarProducto">
                                  <i id = "iconobarra"><BsFillTrash3Fill/>
-                                 <a id = "pie">Eliminar</a>
+                                 <p id = "pie">Eliminar</p>
                                  </i>
                                  <a class="text nav-text">Eliminar productos</a>
                             </NavLink>
@@ -99,7 +101,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <a href="#">
                         <NavLink to="/listaProducto">
                                 <i id = "iconobarra"><HiClipboardDocumentList/>
-                                <a id = "pie">Lista</a>
+                                <p id = "pie">Lista</p>
                                 </i>
                                 <a class="text nav-text">Lista de productos</a>
                             </NavLink>
@@ -110,7 +112,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <a href="#">
                             < NavLink to="/modificarDatosN" >
                                 <i id = "iconobarra" ><BsShop/>
-                                <a id = "pie">Negocio</a>
+                                <p id = "pie">Negocio</p>
                                 </i>
                                 <a class="text nav-text">Modificar datos del negocio</a>
                             </NavLink>
@@ -121,7 +123,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <a href="#">
                         <NavLink to="/ofertaNueva">
                             <i id = "iconobarra" > <MdSell/> 
-                            <a id = "pie">Oferta</a>
+                            <p id = "pie">Oferta</p>
                             </i>
                             <a class="text nav-text" >Registrar oferta nueva</a>
                             </NavLink>
@@ -132,14 +134,19 @@ export const SideMenu = ({ toggleNavbar }) => {
             </div>
 
             <div class="bottom-content">
-                
+            <li class="">
+                          <a href="#">
+                              <i class='bx bx-log-out icon' style={{fontSize:40}} ></i>
+                              <span class="text nav-text" style={{fontSize:40}} >Logout</span>
+                          </a>
+                      </li>
 
                 <li class="mode">
                     <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-moon icon moon' style={{fontSize:40}}></i>
                         <i class='bx bx-sun icon sun'></i>
                     </div>
-                    <span class="mode-text text">Dark mode</span>
+                    <span class="mode-text text" >Dark mode</span>
 
                     <div class="toggle-switch">
                         <span class="switch"></span>

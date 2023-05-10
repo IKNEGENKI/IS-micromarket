@@ -198,7 +198,7 @@ export const ModificarNegocio = () => {
 		console.log(negocio);
 	}*/
 	return (
-	 <div class = "home">
+	 <div class = "homeForm">
 		
         <br/>
 			<head>

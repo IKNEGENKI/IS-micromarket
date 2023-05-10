@@ -30,6 +30,22 @@ class Delete extends Component{
         });
     }
 
+    ordenarProductos = async() => {
+        this.productos.sort((o1, o2) =>{
+                if(o1.producto < o2.producto){
+                    return -1;
+                }else{
+                    if(o1.producto > o2.producto){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }
+        })
+
+        console.log(this.productos);
+    }
+
     deleteP = async(codprod) => {
         await axios.delete('http://127.0.0.1:8000/api/delProductos/'+ codprod);
         this.getProductos();
@@ -103,7 +119,18 @@ class Delete extends Component{
                     </thead>
                     <tbody>
                         {
-                            this.state.productos?.map(product=>
+                            this.state.productos?.sort((o1, o2) =>{
+                                if(o1.producto < o2.producto){
+                                    return -1;
+                                }else{
+                                    if(o1.producto > o2.producto){
+                                        return 1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                        })
+                            .map(product =>
                                 <tr key={product.id}>
                                     <th id="products">{product.codprod}</th>
                                     <th id="products">{product.producto}</th>
