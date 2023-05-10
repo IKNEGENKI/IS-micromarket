@@ -101,7 +101,7 @@ class Lista extends  Component{
                                         <th>{product.producto}</th>
                                         <th className="container">{product.stock}</th>
                                         <th>
-                                            <a type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
+                                            <a className="stock" type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
                                             {this.state.showModalModProd && (
                                             <ModificarProducto
                                                 isClose={this.closeModalModProd}
