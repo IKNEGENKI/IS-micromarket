@@ -49,7 +49,7 @@ class Delete extends Component{
                  this.deleteP(codprod)
               Swal.fire(
                 '¡Eliminado!',
-                'El o los producto(s) seleccionado fueron eliminados correctamente.',
+                'El producto seleccionado fue eliminado correctamente.',
                 'success'
               )
             }
@@ -76,7 +76,7 @@ class Delete extends Component{
                     this.deleteProducto(e);
                   Swal.fire(
                     '¡Eliminado!',
-                    'El o los producto(s) seleccionado fueron eliminados correctamente.',
+                    'El producto seleccionado fue eliminado correctamente.',
                     'success'
                   )
                // }

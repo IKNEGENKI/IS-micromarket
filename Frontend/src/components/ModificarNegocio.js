@@ -82,12 +82,10 @@ export const ModificarNegocio = () => {
         getNegocio();
     }, []);
 
-
+	/*const saludo = 'ho0la';
 	const Negocio = () => {
-		getNegocio();
-		direccion = negocio;
-		//direccion = direccion.dir;
-	}
+		
+	}*/
 	
 	const onSubmit = (e) => {
 		
@@ -220,9 +218,9 @@ export const ModificarNegocio = () => {
 					cambiarEstado={cambiarNombre}
 					tipo="text"
 					label="Nombre del negocio*:"
-					placeholder="Super de todos"
+					placeholder= {direccion.campo}
 					name="nombre"
-					//value= "negocio.nombre"
+					//value= {direccion.campo}
 					leyendaError="El nombre del negocio solo puede contener letras, números y espacios, y de 2 a 30 caracteres."
 					expresionRegular={expresiones.nombre}
 				/>

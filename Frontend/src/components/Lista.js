@@ -74,15 +74,16 @@ class Lista extends  Component{
                         {
                             this.state.productos?.map(product=>
                                 <tr key={product.codprod}>
-                                        <th>{product.producto}</th>
-                                        <th className="container">{product.stock}</th>
-                                        <th></th>
-                                        <th className="container" >
-                                         <a className="stock" type="button" onClick={() => this.openModal(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
+                                        <th id="products">{product.producto}</th>
+                                        <th className="container" id="products">{product.stock}</th>
+                                        <th id = "products"></th>
+                                        <th className="container" id = "botoncito"> <span id="botoncito">
+                                         <a className="stock" type="button" onClick={() => this.openModal(product,product.stock,product.codprod)}> <AddCircleOutlineIcon fontSize="small" /> </a>
                                          {this.state.showModal && (
                                             <Stock isClose={() => this.setState({ showModal: false })} producto={this.state.productoSelec} cantidadActual={this.state.cantidad} codigo={this.codigoP}/>
                                             
                                             )}
+                                        </span>
                                         </th>
                                     
                                 </tr>
