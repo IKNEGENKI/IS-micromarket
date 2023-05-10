@@ -33,13 +33,13 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
         
             
                 
-        <div class="text row justify-content-between align-items-center">
-  <div class="col">
+        <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
+  <div class="col" >
     <span class="super">Super</span>
     <span class="market">Market</span>
     <span class="name">TITA</span>
   </div>
-  <div class="col-auto">
+  <div class="col-auto" >
   < NavLink to="/home" >
                               
   <a onClick={toggleNavbar} class="icono" ><BsPersonCircle /></a>

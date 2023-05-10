@@ -66,7 +66,8 @@ updateProducto = async () => {
     const { isClose, producto } = this.props;
    
   return (
-    <div className="modal">
+    <div >
+    <div className="stocki">
       <div className="modal-content">
       <Modal.Header >
          
@@ -74,13 +75,17 @@ updateProducto = async () => {
           
         </Modal.Header>
         <form action="" onSubmit={this.handleSubmit} className="formulario">
-
-        <label htmlFor="cantidad actual">Cantidad actual:     {this.state.stockActual}</label>
-          <br></br>
-          <label htmlFor="cantidad">Agregar Cantidad: </label>
-          <div className="d-flex justify-content-center align-items-center">
-          <a onClick={this.decrement}><AiOutlineLine/></a>
-          <br></br>
+        <div className="d-flex  align-items-center">
+        <div>Cantidad actual:</div> 
+         <div className="texto">{this.state.stockActual} </div>
+         <div className="texto1"> unidades</div>
+        </div>
+        
+          <div className="d-flex  align-items-center">
+          <label htmlFor="cantidad"className="agregar">Agregar Cantidad: </label>
+          
+          <a id="menos" onClick={this.decrement}><AiOutlineLine/></a>
+          
           <input
             type="number"
             className="form-control"
@@ -92,7 +97,7 @@ updateProducto = async () => {
             value={this.state.cantidad}
             onChange={this.handleCantidadChange}
           />
-          <br></br>
+         
           <a onClick={this.increment}><AiOutlinePlus/></a>
           </div>
         
@@ -101,11 +106,13 @@ updateProducto = async () => {
 
           <div className="button-container" id="botones">
             <br></br>
+            
               <Boton id="guardarP" type="submit">Guardar</Boton>
               <Boton id="borrarP" type="button" onClick={isClose} className="btn mx-5">Cancelar</Boton>
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
   }
