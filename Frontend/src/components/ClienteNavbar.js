@@ -40,7 +40,10 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
     <span class="name">TITA</span>
   </div>
   <div class="col-auto">
-    <a onClick={toggleNavbar} class="icono"><BsPersonCircle /></a>
+  < NavLink to="/home" >
+                              
+  <a onClick={toggleNavbar} class="icono" ><BsPersonCircle /></a>
+                          </NavLink>
   </div>
 </div>
 
@@ -55,9 +58,9 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
             <li class="nav-link">
                         
                         <a href="#">
-                            < NavLink to="/Abarrotes" >
+                            < NavLink to="/" >
                               
-                                <a class="text nav-text" id="cat">ABARROTES</a>
+                                <a class="text nav-text" id="cat">INICIO</a>
                             </NavLink>
                         </a>
                         <a href="#">
@@ -86,10 +89,10 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                                  
                             </NavLink>
                         </a>
-                        <a href="#" id="cat">
-                            < NavLink to="/Farmacos" >
+                        <a href="#">
+                            < NavLink to="/Abarrotes" >
                               
-                                <a class="text nav-text" id="cat">FARMACOS</a>
+                                <a class="text nav-text" id="cat">ABARROTES</a>
                             </NavLink>
                         </a>
                         <a href="#">

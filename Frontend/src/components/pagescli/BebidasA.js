@@ -44,6 +44,8 @@ class BebidasA extends  Component{
         this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
        
     }
+
+    
     
     render(){
         
@@ -58,7 +60,9 @@ class BebidasA extends  Component{
                     {
 
                       
-                        this.state.productos?.map(product=>
+                        this.state.productos?.map((product,index)=>{
+                           if(product.codcat==3){ 
+                            return(
                             <div class="producto" id = "tarjetas">
                             <center>
 								              <div >
@@ -74,6 +78,10 @@ class BebidasA extends  Component{
                             </center>
                              </div>
                             )
+                           }
+                           
+                        }
+                        )
                     }
                  
                 

@@ -171,7 +171,7 @@ export const NuevaOferta = () => {
       };
     
 	return (
-    <div class = "home">
+    <div class = "homeForm">
         <br/>
 			
 			<br></br>
