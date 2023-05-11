@@ -17,6 +17,7 @@ class ModificarProducto extends Component {
       precio: props.producto.precio,
       marca: props.producto.marca,
       desc: props.producto.desc,
+      image: props.producto.image,
       nombreValido: true,
       precioValido: true,
       marcaValido: true,
@@ -92,6 +93,21 @@ class ModificarProducto extends Component {
     this.setState({desc: valor, descValido: esValido});
   };
 
+  handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+  
+    reader.onload = (upload) => {
+      this.setState({
+        image: upload.target.result
+      });
+    };
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   render() {
     const { isClose } = this.props;
     const { nombreValido, precioValido, marcaValido, descValido } = this.state;
@@ -160,6 +176,19 @@ class ModificarProducto extends Component {
               {/* Mostrar mensaje de error si el nombre no es válido */}
               {marcaValido === false && <p className="mensaje-error">La marca solo debe tener caracteres numéricos y letras, y entre 2 a 15 caracteres.</p>}
             </div>
+
+            <div className="form-group">
+            <label htmlFor="image">Imagen*:</label>
+              <center>
+								<div class="card" id = "image" >
+                  <img id="img-preview"  src={this.state.image} />
+										<div class="card-footer" id = "image">
+											<input accept="image/png,image/jpg" type="file" id="img-uploader" className='img-upload' onChange={this.handleImageChange}></input>
+											<progress id="img-upload-bar" value="0" max="100" ></progress>
+										</div>
+								</div>
+							</center>
+						</div>
 
             {formularioValido === false && (
             <MensajeError>
