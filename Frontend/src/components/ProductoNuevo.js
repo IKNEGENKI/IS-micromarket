@@ -40,7 +40,7 @@ export const ProductoNuevo = () =>{
 		descripcion: /^[a-zA-Z]{1,2}([a-zA-Z0-9-|_|!|#|%|(|)|,|.\s]{9,98})$/, // Letras, numeros, guion y guion_bajo.
 		producto: /^[a-zA-Z]{1,2}([a-zA-ZÀ-ÿ0-9\s]{1,28})$/, // Letras y espacios, pueden llevar acentos.
 		marca: /^[a-zA-Z]{1,2}([a-zA-Z0-9\s]{1,13})$/, //para numeros y letras
-		codigo: /^\d{1,10}$/, // 1 a 10 numeros.
+		codigo: /^([a-zA-Z0-9\s]{1,13})$/, //para numeros y letras
 		precio:/^(?!0(\.0{1,2})?$)(0|[1-9][0-9]{0,3})(\.[0-9]{1,2})?$/, // Numeros decimales, de uno a cuatro antes el punto y solo dos decimales despues.
 		categoria: /^[a-zA-Z]{1,2}([a-zA-ZÀ-ÿ0-9\s]{1,18})$/, // Letras y espacios, pueden llevar acentos.
 	}
@@ -175,7 +175,6 @@ export const ProductoNuevo = () =>{
 		if(imagePreview.src==""){
 				if(
 					producto.valido === 'true' &&
-					codigo.valido === 'true' &&
 					//categoria.valido === 'true' &&
 					descripcion.valido === 'true' &&
 					precio.valido === 'true' &&
@@ -198,7 +197,6 @@ export const ProductoNuevo = () =>{
 			//console.log(imagePreview.src);
 			if(
 				producto.valido === 'true' &&
-				codigo.valido === 'true' &&
 				//categoria.valido === 'true' &&
 				descripcion.valido === 'true' &&
 				precio.valido === 'true' &&
@@ -262,7 +260,6 @@ export const ProductoNuevo = () =>{
 				}else{
 					cambiarFormularioValido(true);
 					cambiarProducto({campo: '', valido: ''});
-					cambiarCodigo({campo: '', valido: null});
 					document.ready = document.getElementById("select_categorias").value = '0';
 					cambiarDescripcion({campo: '', valido: null});
 					cambiarPrecio({campo: '', valido: null});
@@ -329,7 +326,6 @@ export const ProductoNuevo = () =>{
 	const handleReset = () => {
 
 		cambiarProducto("");
-		cambiarCodigo("");
 		cambiarCategoria("");
 		cambiarDescripcion("");
 		cambiarPrecio("");
@@ -406,8 +402,10 @@ export const ProductoNuevo = () =>{
 		<meta http-equiv="Access-Control-Allow-Origin" content="http://localhost:3000/"/>
 		
 		</head>
-		<div class="home">
-	 
+		<br></br>
+		<body class="homeForm">
+			
+		<br></br>
 			<head>
 			<meta http-equiv="Access-Control-Allow-Origin" content="*"></meta>
 			</head>	
@@ -427,16 +425,7 @@ export const ProductoNuevo = () =>{
 						leyendaError="El nombre debe contener de 2 a 20 caracteres entre números, letras y espacios."
 						expresionRegular={expresiones.producto}
 					/>
-					<Input
-						estado={codigo}
-						cambiarEstado={cambiarCodigo}
-						tipo="text"
-						label="Código*:"
-						placeholder="283755"
-						name="codigo"
-						leyendaError="El código solo puede contener números enteros positivos y un máximo de 10 dígitos."
-						expresionRegular={expresiones.codigo}
-					/>
+					
 					<div>
 						<label id = "label_cat"><b>
 							Categoría*:
@@ -463,27 +452,6 @@ export const ProductoNuevo = () =>{
 						</select>
 					</div>
 
-					
-					<Input
-						estado={descripcion}
-						cambiarEstado={cambiarDescripcion}
-						tipo="text"
-						label="Descripción*:"
-						name="descripcion"
-						placeholder="Di algo interesante de tu producto"
-						leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
-						expresionRegular={expresiones.descripcion}
-					/>
-					<Input
-						estado={precio}
-						cambiarEstado={cambiarPrecio}
-						tipo="text"
-						label="Precio de venta:*"
-						name="precio"
-						placeholder="23.00"
-						leyendaError="El precio solo puede contener números enteros o si se quiere ingresar un número decimal se puede poner un carácter especial (.) y dos decimales."
-						expresionRegular={expresiones.precio}
-					/>
 					<Input
 						estado={marca}
 						cambiarEstado={cambiarMarca}
@@ -494,10 +462,36 @@ export const ProductoNuevo = () =>{
 						leyendaError="La marca solo debe tener caracteres numéricos y letras, y entre 2 a 15 caracteres."
 						expresionRegular={expresiones.marca}
 					/>
+					
+					<Input
+						estado={precio}
+						cambiarEstado={cambiarPrecio}
+						tipo="text"
+						label="Precio de venta:*"
+						name="precio"
+						placeholder="23.00"
+						leyendaError="El precio solo puede contener números enteros o si se quiere ingresar un número decimal se puede poner un carácter especial (.) y dos decimales."
+						expresionRegular={expresiones.precio}
+					/>
+					<ContenedorBotonCentrado>
+					<Input
+						estado={descripcion}
+						cambiarEstado={cambiarDescripcion}
+						tipo="text"
+						label="Descripción*:"
+						name="descripcion"
+						placeholder="Di algo interesante de tu producto"
+						leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
+						expresionRegular={expresiones.descripcion}
+					/>
+						</ContenedorBotonCentrado>
 					<ContenedorBotonCentrado>
 						<div class="container">
 							<center>
+								<label>Imagen*:</label>
+								<br></br>
 								<div class="card" id = "contenedorImagen"  >
+									
 									<img id="img-preview"/>
 										<div class="card-footer" id = "contenedorImagen">
 											<input accept="image/png,image/jpg" type="file" id="img-uploader" className='img-upload'></input>
@@ -527,7 +521,7 @@ export const ProductoNuevo = () =>{
 			</main>
 			<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 			
-   		</div>
+   		</body>
 	</center>
 	);
 }

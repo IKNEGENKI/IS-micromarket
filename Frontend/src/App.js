@@ -18,7 +18,7 @@ import {NuevaOferta} from './components/NuevaOferta';
 import {ProductosPrueba} from './components/ProductoNuevo copy';
 import {Eliminar} from './components/Eliminar';
 import {EliminarP} from './components/EliminarP';
-import {HomeCliente} from './components/HomeCliente';
+import {default as HomeCliente} from './components/HomeCliente';
 import {default as Delete} from './components/Delete';
 import {default as Abarrotes} from './components/pagescli/Abarrotes';
 import {default as Bebidas} from './components/pagescli/Bebidas';
