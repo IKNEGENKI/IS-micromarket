@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState }from 'react'
 import logo from '../images/logo.png'
 import { NavLink } from 'react-router-dom'
 import { Fragment } from 'react'
@@ -12,9 +12,14 @@ import {BiHomeHeart} from "react-icons/bi"
 import { FaStore } from "react-icons/fa" ;   
 import { TiThMenu } from "react-icons/ti";
 import { BsPersonCircle } from "react-icons/bs";
-
+import '../css/sidemenu.css';
 export const SideMenu = ({ toggleNavbar }) => {
+    const [activeButton, setActiveButton] = useState('inicio');
 
+    const handleButtonClick = (buttonName) => {
+      setActiveButton(buttonName);
+    };
+  
   return (
     <html lang="en">
 <head>
@@ -57,7 +62,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                 
                     <li class="nav-link">
                         <a href="#">
-                            <NavLink to="/home" >
+                            <NavLink to="/home" 
+                            className={activeButton === 'inicio' ? 'active' : ''}
+                            onClick={() => handleButtonClick('inicio')}
+                            >
                               <i id = "iconobarra"><BiHomeHeart/>
                               <center>
 
@@ -77,7 +85,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                     <br></br>
                     <li class="nav-link">
                         <a href="#">
-                            <NavLink to="/registrarProductoN">
+                            <NavLink to="/registrarProductoN"
+                             className={activeButton === 'producto' ? 'active' : ''}
+                             onClick={() => handleButtonClick('producto')}
+                            >
                                 <i id = "iconobarra"><VscNotebook/>
                                 <p id = "pie">Productos</p>
                                 </i>
@@ -88,7 +99,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                     <br></br>
                     <li class="nav-link">
                         <a href="#">
-                             <NavLink to="/eliminarProducto">
+                             <NavLink to="/eliminarProducto"
+                             className={activeButton === 'eliminar' ? 'active' : ''}
+                             onClick={() => handleButtonClick('eliminar')}
+                             >
                                  <i id = "iconobarra"><BsFillTrash3Fill/>
                                  <p id = "pie">Eliminar</p>
                                  </i>
@@ -99,7 +113,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                     <br></br>
                     <li class="nav-link">
                         <a href="#">
-                        <NavLink to="/listaProducto">
+                        <NavLink to="/listaProducto"
+                        className={activeButton === 'lista' ? 'active' : ''}
+                        onClick={() => handleButtonClick('lista')}
+                        >
                                 <i id = "iconobarra"><HiClipboardDocumentList/>
                                 <p id = "pie">Lista</p>
                                 </i>
@@ -110,7 +127,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                     <br></br>
                     <li class="nav-link">
                         <a href="#">
-                            < NavLink to="/modificarDatosN" >
+                            < NavLink to="/modificarDatosN" 
+                            className={activeButton === 'negocio' ? 'active' : ''}
+                            onClick={() => handleButtonClick('negocio')}
+                            >
                                 <i id = "iconobarra" ><BsShop/>
                                 <p id = "pie">Negocio</p>
                                 </i>
@@ -121,7 +141,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                     <br></br>
                     <li class="nav-link">
                         <a href="#">
-                        <NavLink to="/ofertaNueva">
+                        <NavLink to="/ofertaNueva"
+                        className={activeButton === 'oferta' ? 'active' : ''}
+                        onClick={() => handleButtonClick('oferta')}
+                        >
                             <i id = "iconobarra" > <MdSell/> 
                             <p id = "pie">Oferta</p>
                             </i>

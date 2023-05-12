@@ -59,6 +59,7 @@ class Lista extends  Component{
     
     closeModalStock = () => {
         this.setState({ showModalStock: false });
+        this.getProductos();
       }
     
     closeModalModProd = () => {
