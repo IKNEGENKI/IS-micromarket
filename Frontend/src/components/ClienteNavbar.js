@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../images/logo.png'
 import { NavLink } from 'react-router-dom'
 import { Fragment } from 'react'
@@ -12,8 +12,16 @@ import {BiHomeHeart} from "react-icons/bi"
 import { FaStore } from "react-icons/fa" ;   
 import { TiThMenu } from "react-icons/ti";
 import { BsPersonCircle } from "react-icons/bs";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Carrito from './Carrito';
 import '../css/ClienteNavbar.css'
 export const ClienteNavbar = ({ toggleNavbar }) => {
+
+    const [showModal, setShowModal] = useState(false);
+
+    const OpenModal = () => {
+       setShowModal(true);
+    };
 
   return (
     <html lang="en">
@@ -39,6 +47,10 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
     <span class="market">Market</span>
     <span class="name">TITA</span>
   </div>
+    <div class="col-auto">
+        <a className="stock" type="button" onClick={() => OpenModal()} > <ShoppingCartIcon/> </a>
+        {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
+    </div>
   <div class="col-auto" >
   < NavLink to="/home" >
                               
