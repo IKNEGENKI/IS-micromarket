@@ -59,9 +59,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
   </div>
 </div>
 
-               
-            
-
+        
         
 
         <div class="menu-bar ">
