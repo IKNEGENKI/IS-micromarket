@@ -136,14 +136,14 @@ export const SideMenu = ({ toggleNavbar }) => {
             <div class="bottom-content">
             <li class="">
                           <a href="#">
-                              <i class='bx bx-log-out icon' style={{fontSize:40}} ></i>
-                              <span class="text nav-text" style={{fontSize:40}} >Logout</span>
+                              <i class='bx bx-log-out icon' style={{fontSize:30}} ></i>
+                              <span class="text nav-text" style={{fontSize:30}} >Logout</span>
                           </a>
                       </li>
 
                 <li class="mode">
                     <div class="sun-moon">
-                        <i class='bx bx-moon icon moon' style={{fontSize:40}}></i>
+                        <i class='bx bx-moon icon moon' style={{fontSize:30}}></i>
                         <i class='bx bx-sun icon sun'></i>
                     </div>
                     <span class="mode-text text" >Dark mode</span>

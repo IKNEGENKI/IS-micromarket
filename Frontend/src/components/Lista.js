@@ -98,9 +98,9 @@ class Lista extends  Component{
                         })
                             .map(product=>
                                 <tr key={product.codprod}>
-                                        <th>{product.producto}</th>
-                                        <th className="container">{product.stock}</th>
-                                        <th>
+                                        <th id = "products">{product.producto}</th>
+                                        <th className="container" id="products">{product.stock}</th>
+                                        <th id = "products">
                                             <a type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
                                             {this.state.showModalModProd && (
                                             <ModificarProducto
@@ -111,7 +111,7 @@ class Lista extends  Component{
                                             )}
                                         </th>
                                         <th className="container" >
-                                         <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
+                                         <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon fontSize="small"/> </a>
                                          
                                         </th>
                                     
