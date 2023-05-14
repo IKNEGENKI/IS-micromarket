@@ -33,6 +33,7 @@ import {default as LimpiezaH} from './components/pagescli/LimpiezaH';
 import {default as Panaderia} from './components/pagescli/Panaderia';
 import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
+import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
 import "./elementos/modal.js"
 import React, { useState } from "react";
@@ -80,6 +81,7 @@ function App() {
            <Route exact path="/Panaderia" element={<Panaderia/>}/>
            <Route exact path="/Snacks" element={<Snacks/>}/>
            <Route exact path="/Varios" element={<Varios/>}/>
+           <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
            <Route exact path="*" element={<ErrorNotFound/>}/>
          
         </Routes>
