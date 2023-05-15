@@ -2,7 +2,7 @@
 import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
-import { Boton } from "../elementos/Formularios";
+import { Boton } from "../../elementos/Formularios";
 
 class Lacteos extends  Component{
     
