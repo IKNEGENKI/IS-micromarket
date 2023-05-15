@@ -2,6 +2,7 @@
 import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
+import { Boton } from "../elementos/Formularios";
 
 class LimpiezaH extends  Component{
     
@@ -76,17 +77,16 @@ class LimpiezaH extends  Component{
                             return(
                             <div class="producto" id = "tarjetas">
                             <center>
-								              <div >
-                             <center>
-                                <h2>{product.producto}</h2>
-                                <br></br>
-									              <img  src={product.image}/>
-                                <br></br><br></br>
-                                <p>{product.desc} </p>
-                                <p>Bs. {product.precio} </p>
-                             </center>
-							            	</div>
-                            </center>
+                        <div >
+                    <center>
+                        <h2>{product.producto}</h2>
+                        <img  src={product.image}/>
+                        <p>{product.desc} </p>
+                        <p>Bs. {product.precio} </p>
+                        <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
+                    </center>
+                    </div>
+                    </center>
                              </div>
                             )
                            }
