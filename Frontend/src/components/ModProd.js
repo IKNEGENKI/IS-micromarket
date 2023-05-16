@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Boton } from '../elementos/MiniForm';
+import { Boton, MensajeError } from '../elementos/MiniForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import '../css/Stock.css';
 import '../css/modPro.css';
 import { Modal } from 'react-bootstrap';
@@ -10,16 +12,17 @@ class ModificarProducto extends Component {
     super(props);
     this.state = {
       producto: props.producto,
-      codprod: props.producto.codprod,
       nombre: props.producto.producto,
       id:this.props.producto.codprod,
       precio: props.producto.precio,
       marca: props.producto.marca,
       desc: props.producto.desc,
-      nombreValido: null,
-      precioValido: null,
-      marcaValido: null,
-      descValido: null,
+      image: props.producto.image,
+      nombreValido: true,
+      precioValido: true,
+      marcaValido: true,
+      descValido: true,
+      
     };
     this.updateProducto = this.updateProducto.bind(this);
   }
@@ -33,12 +36,13 @@ class ModificarProducto extends Component {
   updateProducto = async () => {
     await axios
       .put('http://127.0.0.1:8000/api/putProductos/'+this.props.producto.codprod, {
-        'producto':this.props.producto.producto,
-        'codcat':this.props.producto.codcat,
-        'desc':this.props.producto.desc,
-        'precio':this.props.producto.precio,
-        'marca':this.props.producto.marca,
-        'image':this.props.producto.image,
+      'producto':this.state.nombre,
+      'marca':this.state.marca,
+      'desc':this.state.desc,
+      'precio':this.state.precio,
+      'image':this.props.producto.image,
+      'codcat':this.props.producto.codcat,
+      'stock': this.props.producto.stock
       })
       .then((res) => {
         console.log(res.data);
@@ -89,20 +93,34 @@ class ModificarProducto extends Component {
     this.setState({desc: valor, descValido: esValido});
   };
 
+  handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+  
+    reader.onload = (upload) => {
+      this.setState({
+        image: upload.target.result
+      });
+    };
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   render() {
     const { isClose } = this.props;
-    const { nombreValido } = this.state; 
-    const { precioValido } = this.state; 
-    const { marcaValido } = this.state; 
-    const { descValido } = this.state; 
+    const { nombreValido, precioValido, marcaValido, descValido } = this.state;
+    const formularioValido = nombreValido && precioValido && marcaValido && descValido;
 
     return (
-      <div className="modal">
+      <div className="stocki">
         <div className="modal-content">
           <Modal.Header closeButton onClick={isClose}>
             <h4 className="modal-title">Modificar Producto</h4>
           </Modal.Header>
           <form action="" onSubmit={this.handleSubmit} className="formulario">
+
             <div className="form-group">
               <label htmlFor="nombre">Nombre*:</label>
               <input
@@ -158,6 +176,28 @@ class ModificarProducto extends Component {
               {/* Mostrar mensaje de error si el nombre no es válido */}
               {marcaValido === false && <p className="mensaje-error">La marca solo debe tener caracteres numéricos y letras, y entre 2 a 15 caracteres.</p>}
             </div>
+
+            <div className="form-group">
+            <label htmlFor="image">Imagen*:</label>
+              <center>
+								<div class="card" id = "image" >
+                  <img id="img-preview"  src={this.state.image} />
+										<div class="card-footer" id = "image">
+											<input accept="image/png,image/jpg" type="file" id="img-uploader" className='img-upload' onChange={this.handleImageChange}></input>
+											<progress id="img-upload-bar" value="0" max="100" ></progress>
+										</div>
+								</div>
+							</center>
+						</div>
+
+            {formularioValido === false && (
+            <MensajeError>
+              <p>
+                <FontAwesomeIcon icon={faExclamationTriangle} />
+                <b>Error:</b> Por favor rellena el formulario correctamente.
+              </p>
+            </MensajeError>
+          )}
 
             <div className="button-container">
               <Boton id="guardarP" type="submit">Guardar</Boton>

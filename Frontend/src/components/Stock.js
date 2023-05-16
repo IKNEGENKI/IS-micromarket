@@ -46,7 +46,7 @@ updateProducto = async () => {
     
     await this.updateProducto();
     this.props.isClose();
-    window.location.reload()
+   
   }
    increment = () =>{
     

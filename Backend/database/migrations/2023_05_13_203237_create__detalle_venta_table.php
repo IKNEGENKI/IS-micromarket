@@ -6,15 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('stock', function (Blueprint $table) {
-            $table->id('codstock');
+        Schema::create('detalle_venta', function (Blueprint $table) {
+            $table->id('codetalle');
             $table->integer('codprod');
             $table->foreign('codprod')->references('codprod')->on('producto');
-            $table->decimal('preciocompra', 10, 2);
-            $table->integer('cantidad');
+            $table->integer('cantidadprod');
+            $table->decimal('costodetalle', 10, 2);
+
+            //$table->timestamps();
         });
     }
 
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('_detalle_venta');
     }
 };

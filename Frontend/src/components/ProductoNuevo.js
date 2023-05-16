@@ -249,7 +249,7 @@ export const ProductoNuevo = () =>{
 
 				console.log("Response:------> " + respuestaJson.status);
 			   
-				if( respuestaJson.status === 409){
+				if( respuestaJson.status === 409 || respuestaJson.status === 500){
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',

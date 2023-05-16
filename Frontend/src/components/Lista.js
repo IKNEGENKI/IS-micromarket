@@ -59,6 +59,7 @@ class Lista extends  Component{
     
     closeModalStock = () => {
         this.setState({ showModalStock: false });
+        this.getProductos();
       }
     
     closeModalModProd = () => {
@@ -98,10 +99,10 @@ class Lista extends  Component{
                         })
                             .map(product=>
                                 <tr key={product.codprod}>
-                                        <th id = "products">{product.producto}</th>
-                                        <th className="container" id="products">{product.stock}</th>
-                                        <th id = "products">
-                                            <a type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
+                                        <th>{product.producto}</th>
+                                        <th className="container">{product.stock}</th>
+                                        <th>
+                                            <a className="stock" type="button" onClick={() => this.openModalModProd(product,product.codprod)}> <Button /> </a>
                                             {this.state.showModalModProd && (
                                             <ModificarProducto
                                                 isClose={this.closeModalModProd}

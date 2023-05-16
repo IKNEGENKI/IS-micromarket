@@ -548,7 +548,13 @@ body.dark .home .text{
     position: relative;
     font-size: 13px;
 }
-
+@media screen and (max-width: 767px) {
+    .card {
+      width: 100%;
+      height: auto;
+      font-size: 14px;
+    }
+  }
 .cardLista {
     border: 1px solid #610567;
     height: 10rem;

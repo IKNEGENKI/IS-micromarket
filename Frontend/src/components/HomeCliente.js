@@ -1,6 +1,7 @@
 
 import React , {Component, useState}from "react";
 import axios from "axios";
+import { Boton } from "../elementos/Formularios";
 
 class HomeCliente extends  Component{
     
@@ -70,11 +71,10 @@ class HomeCliente extends  Component{
                         <div >
                     <center>
                         <h2>{product.producto}</h2>
-                        <br></br>
                         <img  src={product.image}/>
-                        <br></br><br></br>
                         <p>{product.desc} </p>
                         <p>Bs. {product.precio} </p>
+                        <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
                     </center>
                     </div>
                     </center>

@@ -53,6 +53,8 @@ Route::post('postProductos', [productosController::class,'store']);
 Route::delete('delProductos/{codprod}', [productosController::class,'destroy']);
 Route::put('putProductos/{codprod}', [productosController::class,'update']);
 
+
+
 //RUTAS PARA INGRESAR, MODIFICAR, ELIMINAR CATEGORIA DESDE FORMULAR
 
 Route::get('/getCategorias', [categoriaController::class,'index']);
@@ -74,4 +76,11 @@ Route::post('/postStock', [stockController::class,'store']);
 Route::delete('/delStock/{id}',[stockController::class,'destroy']);
 Route::put('/putStock/{id}', [stockController::class,'update']);
 
+
+//RUTAS PARA AGREGAR CLIENTE
+
+Route::get('/cliente.index',[clienteController::class,'index']);
+Route::post('/cliente.store', [clienteController::class,'store']);
+Route::delete('/cliente.destroy/{id}',[clienteController::class,'destroy']);
+Route::put('/cliente.update/{id}', [clienteController::class,'update']);
 
