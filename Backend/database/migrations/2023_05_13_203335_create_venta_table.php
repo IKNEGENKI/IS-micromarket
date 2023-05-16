@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('costototal', 10, 2);
             $table->integer('codcliente');
             $table->foreign('codcliente')->references('codcliente')->on('cliente');
+            
+            $table->String('estadocompra');
         });
     }
 
