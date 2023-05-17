@@ -3,6 +3,7 @@ import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
+import VistaDetallada from "../VistaDetallada";
 
 class Lacteos extends  Component{
     
@@ -55,11 +56,13 @@ class Lacteos extends  Component{
         window.location.href = '/home';
     }
     
-    openModal = (producto,canti,cod) => {
-        this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
-       
-    }
-
+    openModal = (producto) => {
+        this.setState({ showModal: true, productoSelec: producto });
+      }
+    
+    closeModal = () => {
+        this.setState({ showModal: false });
+      }
     
     render(){
         
@@ -88,32 +91,37 @@ class Lacteos extends  Component{
                         ).map((product,index)=>{
                            if(product.codcat==10){ 
                             return(
-                            <div class="producto" id = "tarjetas">
-                        <center>
-                        <div >
-                    <center>
-                        <h2>{product.producto}</h2>
-                        <img  src={product.image}/>
-                        <p>{product.desc} </p>
-                        <p>Bs. {product.precio} </p>
-                        <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
-                    </center>
-                    </div>
-                    </center>
-                             </div>
+                                <div class="producto" id = "tarjetas" onClick={() => this.openModal(product,product.codprod)}>
+                                <center>
+                                <div >
+                                <center>
+                                    <h2>{product.producto}</h2>
+                                    <img  src={product.image}/>
+                                    <p>Bs. {product.precio} </p>
+                                    <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
+                                </center>
+                                </div>
+                                </center>
+                                 </div>
+                                )
+                               }
+                               
+                            }
                             )
-                           }
-                           
                         }
-                        )
-                    }
-                 
-                
-        
-        
-           </body>
-        
-        )
+                     
+                    
+                     {this.state.showModal && (
+                                                <VistaDetallada
+                                                    isClose={this.closeModal}
+                                                    producto={this.state.productoSelec}
+                                                    codigo={this.codigoP}
+                                                />
+                                                )}
+            
+               </body>
+            
+            )
+        }
     }
-}
 export default Lacteos;
