@@ -16,10 +16,10 @@ return new class extends Migration
             $table->integer('codprod');
             $table->foreign('codprod')->references('codprod')->on('producto');
             $table->string('desc');
-            $table->date('fechaini');
-            $table->date('fechafin');
+            $table->string('fechaini');
+            $table->string('fechafin');
             $table->decimal('precioventa', 10, 2);
-
+            $table->integer('estado');
 
         });
     }
