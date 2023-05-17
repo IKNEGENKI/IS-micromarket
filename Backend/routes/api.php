@@ -8,6 +8,7 @@ use App\Http\Controllers\stockController;
 use App\Http\Controllers\tiendasController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\ofertaController;
+use App\Http\Controllers\clienteController;
 
 
 /*
@@ -79,7 +80,7 @@ Route::put('/putStock/{id}', [stockController::class,'update']);
 
 //RUTAS PARA AGREGAR CLIENTE
 
-Route::get('/cliente.index',[clienteController::class,'index']);
+Route::get('/getCliente',[clienteController::class,'index']);
 Route::post('/cliente.store', [clienteController::class,'store']);
 Route::delete('/cliente.destroy/{id}',[clienteController::class,'destroy']);
 Route::put('/cliente.update/{id}', [clienteController::class,'update']);
