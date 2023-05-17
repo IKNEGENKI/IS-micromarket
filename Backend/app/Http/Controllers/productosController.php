@@ -21,9 +21,18 @@ class productosController extends Controller
         //return response()->json(['producto' => $producto], 200);
     }
 
-    public function create(Request $request)
+    public function show($id)
     {
-      //
+        // Buscar el producto en la base de datos por su ID
+        $producto = producto::find($id);
+
+        // Verificar si el producto. existe
+        if (!$producto) {
+            return response()->json(['mensaje' => 'Producto no encontrado'], 404);
+        }
+
+        // Retornar el producto como respuesta
+        return response()->json(['producto' => $producto], 200);
     }
 
 
