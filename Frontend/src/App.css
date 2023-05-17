@@ -105,7 +105,18 @@ body{
 #botonbarra{
     color: #ffffff;
 }
-
+ #select_prod{
+    width: 100%;
+	background: #faf7f0;
+	border-radius: 3px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+	border: 1px solid transparent;
+    border-bottom-color: #000000;
+    cursor: pointer;
+ }
 
 
 body.dark{
@@ -652,6 +663,8 @@ body.dark .home .text{
     cursor: pointer;
     
 }
+
+
 
 #vencimiento{
     width: 100%;
