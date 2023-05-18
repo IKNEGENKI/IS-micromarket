@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreign('codprod')->references('codprod')->on('producto');
             $table->integer('cantidadprod');
             $table->decimal('costodetalle', 10, 2);
-
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

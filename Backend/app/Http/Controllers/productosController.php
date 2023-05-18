@@ -50,7 +50,7 @@ class productosController extends Controller
     $count = producto::whereRaw('LOWER(producto) ilike ?', ["{$producto}%"])
     ->count();
     if ($count > 0) {
-        return response()->json(['mensaje' => 'El oroducto ya existe'], 409);
+        return response()->json(['mensaje' => 'El producto ya existe'], 409);
     } else {
         $producto = new producto([
         'producto' => $request->input('producto'),
