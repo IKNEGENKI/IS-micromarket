@@ -52,10 +52,9 @@ Route::put('/putTiendas/{codtienda}', [tiendasController::class,'update']);
 
 //RUTAS PARA INGRESAR, MODIFICAR, ELIMINAR PRODUCTOS DESDE FORMULARIO
 Route::get('/getProductos',[productosController::class,'index']);
-Route::post('/postProductos', [productosController::class,'store']);
-Route::delete('/delProductos/{codprod}', [productosController::class,'destroy']);
-Route::put('/putProductos/{codprod}', [productosController::class,'update']);
-Route::get('/obtenerProducto/{codprod}',[productosController::class,'show']);
+Route::post('postProductos', [productosController::class,'store']);
+Route::delete('delProductos/{codprod}', [productosController::class,'destroy']);
+Route::put('putProductos/{codprod}', [productosController::class,'update']);
 
 
 
@@ -82,24 +81,19 @@ Route::put('/putStock/{id}', [stockController::class,'update']);
 
 
 //RUTAS PARA AGREGAR CLIENTE
-
-<<<<<<< HEAD
 Route::get('/cliente.index',[clienteController::class,'index']);
-Route::post('/cliente.store', [clienteController::class,'store']);
+Route::post('/cliente.store', [clienteController::class, 'store']);
 Route::delete('/cliente.destroy/{id}',[clienteController::class,'destroy']);
 Route::put('/cliente.update/{id}', [clienteController::class,'update']);
-=======
-Route::get('/getCliente',[clienteController::class,'index']);
-Route::post('/postCliente', [clienteController::class,'store']);
-Route::delete('/delCliente/{id}',[clienteController::class,'destroy']);
-Route::put('/putCliente/{id}', [clienteController::class,'update']);
->>>>>>> 104935e347a80cfa11f5e19e297c95d26e7b1d43
 
+//RUTAS PARA AGREGAR VENTA
 Route::get('/venta.index',[ventaController::class,'index']);
 Route::post('/venta.store', [ventaController::class,'store']);
 Route::delete('/venta.destroy/{id}',[ventaController::class,'destroy']);
 Route::put('/venta.update/{id}', [ventaController::class,'update']);
+Route::put('/venta.crearVenta/{id,}', [ventaController::class,'update']);
 
+//RUTAS PARA AGREGAR DETALLE_VENTA
 Route::get('/detalle_venta.index',[detalle_ventaController::class,'index']);
 Route::post('/detalle_venta.store', [detalle_ventaController::class,'store']);
 Route::delete('/detalle_venta.destroy/{id}',[detalle_ventaController::class,'destroy']);
