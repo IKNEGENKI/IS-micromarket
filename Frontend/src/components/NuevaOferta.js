@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Formulario, Label, ContenedorTerminos, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../elementos/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { fa4, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from '../components/Input';
 import '../css/ventanaImagen.css';
 //import '../'
@@ -12,6 +12,7 @@ import {default as Ofer} from './Ofer'
 import axios from 'axios';
 
 export const NuevaOferta = () => {
+  
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	const [producto, cambiarProducto] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
@@ -19,7 +20,8 @@ export const NuevaOferta = () => {
 	const [inicio, cambiarInicio] = useState({campo: '', valido: null});
 	const [fin, cambiarFin] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
-
+  const valor = document.getElementById('select_prod');
+  const URL_PRODUCTO = 'http://127.0.0.1:8000/api/postOferta';
   
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10);
@@ -39,74 +41,92 @@ export const NuevaOferta = () => {
 		precio:/^(?!0(\.0{1,2})?$)(0|[1-9][0-9]{0,3})(\.[0-9]{1,2})?$/, // Numeros decimales, de uno a cuatro antes el punto y solo dos decimales despues.
 	}
 
-    /*const handleSubmit = (event) => {
-        event.preventDefault();
-       
-      
-      
-        handleReset();
-      };
     
-      const handleReset = () => {
-        setNombre("");
-          setCategoria("");
-          setPrecio("");
-          setCodigo("");
-          setMarca("");
-          setDescripcion("");
-        
-        window.location.href = '/home';
-      };*/
-  
-      /*const postOferta = async (url, newOferta) => {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(newProducto),
-            headers: {
-				
-                'Content-Type': 'application/json'
-            }
-			
-        });
-
-        return response;
-      }*/
-
-  
+    
 	const onSubmit = async(e) => {
+		
 		e.preventDefault();
 
-		if(
-			producto.valido === 'true' &&
-      descripcion.valido === 'true' &&
+		
+			if(
+				descripcion.valido === 'true' &&
 			precio.valido === 'true' &&
 			inicio != null &&
 			fin != null
+				
+			){ /*mismo del controller*/
+				const newOferta ={
+					//consul log
+					codprod: 1,
+					desc: descripcion.campo,
+          fechaini: inicio,
+          fechafin: fin,
+					precioventa: precio.campo,
+				
+					
+				}
+				console.log(newOferta);
+                
+		    	const postProducto = async (url, newOferta) => {
+					const response = await fetch(url, {
+                      
+						method: 'POST',
+						body: JSON.stringify(newOferta),
+						headers: {
+								  'Content-Type': 'application/json',
+						}
+						
+					});
+          console.log(newOferta);
+					return response;
+				}
+				
+				const respuestaJson = await postProducto(URL_PRODUCTO, newOferta);
+
+				console.log("Response:------> " + respuestaJson.status);
+			   
+				if(respuestaJson.status === 500){
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Error al guardar la oferta, intenta nuevamente',
+						//footer: '<a href="">Why do I have this issue?</a>'
+					})
+          console.log(inicio);
+          console.log(fin);
+
+				}else{
+					 
+          cambiarFormularioValido(true);
+          cambiarProducto({campo: '', valido: null});
+          cambiarDescripcion({campo: '', valido: null});
+          cambiarPrecio({campo: '', valido: null});
+          cambiarInicio("");
+            cambiarFin("");
+          
+          Swal.fire({
+            icon: 'success',
+            title: '¡Genial!',
+            text: '¡Oferta guardada exitosamente!',
+						})
+				}
 			
-		){
-
-
-			cambiarFormularioValido(true);
-			cambiarProducto({campo: '', valido: null});
-      cambiarDescripcion({campo: '', valido: null});
-			cambiarPrecio({campo: '', valido: null});
-      cambiarInicio("");
-        cambiarFin("");
-			
-      Swal.fire({
-				icon: 'success',
-				title: '¡Genial!',
-				text: '¡Oferta guardada exitosamente!',
-				//footer: '<a href="">Why do I have this issue?</a>'
-			})
-
-			// ... 
-		} else {
-			cambiarFormularioValido(false);
-		}
-
-		
+			}else{
+				cambiarFormularioValido(false);
+			}
 	}
+	
+
+      ///////////////////////////////////////
+
+  function cambiarfecha(fecha){
+     const year = fecha.substr(0,4)
+     const month = fecha.substr(5,2)
+     const day = fecha.substr(8,2)
+     const date = year+month+day;
+     return date;
+  }
+	
 
 	const handleSubmit = (event) => {
     event.preventDefault();
@@ -132,8 +152,7 @@ export const NuevaOferta = () => {
           //footer: '<a href="">Why do I have this issue?</a>'
         })
 
-			// ... //*ñiiñíñíñíñíñíñíñíñíñíñíñííññiñíñíñíñíñíñíñíñíñíníiññíñíñíñííñiññíñíñíñíñíñíiniññíiñíñiñiñiñiñiñiñiññíñí*/ */
-		} else {
+				} else {
 			cambiarFormularioValido(false);
 		}
   };
@@ -167,6 +186,10 @@ export const NuevaOferta = () => {
             } else {
               window.alert('Acción cancelada');
             }
+
+
+
+            
         
       };
     
@@ -184,18 +207,10 @@ export const NuevaOferta = () => {
 
 		<main>
 			<Formulario action="" onSubmit={onSubmit}>
-				<Input
-					estado={producto}
-					cambiarEstado={cambiarProducto}
-					tipo="text"
-					label="Producto*:"
-					placeholder="Cereal en caja 500gr"
-					name="producto"
-					leyendaError="El producto solo puede contener letras, números y espacios, y de 2 a 30 caracteres."
-					expresionRegular={expresiones.producto}
-          
-				/>
-				
+        
+				<Ofer
+        
+        />
         <Input
 					estado={precio}
 					cambiarEstado={cambiarPrecio}
@@ -206,21 +221,8 @@ export const NuevaOferta = () => {
 					leyendaError="El precio solo puede contener números enteros o si se quiere ingresar un número decimal se puede poner un carácter especial (.) y dos decimales."
 					expresionRegular={expresiones.precio}
 				/>
-
-				<Input
-					estado={descripcion}
-					cambiarEstado={cambiarDescripcion}
-					tipo="text"
-					label="Descripción*:"
-					name="descripcion"
-					placeholder="Describe tu oferta"
-					leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
-					expresionRegular={expresiones.descripcion}
-				/>
-				
-				  <div 
-              className='col' id= "calendar">
-            <label 
+        <div>
+        <label 
               htmlFor="inicio">
                <b> Inicio de Oferta*: </b>
             </label>
@@ -239,6 +241,10 @@ export const NuevaOferta = () => {
               border-bottom-color = "#000000"
               onChange={(e) => cambiarInicio(e.target.value)} />
             <br />
+			
+            </div>
+				  <div 
+              className='col' id= "calendar">
 
             <label 
               htmlFor="fin">
@@ -259,6 +265,18 @@ export const NuevaOferta = () => {
             <br />
             
           </div>
+          <ContenedorBotonCentrado>
+          <Input
+					estado={descripcion}
+					cambiarEstado={cambiarDescripcion}
+					tipo="text"
+					label="Descripción*:"
+					name="descripcion"
+					placeholder="Describe tu oferta"
+					leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
+					expresionRegular={expresiones.descripcion}
+				/>
+        </ContenedorBotonCentrado>
           {formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>
@@ -281,3 +299,4 @@ export const NuevaOferta = () => {
         </div>
 	);
 }
+

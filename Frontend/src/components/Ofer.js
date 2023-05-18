@@ -21,8 +21,8 @@ class Ofer extends Component{
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
-            this.setState({productos: res.data.producto});
-            console.log(res.data.producto)
+            this.setState({productos: res.data});
+            
         }).catch((error)=>{
             console.log(error);
         });
@@ -32,12 +32,27 @@ class Ofer extends Component{
     render(){
         return(
             
-            <div class = "home">
+            <div>
                 <div class="formulario__grupo" id="grupo__usuario">
-                <label for="correo" class="formulario__label">Seleccione el producto</label>
+                <label for="correo" class="formulario__label"><b>Seleccione el producto*:  
+                    </b></label>
+                    <br></br>
+                    
                 <div>
-                    <select name = "select" style={{width:500}}>
-                        {this.state.productos.map(elemeto=>(
+                    <select name = "select" id = "select_prod">
+                        {
+                            this.state.productos?.sort((o1, o2) =>{
+                                if(o1.producto < o2.producto){
+                                    return -1;
+                                }else{
+                                    if(o1.producto > o2.producto){
+                                        return 1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                        })
+                        .map(elemeto=>(
                             
                             <option key = {elemeto.id} value={elemeto.codprod}>{elemeto.producto}</option>
                         ))}
