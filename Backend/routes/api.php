@@ -50,9 +50,10 @@ Route::put('/putTiendas/{codtienda}', [tiendasController::class,'update']);
 
 //RUTAS PARA INGRESAR, MODIFICAR, ELIMINAR PRODUCTOS DESDE FORMULARIO
 Route::get('/getProductos',[productosController::class,'index']);
-Route::post('postProductos', [productosController::class,'store']);
-Route::delete('delProductos/{codprod}', [productosController::class,'destroy']);
-Route::put('putProductos/{codprod}', [productosController::class,'update']);
+Route::post('/postProductos', [productosController::class,'store']);
+Route::delete('/delProductos/{codprod}', [productosController::class,'destroy']);
+Route::put('/putProductos/{codprod}', [productosController::class,'update']);
+Route::get('/obtenerProducto/{codprod}',[productosController::class,'show']);
 
 
 

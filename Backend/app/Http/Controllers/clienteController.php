@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\cliente; // Añade la clase del modelo "cliente"
 use Illuminate\Http\Request;
-use App\Models\cliente;
 class clienteController extends Controller
 {
     /**
@@ -17,32 +16,41 @@ class clienteController extends Controller
         //return cliente::find($id);
         //return $cliente;
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+  
+    /*public function store(Request $request)
     {
-        return view('clientes.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    $cliente = new cliente([
+        'codprod' => $request->input('codprod'),
+        'nombre' => $request->input('nombre'),
+        'apellido' => $request->input('apellido'),
+        'correo' => $request->input('correo'),
+        //'password' => bcrypt($request->input('password'))
+        'password'=>$request->input('password')
+        
+    ]); 
+    
+    $cliente->save();   
+    return response()->json(['mensaje' => 'Cliente registrado con éxito'],201);
+    }*/
     public function store(Request $request)
-    {
-        $cliente = new cliente([
-            'codcliente' => $request->input('codcliente'),
-            'nombre' => $request->input('nombre'),
-            'apellido' => $request->input('apellido'),
-            'correo' => $request->input('correo'),
-            'password' => bcrypt($request->input('password')) 
-        ]);
+{
+    // Validar los datos del formulario
+    $validatedData = $request->validate([
+        'codprod' => 'required',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'correo' => 'required|email|unique:clientes',
+        'password' => 'required|min:6',
+    ]);
 
-        $cliente->save();
-
-        return response()->json(['mensaje' => 'cliente creado correctamente']); 
-    }
+    // Crear un nuevo cliente
+    $cliente = new cliente([
+        'codprod' => $validatedData['codprod'],
+        'nombre' => $validatedData['nombre'],
+        'apellido' => $validatedData['apellido'],
+        'correo' => $validatedData['correo'],
+        'password' => bcrypt($validatedData['password']),
+    ]);
 
     // Guardar el cliente en la base de datos
     $cliente->save();

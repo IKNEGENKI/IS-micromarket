@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\detalle_venta;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class detalle_ventaController extends Controller
 {
     /**
@@ -31,7 +31,7 @@ class detalle_ventaController extends Controller
      */
     public function store(Request $request)
 {
-    $detalleVenta = new DetalleVenta([
+    $detalleVenta = new detalle_venta([
         'codprod' => $request->input('codprod'),
         'cantidadprod' => $request->input('cantidadprod'),
         'costodetalle' => $request->input('costodetalle')
