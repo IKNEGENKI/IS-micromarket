@@ -81,20 +81,20 @@ Route::put('/putStock/{id}', [stockController::class,'update']);
 
 
 //RUTAS PARA AGREGAR CLIENTE
-Route::get('/cliente.index',[clienteController::class,'index']);
-Route::post('/cliente.store', [clienteController::class, 'store']);
-Route::delete('/cliente.destroy/{id}',[clienteController::class,'destroy']);
-Route::put('/cliente.update/{id}', [clienteController::class,'update']);
+Route::get('/getCliente',[clienteController::class,'index']);
+Route::post('/postCliente', [clienteController::class, 'store']);
+Route::delete('/delCliente/{id}',[clienteController::class,'destroy']);
+Route::put('/putCliente/{id}', [clienteController::class,'update']);
 
 //RUTAS PARA AGREGAR VENTA
-Route::get('/venta.index',[ventaController::class,'index']);
-Route::post('/venta.store', [ventaController::class,'store']);
-Route::delete('/venta.destroy/{id}',[ventaController::class,'destroy']);
-Route::put('/venta.update/{id}', [ventaController::class,'update']);
-Route::put('/venta.crearVenta/{id,}', [ventaController::class,'update']);
+Route::get('/getVenta',[ventaController::class,'index']);
+Route::post('/postDenta', [ventaController::class,'store']);
+Route::delete('/delVenta/{id}',[ventaController::class,'destroy']);
+Route::put('/putVenta/{id}', [ventaController::class,'update']);
+Route::post('/crearVenta/{id}/{id2}', [ventaController::class,'crearVenta']);
 
 //RUTAS PARA AGREGAR DETALLE_VENTA
-Route::get('/detalle_venta.index',[detalle_ventaController::class,'index']);
-Route::post('/detalle_venta.store', [detalle_ventaController::class,'store']);
-Route::delete('/detalle_venta.destroy/{id}',[detalle_ventaController::class,'destroy']);
-Route::put('/detalle_venta.update/{id}', [detalle_ventaController::class,'update']);
+Route::get('/getDetalle_venta',[detalle_ventaController::class,'index']);
+Route::post('/postDetalle_venta', [detalle_ventaController::class,'store']);
+Route::delete('/delDetalle_venta/{id}',[detalle_ventaController::class,'destroy']);
+Route::put('/putDetalle_venta/{id}', [detalle_ventaController::class,'update']);

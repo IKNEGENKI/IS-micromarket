@@ -66,7 +66,7 @@ class ventaController extends Controller
 
         if ($venta) {
             // Mostrar el formulario de edición de venta con la venta encontrada
-            return view('venta.edit', compact('venta'));
+            return view('editVenta', compact('venta'));
         } else {
             // Manejar la situación en la que no se encuentra la venta con el ID proporcionado
             return response()->json(['error' => 'Venta no encontrada'], 404);
@@ -113,7 +113,7 @@ class ventaController extends Controller
 
         if ($venta) {
             // Mostrar el formulario de edición de venta con la venta encontrada
-            return view('venta.edit', compact('venta'));
+            return view('editVenta', compact('venta'));
         } else {
             // Manejar la situación en la que no se encuentra la venta con el ID proporcionado
             return response()->json(['error' => 'Venta no encontrada'], 404);
@@ -130,7 +130,7 @@ class ventaController extends Controller
 
          if ($venta) {
              // Mostrar el formulario de edición de venta con la venta encontrada
-             return view('venta.edit', compact('venta'));
+             return view('editVenta', compact('venta'));
          } else {
              // Manejar la situación en la que no se encuentra la venta con el ID proporcionado
              return response()->json(['error' => 'Venta no encontrada'], 404);
