@@ -35,6 +35,7 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
+import {default as Ofertas} from './components/pagescli/Ofertas'
 import "./elementos/modal.js"
 import React, { useState } from "react";
 function App() {
@@ -68,6 +69,7 @@ function App() {
         <Routes>
         <Route exact path="/" element={<HomeCliente/>}/>
            <Route exact path="/home" element={<HomeCliente/>}/>
+           <Route exact path="/Ofertas" element={<Ofertas/>}/>
            <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
            <Route exact path="/Bebidas" element={<Bebidas/>}/>
            <Route exact path="/BebidasA" element={<BebidasA/>}/>

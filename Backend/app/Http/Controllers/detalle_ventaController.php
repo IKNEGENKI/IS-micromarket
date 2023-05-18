@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\detalle_venta;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class detalle_ventaController extends Controller
 {
     /**
