@@ -1,13 +1,13 @@
 import React,{Component} from "react";
 import axios from 'axios';
-
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 class BorrarCarrito extends Component{
  constructor(props){
  super(props);
  this.state={
 
-    id:this.props.producto.codprod,
+    id:this.props.producto,
  }
   this.borrar = this.borrar.bind(this);
 
@@ -23,7 +23,9 @@ borrar= async() => {
 render(){
 
     const{producto} =  this.props;
-    
+    return(
+        <></>
+    );
 }
 
 }

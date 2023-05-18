@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\cliente; // Añade la clase del modelo "cliente"
 use Illuminate\Http\Request;
-
 class clienteController extends Controller
 {
     /**
@@ -13,51 +12,69 @@ class clienteController extends Controller
     public function index()
     {
         $clientes = cliente::all();
-        return response()->json($clientes);
+        //return response()->json($clientes);
+        //return cliente::find($id);
+        //return $cliente;
     }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-    return view('clientes.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+  
+    /*public function store(Request $request)
     {
     $cliente = new cliente([
         'codprod' => $request->input('codprod'),
         'nombre' => $request->input('nombre'),
         'apellido' => $request->input('apellido'),
         'correo' => $request->input('correo'),
-        'password' => $request->bcrypt(input('password'))
+        //'password' => bcrypt($request->input('password'))
+        'password'=>$request->input('password')
+        
+    ]); 
+    
+    $cliente->save();   
+    return response()->json(['mensaje' => 'Cliente registrado con éxito'],201);
+    }*/
+    public function store(Request $request)
+{
+    // Validar los datos del formulario
+    $validatedData = $request->validate([
+        'codprod' => 'required',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'correo' => 'required|email|unique:clientes',
+        'password' => 'required|min:6',
     ]);
 
-    $cliente->save();
-    
-    return response()->json(['success', 'cliente creado correctamente']);
-    }
+    // Crear un nuevo cliente
+    $cliente = new cliente([
+        'codprod' => $validatedData['codprod'],
+        'nombre' => $validatedData['nombre'],
+        'apellido' => $validatedData['apellido'],
+        'correo' => $validatedData['correo'],
+        'password' => bcrypt($validatedData['password']),
+    ]);
 
+    // Guardar el cliente en la base de datos
+    $cliente->save();
+
+    // Retornar una respuesta de éxito
+    return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
+}
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $cliente = cliente::find($id);
-        //return view('clientes.show', compact('cliente'));
+        //return response()->json($cliente); 
         return cliente::find($id);
     }
+
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
         $cliente = cliente::find($id);
-        //return view('clientes.edit', compact('cliente'));
-        return cliente::find($id);
+        return view('clientes.edit', compact('cliente')); 
     }
 
     /**
@@ -70,11 +87,24 @@ class clienteController extends Controller
         $cliente->nombre = $request->input('nombre');
         $cliente->apellido = $request->input('apellido');
         $cliente->correo = $request->input('correo');
-        $cliente->password = $request->input('password');
-
+        $cliente->password = bcrypt($request->input('password')); 
         $cliente->save();
 
-        return response()->json(['mensaje' => 'datos  actualizados']);
+        return response()->json(['mensaje' => 'datos actualizados']); 
+    }
+    
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('correo', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // La autenticación fue exitosa
+            return response()->json(['mensaje' => 'Inicio de sesión exitoso']);
+        } else {
+            // La autenticación falló
+            return response()->json(['mensaje' => 'Credenciales incorrectas'], 401);
+        }
     }
 
 
@@ -86,6 +116,7 @@ class clienteController extends Controller
         $cliente = cliente::find($id);
         $cliente->delete();
 
-        return response()->json(['mensaje' => 'cliente eliminado'], 200);
+        return response()->json(['mensaje' => 'cliente eliminado'], 200); 
     }
+
 }

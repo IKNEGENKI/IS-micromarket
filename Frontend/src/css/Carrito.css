@@ -1,30 +1,140 @@
 .carrito-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 375px;
-    background-color: #ffffff;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 455px;
+  background-color: #ffffff;
+  height: 100%;
+}
 
-  .carrito-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+.carrito-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 
-  .carrito-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-    
-  .modal-header {
-    background-color: #674188;
-  }
+.carrito-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   
+}
+
+.modal-header {
+  background-color: #674188;
+}
+
+.modal-body {
+  
+  height: 500px;
+  
+}
+
+#card {
+  background: #ebc1ee;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #df99f8;
+  width: 95%;
+
+}
+
+.costo{
+  background: #ebc1ee;
+  color: black;
+  border-color: #df99f8;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border-style: solid;
+}
+
+
+
+.lista {
+  display: block;
+  align-items: center;
+  
+  height: 100%; /* Ajusta la altura según tus necesidades */
+  overflow: auto;
+  
+}
+
+
+.basura {
+ position: relative;
+
+}
+
+.contenido img {
+  width: 150px;
+  height: 100%;
+  margin: 0px;
+  border-radius: 15px;
+  border-style: solid;
+}
+.imagen{
+  margin-right: 0%;
+  border-radius: 15px;
+  border-style: solid;
+
+}
+.precio{
+  width: 70%;
+margin-left: 4%;
+}
+.precio p{
+  font-size: 20px;
+  left: 0px;
+  margin-right: 20%;
+}
+.contenido {
+
+  display: flex;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+
+  padding: 10px;
+  overflow: auto;
+}
+.modal-footer{
+  margin: 0px;
+  padding: 0px;
+margin-top: 2%;
+}
+.primero{
+  display: flex;
+  position: relative;
+ font-size: 25px;
+ padding: 0px;
+ margin: 0px;
+ margin-top: 10px;
+ margin-left: 18%;
+}
+.segundo {
+  display: flex;
+  position: relative;
+ font-size: 25px;
+ padding: 0px;
+ margin: 0px;
+
+ margin-left: 18%;
+
+}
+.preciosub{
+  margin-left: 16%;
+}
+.preciodescuento{
+  margin-left: 7%;
+}
+.preciototal{
+
+  margin-left: 29%;
+}
