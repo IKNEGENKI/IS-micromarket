@@ -74,7 +74,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                             </NavLink>
                         </a>
                         <a href="#">
-                            < NavLink to="/OfertasCli" >
+                            < NavLink to="/Ofertas" >
                               
                                 <a class="text nav-text" id="cat">OFERTAS</a>
                             </NavLink>
