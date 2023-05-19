@@ -61,7 +61,6 @@ class ModificarProducto extends Component {
       ) { 
         await this.updateProducto();
         this.props.isClose();
-        window.location.reload()
       }
   }
 
