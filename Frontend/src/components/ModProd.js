@@ -130,7 +130,6 @@ class ModificarProducto extends Component {
                 value={this.state.nombre}
                 onChange={this.handleNombreChange}
               />
-              {/* Mostrar mensaje de error si el nombre no es válido */}
               {nombreValido === false && <p className="mensaje-error">El nombre debe contener de 2 a 20 caracteres entre números, letras y espacios.</p>}
             </div>
 
@@ -144,7 +143,6 @@ class ModificarProducto extends Component {
                 value={this.state.desc}
                 onChange={this.handleDescChange}
               />
-              {/* Mostrar mensaje de error si el nombre no es válido */}
               {descValido === false && <p className="mensaje-error">La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ().</p>}
             </div>
 
@@ -158,7 +156,6 @@ class ModificarProducto extends Component {
                 value={this.state.precio}
                 onChange={this.handlePrecioChange}
               />
-              {/* Mostrar mensaje de error si el nombre no es válido */}
               {precioValido === false && <p className="mensaje-error">El precio solo puede contener números enteros o si se quiere ingresar un número decimal se puede poner un carácter especial (.) y dos decimales.</p>}
             </div>
 
@@ -172,7 +169,6 @@ class ModificarProducto extends Component {
                 value={this.state.marca}
                 onChange={this.handleMarcaChange}
               />
-              {/* Mostrar mensaje de error si el nombre no es válido */}
               {marcaValido === false && <p className="mensaje-error">La marca solo debe tener caracteres numéricos y letras, y entre 2 a 15 caracteres.</p>}
             </div>
 
