@@ -113,7 +113,7 @@ class ModificarProducto extends Component {
     const formularioValido = nombreValido && precioValido && marcaValido && descValido;
 
     return (
-      <div className="stocki">
+    <div className="modpro">
         <div className="modal-content">
           <Modal.Header closeButton onClick={isClose}>
             <h4 className="modal-title">Modificar Producto</h4>
