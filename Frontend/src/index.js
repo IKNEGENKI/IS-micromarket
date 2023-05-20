@@ -25,7 +25,7 @@ reportWebVitals();
 
 /* ------------ barra js-------------*/
 
-const body = document.querySelector('body'),
+/*const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
       searchBtn = body.querySelector(".search-box"),
@@ -50,7 +50,7 @@ modeSwitch.addEventListener("click" , () =>{
         modeText.innerText = "Dark mode";
         
     }
-});
+});*/
 /*----------------barra js-------------*/
 /*-----------------recibir imagenes-----------*/
 
@@ -171,3 +171,18 @@ if(imageUploader){
 
 /*--------------------------------------------- */
 
+/*const $btnSignIn = document.querySelector('.sign-in-btn'),
+$btnSignUp = document.querySelector('.sign-up-btn'),
+$SignIn = document.querySelector('.sign-in'),
+$SignUp = document.querySelector('.sign-up');
+
+document.addEventListener("click", cambiar)
+
+const cambiar = (e) => {
+    if (e.target === $btnSignUp || e.target === $btnSignIn) {
+        $SignIn.classList.toggle('active')
+        $SignUp.classList.toggle('active')
+    }
+}*/
+
+//export default cambiar;

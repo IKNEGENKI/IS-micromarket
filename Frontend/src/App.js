@@ -35,6 +35,9 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
+import {Registro} from './components/Registro';
+import {RegistarCliente} from './components/RegistarCliente';
+import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
 import React, { useState } from "react";
 function App() {
@@ -45,13 +48,13 @@ function App() {
   }
   return (
 
-    <div>
+    /*<div center>
     {navbarCliente ? (
        <BrowserRouter>
        <SideMenu toggleNavbar={toggleNavbar}/>
          <Routes>
            <Route exact path="/" element={<Home/>}/>
-           <Route exact path="/home" element={<Home/>}/>
+           <Route exact path="/home" element={<RegistarCliente/>}/>
            <Route exact path="/eliminarProducto" element={<Delete/>}/>
            <Route exact path="/listaProducto" element={<Lista/>}/>
            <Route exact path="/modificarDatosN" element={<ModificarNegocio/>}/>
@@ -67,7 +70,7 @@ function App() {
       <ClienteNavbar toggleNavbar={toggleNavbar}/>
         <Routes>
         <Route exact path="/" element={<HomeCliente/>}/>
-           <Route exact path="/home" element={<HomeCliente/>}/>
+           <Route exact path="/homeC" element={<HomeCliente/>}/>
            <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
            <Route exact path="/Bebidas" element={<Bebidas/>}/>
            <Route exact path="/BebidasA" element={<BebidasA/>}/>
@@ -87,11 +90,19 @@ function App() {
         </Routes>
     
       </BrowserRouter>
-    )}
-    {/* otros componentes de la página */}
-  </div>
-    
+    )}*/
+    //{/* otros componentes de la página */}
+  //</div>
+    <BrowserRouter>
+      <Routes>
+      <Route exact path="/" element={<RegistarCliente/>}/>
+      <Route exact path="/login" element={<LoginC/>}/>
+        <Route exact path="/registro" element={<RegistarCliente/>}/>
+        
+        
+      </Routes>
   
+    </BrowserRouter>
   );
 }
 

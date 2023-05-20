@@ -25,7 +25,7 @@ const Label = styled.label`
 	font-weight: 700;
 	padding: 10px;
 	min-height: 40px;
-	cursor: pointer;
+	
 
 	${props => props.valido === 'false' && css`
 		color: ${colores.error};
@@ -130,18 +130,19 @@ const Boton = styled.button`
 
 	height: 45px;
 	line-height: 45px;
-	width: 50%;
-	background: #000;
+	width: 100px;
+    background-color: #ab61e7f4;
 	color: #fff;
 	font-weight: bold; 
 	border: none;
-	border-radius: 3px;
+	border-radius: 10px;
 	cursor: pointer;
 	transition: .1s ease all;
 	
 	text-align:center;
 	&:hover {
 		box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+		background-color: #9239dbf4;
 	}
 `;
 
