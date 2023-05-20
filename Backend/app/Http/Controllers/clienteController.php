@@ -14,7 +14,7 @@ class clienteController extends Controller
         $cliente = cliente::all();
         //return response()->json($clientes);
         //return cliente::find($id);
-        return $clientes;
+        return $cliente;
     }
   
    /* public function store(Request $request)
