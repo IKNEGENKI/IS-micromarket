@@ -35,9 +35,9 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
-import {default as Ofertas} from './components/pagescli/Ofertas'
 import "./elementos/modal.js"
 import React, { useState } from "react";
+import Ofertas from './components/pagescli/Ofertas';
 function App() {
   const [navbarCliente, setNavbarCliente] = useState(true);
 

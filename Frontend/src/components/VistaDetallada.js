@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Boton} from '../elementos/MiniForm';
 import '../css/VistaDetallada.css';
 import axios from 'axios';
-
+import agregarCarrito from "./agregarCarrito";
 class VistaDetallada extends Component {
   constructor(props) {
     super(props);
@@ -12,12 +12,14 @@ class VistaDetallada extends Component {
       stock: null,
     };
     this.getProductos = this.getProductos.bind(this);
+    this.agregarAlCarrito= this.agregarAlCarrito.bind(this);
+    
   }
 
   componentDidMount(){
-    this.getProductos();  
+    this.getProductos(); 
+    
   }
-
   getProductos=async()=>{
     await axios.get('http://127.0.0.1:8000/api/getProductos')
     .then(res=>{
@@ -32,6 +34,36 @@ class VistaDetallada extends Component {
         console.log(error);
     });
 }
+
+agregarAlCarrito = async (cod,cantidad,costo) => {
+	const newVenta = {
+	  codprod: cod,
+	  cantidadprod: cantidad,
+	  costodetalle: costo,
+    url:"http://127.0.0.1:8000/api/detalle_venta.store ",
+	};
+  
+	console.log(newVenta);
+  
+	try {
+	  const response = await fetch(this.state.url, {
+		method: 'POST',
+		body: JSON.stringify(newVenta),
+		headers: {
+		  'Content-Type': 'application/json',
+		},
+	  });
+  
+	  if (response.ok) {
+		const data = await response.json();
+		console.log(data); 
+  	  } else {
+		throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+	  }
+	} catch (error) {
+	  console.error(error);
+	}
+  };
 
   render() {
     const { isClose } = this.props;
@@ -64,7 +96,7 @@ class VistaDetallada extends Component {
                 {selectOptions}
               </select>
 
-          <Boton type="button" id="agregar" className="btn" onClick={isClose}> Agregar al Carrito </Boton>
+          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod, product.precio, product.stock)}> Agregar al Carrito </Boton>
           </center>
         </div>
       </div>

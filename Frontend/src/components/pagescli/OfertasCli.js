@@ -1,8 +1,11 @@
+
 import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
+import { Boton } from "../../elementos/Formularios";
+import VistaDetallada from "../VistaDetallada";
 
-class OfertasCli extends  Component{
+class Oferta2 extends  Component{
     
     constructor(props){
         super(props);
@@ -25,13 +28,27 @@ class OfertasCli extends  Component{
        
     }
     getProductos=async()=>{
-        await axios.get('http://127.0.0.1:8000/api/getProductos')
+        await axios.get('http://127.0.0.1:8000/api/getOferta')
         .then(res=>{
-            this.setState({productos: res.data});
+            this.setState({productos: res.data.producto});
             console.log(res.data)
         }).catch((error)=>{
             console.log(error);
         });
+
+        /*this.state.productos.sort((o1, o2) =>{
+            if(o1.producto < o2.producto){
+                return -1;
+            }else{
+                if(o1.producto > o2.producto){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+    })
+
+    console.log(this.state.productos);*/
     }
     
     
@@ -39,12 +56,13 @@ class OfertasCli extends  Component{
         window.location.href = '/home';
     }
     
-    openModal = (producto,canti,cod) => {
-        this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
-       
-    }
-
+    openModal = (producto) => {
+        this.setState({ showModal: true, productoSelec: producto });
+      }
     
+    closeModal = () => {
+        this.setState({ showModal: false });
+      }
     
     render(){
         
@@ -69,39 +87,41 @@ class OfertasCli extends  Component{
                                     return 0;
                                 }
                             }
-                    })
-                        .map((product,index)=>{
-                           if(product.codcat==9){ 
-                            return(
-                            <div class="producto" id = "tarjetas">
-                            <center>
-								              <div >
-                             <center>
-                                <h2>{product.producto}</h2>
-                                <br></br>
-									              <img  src={product.image}/>
-                                <br></br><br></br>
-                                <p>{product.desc} </p>
-                                <p>Bs. {product.precio} </p>
-                             </center>
-							            	</div>
-                            </center>
-                             </div>
-                            )
-                           }
-                           
-                        }
-                        )
                     }
-                 
-                
-        
-        
-           </body>
-        
-        )
+                        ).map((product,index)=>{
+                           if(product.codcat==10){ 
+                            return(
+                                <div class="producto" id = "tarjetas" onClick={() => this.openModal(product,product.codprod)}>
+                                <center>
+                                <div >
+                                <center>
+                                    <h2>{product.nombre}</h2>
+                                    <img  src={product.image}/>
+                                    <p>Bs. {product.precioventa} </p>
+                                    <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
+                                </center>
+                                </div>
+                                </center>
+                                 </div>
+                                )
+                               }
+                               
+                            }
+                            )
+                        }
+                     
+                    
+                     {this.state.showModal && (
+                                                <VistaDetallada
+                                                    isClose={this.closeModal}
+                                                    producto={this.state.productoSelec}
+                                                    codigo={this.codigoP}
+                                                />
+                                                )}
+            
+               </body>
+            
+            )
+        }
     }
-}
-
-
-export default OfertasCli
+export default Oferta2;
