@@ -22,9 +22,16 @@ class detalle_ventaController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-    }
+{
+    // Obtener todos los productos para mostrar en el formulario de creación
+    $productos = DB::table('producto')->get();
+
+    // Convertir los productos a formato JSON
+    $productosJson = json_encode($productos);
+
+    // Devolver una respuesta JSON con los productos
+    return response()->json($productosJson);
+}
 
     /**
      * Store a newly created resource in storage.

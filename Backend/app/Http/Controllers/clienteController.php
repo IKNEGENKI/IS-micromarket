@@ -14,17 +14,16 @@ class clienteController extends Controller
         $clientes = cliente::all();
         //return response()->json($clientes);
         //return cliente::find($id);
-        //return $cliente;
+        return $clientes;
     }
   
-    /*public function store(Request $request)
+   /* public function store(Request $request)
     {
     $cliente = new cliente([
         'codprod' => $request->input('codprod'),
         'nombre' => $request->input('nombre'),
         'apellido' => $request->input('apellido'),
         'correo' => $request->input('correo'),
-        //'password' => bcrypt($request->input('password'))
         'password'=>$request->input('password')
         
     ]); 
@@ -32,35 +31,53 @@ class clienteController extends Controller
     $cliente->save();   
     return response()->json(['mensaje' => 'Cliente registrado con éxito'],201);
     }*/
+
+
+
+    /*public function store(Request $request)
+    {
+        $cliente = cliente::firstOrCreate(
+            ['correo' => $request->input('correo')],
+            [
+                'codprod' => $request->input('codprod'),
+                'nombre' => $request->input('nombre'),
+                'apellido' => $request->input('apellido'),
+                'password' => $request->input('password')
+            ]
+        );
+    
+        if ($cliente->wasRecentlyCreated) {
+            return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
+        } else {
+            return response()->json(['mensaje' => 'Cliente ya existe'], 409);
+        }
+    }*/
+
     public function store(Request $request)
-{
-    // Validar los datos del formulario
-    $validatedData = $request->validate([
-        'codprod' => 'required',
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'correo' => 'required|email|unique:clientes',
-        'password' => 'required|min:6',
-    ]);
-
-    // Crear un nuevo cliente
-    $cliente = new cliente([
-        'codprod' => $validatedData['codprod'],
-        'nombre' => $validatedData['nombre'],
-        'apellido' => $validatedData['apellido'],
-        'correo' => $validatedData['correo'],
-        'password' => bcrypt($validatedData['password']),
-    ]);
-
-    // Guardar el cliente en la base de datos
-    $cliente->save();
-
-    // Retornar una respuesta de éxito
-    return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
-}
-    /**
-     * Display the specified resource.
-     */
+    {
+        $cliente = cliente::where('nombre', $request->input('nombre'))
+            ->where('apellido', $request->input('apellido'))
+            ->orWhere('correo', $request->input('correo'))
+            ->orWhere('password', $request->input('password'))
+            ->first();
+    
+        if ($cliente) {
+            return response()->json(['mensaje' => 'Cliente ya existe'], 409);
+        }
+    
+        $cliente = new cliente([
+            'codcliente' => $request->input('codcliente'),
+            'nombre' => $request->input('nombre'),
+            'apellido' => $request->input('apellido'),
+            'correo' => $request->input('correo'),
+            'password' => $request->input('password')
+        ]);
+    
+        $cliente->save();
+    
+        return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
+    }
+    
     public function show(string $id)
     {
         $cliente = cliente::find($id);
@@ -74,7 +91,7 @@ class clienteController extends Controller
     public function edit(string $id)
     {
         $cliente = cliente::find($id);
-        return view('clientes.edit', compact('cliente')); 
+        return view('editCliente', compact('cliente')); 
     }
 
     /**

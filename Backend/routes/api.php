@@ -9,6 +9,8 @@ use App\Http\Controllers\tiendasController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\ofertaController;
 use App\Http\Controllers\clienteController;
+use App\Http\Controllers\ventaController;
+use App\Http\Controllers\detalle_ventaController;
 
 
 /*
@@ -50,10 +52,10 @@ Route::put('/putTiendas/{codtienda}', [tiendasController::class,'update']);
 
 //RUTAS PARA INGRESAR, MODIFICAR, ELIMINAR PRODUCTOS DESDE FORMULARIO
 Route::get('/getProductos',[productosController::class,'index']);
+Route::get('/obtenerProductos/{codprod}',[productosController::class,'show']);
 Route::post('/postProductos', [productosController::class,'store']);
 Route::delete('/delProductos/{codprod}', [productosController::class,'destroy']);
 Route::put('/putProductos/{codprod}', [productosController::class,'update']);
-Route::get('/obtenerProducto/{codprod}',[productosController::class,'show']);
 
 
 
@@ -80,9 +82,20 @@ Route::put('/putStock/{id}', [stockController::class,'update']);
 
 
 //RUTAS PARA AGREGAR CLIENTE
-
 Route::get('/getCliente',[clienteController::class,'index']);
-Route::post('/postCliente', [clienteController::class,'store']);
+Route::post('/postCliente', [clienteController::class, 'store']);
 Route::delete('/delCliente/{id}',[clienteController::class,'destroy']);
 Route::put('/putCliente/{id}', [clienteController::class,'update']);
 
+//RUTAS PARA AGREGAR VENTA
+Route::get('/getVenta',[ventaController::class,'index']);
+Route::post('/postDenta', [ventaController::class,'store']);
+Route::delete('/delVenta/{id}',[ventaController::class,'destroy']);
+Route::put('/putVenta/{id}', [ventaController::class,'update']);
+Route::post('/crearVenta/{id}/{id2}', [ventaController::class,'crearVenta']);
+
+//RUTAS PARA AGREGAR DETALLE_VENTA
+Route::get('/getDetalle_venta',[detalle_ventaController::class,'index']);
+Route::post('/postDetalle_venta', [detalle_ventaController::class,'store']);
+Route::delete('/delDetalle_venta/{id}',[detalle_ventaController::class,'destroy']);
+Route::put('/putDetalle_venta/{id}', [detalle_ventaController::class,'update']);
