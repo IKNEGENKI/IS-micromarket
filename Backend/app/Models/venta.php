@@ -3,15 +3,15 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-//use App\Models\detalle_venta;
-//use App\Models\cliente;
+use App\Models\detalle_venta;
+use App\Models\cliente;
 class venta extends Model
 {
     use HasFactory;
     protected $table = 'venta';
     protected $primaryKey = 'codventa';
     protected $fillable = ['codetalle','costototal','codcliente'];
-    //public $timestamps = false;    
+    public $timestamps = False;    
     
     public function detallesVenta()
     {
