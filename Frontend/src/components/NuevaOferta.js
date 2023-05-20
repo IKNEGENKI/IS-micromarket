@@ -57,6 +57,13 @@ export const NuevaOferta = () => {
     return prods;
 
   }
+
+  
+
+  //recuperamos datos de un solo producto, por eso le pasamos parametro de entrada codprod// 
+  // la API  obtenerProducto devuelve la informacion de un solo producto, llamandolo por su key//
+
+  //getImg retorna la constante img 
   async function getImg(codprod) {
     try {
       const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProducto/${codprod}`);
@@ -69,6 +76,11 @@ export const NuevaOferta = () => {
       return null;
     }
   }
+
+  //recuperamos datos de un solo producto, por eso le pasamos parametro de entrada codprod// 
+  // la API  obtenerProducto devuelve la informacion de un solo producto, llamandolo por su key//
+
+   //getProd recupera el nombre del producto
 
   async function getProd(codprod) {
     try {
@@ -99,6 +111,7 @@ export const NuevaOferta = () => {
 			fin != null
 				
 			){ /*mismo del controller*/
+      //aqui asignamos valores recuperandolos en getImg y GetProd///
       const img = await getImg(valor.value);
       const prod = await getProd(valor.value);
 

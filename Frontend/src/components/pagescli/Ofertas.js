@@ -30,7 +30,7 @@ class Ofertas extends  Component{
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getOferta')
         .then(res=>{
-            this.setState({productos: res.data.oferta});
+            this.setState({productos: res.data.ofeta});
             console.log(this.state.productos.codcat)
         }).catch((error)=>{
             console.log(error);

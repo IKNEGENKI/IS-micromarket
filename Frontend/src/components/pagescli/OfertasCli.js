@@ -5,7 +5,7 @@ import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
 import VistaDetallada from "../VistaDetallada";
 
-class Lacteos extends  Component{
+class Oferta2 extends  Component{
     
     constructor(props){
         super(props);
@@ -124,4 +124,4 @@ class Lacteos extends  Component{
             )
         }
     }
-export default Lacteos;
+export default Oferta2;
