@@ -15,6 +15,7 @@ class BebidasA extends  Component{
             productoSelec:"",
             cantidad:0,
             codigoP:-1,
+            hoveredCard: false,
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -50,7 +51,13 @@ class BebidasA extends  Component{
         this.setState({ showModal: false });
       }
 
-    
+      handleCardMouseEnter = () => {
+        this.setState({ hoveredCard: true });
+    };
+      
+    handleCardMouseLeave = () => {
+        this.setState({ hoveredCard: false });
+    };
     
     render(){
         
@@ -79,14 +86,19 @@ class BebidasA extends  Component{
                         .map((product,index)=>{
                            if(product.codcat==3){ 
                             return(
-                                <div class="producto" id = "tarjetas" onClick={() => this.openModal(product,product.codprod)}>
+                                <div class="producto" id = "tarjetas" 
+                                onMouseEnter={this.handleCardMouseEnter}
+                                onMouseLeave={this.handleCardMouseLeave}
+                                onClick={() => this.openModal(product,product.codprod)}>
                                 <center>
                                 <div >
                                 <center>
                                     <h2>{product.producto}</h2>
                                     <img  src={product.image}/>
                                     <p>Bs. {product.precio} </p>
-                                    <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
+                                    <Boton type="button" id="borrarP" className="btn"
+                                    style={{ display: this.state.hoveredCard ? "block" : "none" }}
+                                    > Ver </Boton>
                                 </center>
                                 </div>
                                 </center>

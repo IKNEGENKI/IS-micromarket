@@ -40,9 +40,10 @@ agregarAlCarrito = async (cod,cantidad,costo) => {
 	  codprod: cod,
 	  cantidadprod: cantidad,
 	  costodetalle: costo,
+    url:"http://127.0.0.1:8000/api/detalle_venta.store ",
 	};
   
-	console.log(newVenta); // Verifica si las propiedades se pasan correctamente
+	console.log(newVenta);
   
 	try {
 	  const response = await fetch(this.state.url, {
@@ -55,8 +56,8 @@ agregarAlCarrito = async (cod,cantidad,costo) => {
   
 	  if (response.ok) {
 		const data = await response.json();
-		console.log(data); // Puedes realizar alguna acción con los datos de la respuesta de la API aquí
-	  } else {
+		console.log(data); 
+  	  } else {
 		throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
 	  }
 	} catch (error) {
@@ -95,7 +96,7 @@ agregarAlCarrito = async (cod,cantidad,costo) => {
                 {selectOptions}
               </select>
 
-          <Boton type="button" id="agregar" className="btn" > Agregar al Carrito </Boton>
+          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod, product.precio, product.stock)}> Agregar al Carrito </Boton>
           </center>
         </div>
       </div>

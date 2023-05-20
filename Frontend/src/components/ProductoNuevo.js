@@ -155,7 +155,7 @@ export const ProductoNuevo = () =>{
                 
 		    	const postProducto = async (url, newProducto) => {
 					const response = await fetch(url, {
-                        
+                        //mode: 'no-cors',
 						method: 'POST',
 						body: JSON.stringify(newProducto),
 						headers: {
