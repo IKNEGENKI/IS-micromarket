@@ -21,9 +21,18 @@ class productosController extends Controller
         //return response()->json(['producto' => $producto], 200);
     }
 
-    public function create(Request $request)
+    public function show($id)
     {
-      //
+        // Buscar el producto en la base de datos por su ID
+        $producto = producto::find($id);
+
+        // Verificar si el producto. existe
+        if (!$producto) {
+            return response()->json(['mensaje' => 'Producto no encontrado'], 404);
+        }
+
+        // Retornar el producto como respuesta
+        return response()->json(['producto' => $producto], 200);
     }
 
 
@@ -50,7 +59,7 @@ class productosController extends Controller
     $count = producto::whereRaw('LOWER(producto) ilike ?', ["{$producto}%"])
     ->count();
     if ($count > 0) {
-        return response()->json(['mensaje' => 'El oroducto ya existe'], 409);
+        return response()->json(['mensaje' => 'El producto ya existe'], 409);
     } else {
         $producto = new producto([
         'producto' => $request->input('producto'),

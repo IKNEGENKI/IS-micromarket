@@ -32,7 +32,10 @@ class ofertaController extends Controller
             'desc' => $request->input('desc'),
             'fechaini' => $request->input('fechaini'),
             'fechafin' => $request->input('fechafin'),
-            'precioventa' => $request->input('precioventa')
+            'precioventa' => $request->input('precioventa'),
+            'estado'=>$request->input('estado'),
+            'nombre'=>$request->input('nombre'),
+            'image'=>$request->input('image')
         ]);
         
         $oferta->save();
@@ -62,6 +65,9 @@ class ofertaController extends Controller
     $oferta->fechaini = $request->input('fechaini');
     $oferta->fechafin = $request->input('fechafin');
     $oferta->precioventa = $request->input('precioventa');
+    $oferta->estado = $request->input('estado');
+    $oferta->nombre = $request->input('nombre');
+    $oferta->image = $request->input('image');
     // Guardar los cambios en la base de datos
     $oferta->save();
     // Retornar una respuesta de éxito

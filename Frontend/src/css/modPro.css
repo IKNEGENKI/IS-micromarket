@@ -9,3 +9,11 @@ p{
     object-fit: contain;
   }
   
+  .modpro{
+    position: fixed;
+    top: 50%;
+    left: 73%;
+    transform: translate(-50%, -35%);
+    height: 140%;
+    width: 70%;
+   }

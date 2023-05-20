@@ -13,6 +13,12 @@ const Formulario = styled.form`
     background: #faf7f0;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
+	border: 1px solid transparent;
+    border-color: #000000;
+	border-radius: 10px;
+	padding: 30px;
+	line-height: 45px;
+	
     
 	@media (max-width: 800px){
 		grid-template-columns: 1fr;

@@ -35,6 +35,7 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
+import {default as Ofertas} from './components/pagescli/Ofertas'
 import {Registro} from './components/Registro';
 import {RegistarCliente} from './components/RegistarCliente';
 import {LoginC} from './components/LoginC';
@@ -70,7 +71,7 @@ function App() {
       <ClienteNavbar toggleNavbar={toggleNavbar}/>
         <Routes>
         <Route exact path="/" element={<HomeCliente/>}/>
-           <Route exact path="/homeC" element={<HomeCliente/>}/>
+           <Route exact path="/home" element={<HomeCliente/>}/>
            <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
            <Route exact path="/Bebidas" element={<Bebidas/>}/>
            <Route exact path="/BebidasA" element={<BebidasA/>}/>

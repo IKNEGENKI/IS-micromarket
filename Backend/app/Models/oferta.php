@@ -12,7 +12,7 @@ class oferta extends Model
     
     protected $table = 'oferta';
     protected $primaryKey = 'codoferta';
-    protected $fillable = ['codprod','desc','fechaini','fechafin','precioventa'];
+    protected $fillable = ['codprod','desc','fechaini','fechafin','precioventa','estado','nombre','image'];
     public $timestamps = false;
     
     public function oferta(){

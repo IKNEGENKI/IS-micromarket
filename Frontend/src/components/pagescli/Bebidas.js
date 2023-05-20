@@ -3,6 +3,7 @@ import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
+import VistaDetallada from "../VistaDetallada";
 
 class Bebidas extends  Component{
     
@@ -14,6 +15,7 @@ class Bebidas extends  Component{
             productoSelec:"",
             cantidad:0,
             codigoP:-1,
+            hoveredCard: false,
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -41,12 +43,21 @@ class Bebidas extends  Component{
         window.location.href = '/home';
     }
     
-    openModal = (producto,canti,cod) => {
-        this.setState({ showModal: true, productoSelec: producto, cantidad:canti ,codigoP:cod});
-       
-    }
-
+    openModal = (producto) => {
+        this.setState({ showModal: true, productoSelec: producto });
+      }
     
+    closeModal = () => {
+        this.setState({ showModal: false });
+      }
+
+    handleCardMouseEnter = () => {
+        this.setState({ hoveredCard: true });
+    };
+      
+    handleCardMouseLeave = () => {
+        this.setState({ hoveredCard: false });
+    };
     
     render(){
         
@@ -75,15 +86,19 @@ class Bebidas extends  Component{
                         .map((product,index)=>{
                            if(product.codcat==2){ 
                             return(
-                            <div class="producto" id = "tarjetas">
+                            <div class="producto" id = "tarjetas" 
+                            onMouseEnter={this.handleCardMouseEnter}
+                            onMouseLeave={this.handleCardMouseLeave}
+                            onClick={() => this.openModal(product,product.codprod)}>
                             <center>
                             <div >
                             <center>
                                 <h2>{product.producto}</h2>
                                 <img  src={product.image}/>
-                                <p>{product.desc} </p>
                                 <p>Bs. {product.precio} </p>
-                                <Boton type="button" id="borrarP" className="btn"> Agregar </Boton>
+                                <Boton type="button" id="borrarP" className="btn"
+                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
+                                > Agregar </Boton>
                             </center>
                             </div>
                             </center>
@@ -96,7 +111,13 @@ class Bebidas extends  Component{
                     }
                  
                 
-        
+                 {this.state.showModal && (
+                                            <VistaDetallada
+                                                isClose={this.closeModal}
+                                                producto={this.state.productoSelec}
+                                                codigo={this.codigoP}
+                                            />
+                                            )}
         
            </body>
         

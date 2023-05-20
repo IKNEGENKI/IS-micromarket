@@ -45,70 +45,6 @@ export const ProductoNuevo = () =>{
 		categoria: /^[a-zA-Z]{1,2}([a-zA-ZÀ-ÿ0-9\s]{1,18})$/, // Letras y espacios, pueden llevar acentos.
 	}
 
-    /*const handleSubmit = (event) => {
-        event.preventDefault();
-       
-      
-      
-        handleReset();
-      };
-    
-      const handleReset = () => {
-        setNombre("");
-          setCategoria("");
-          setPrecio("");
-          setCodigo("");
-          setMarca("");
-          setDescripcion("");
-        
-        window.location.href = '/home';
-      };*/
-	 /* const { handleSubmit, resetForm, values, touched} = useFormik({
-        initialValues: {
-            producto: '',
-            codigo: '',
-            categoria: '',
-            descripcion: '',
-            precio: '',
-			marca: '',
-        },
-
-        //validationSchema: formValidationSchema,
-
-        onSubmit: (values, { setSubmitting, resetForm }) => {
-            registrarProducto();
-
-            setSubmitting(true);
-            setTimeout(() => {
-                //resetForm();
-                setSubmitting(false);
-            }, 4000);
-        },
-    });*/
-	// asignacion de variables de entrada a variable de BD
-	/*const newProducto={
-		producto: producto.campo,
-		marca: marca.campo,
-		descripcion: descripcion.campo,
-		precio: precio.campo,
-		image: images.values,
-		codcat: 12,
-		
-	}*/
-
-	/*const postProducto = async (url, newProducto) => {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(newProducto),
-            headers: {
-				
-                'Content-Type': 'application/json'
-            }
-			
-        });
-
-        return response;
-    }*/
 	
 	function cod_cat(){
 		if(select_cat.value == "2"){
@@ -219,12 +155,11 @@ export const ProductoNuevo = () =>{
                 
 		    	const postProducto = async (url, newProducto) => {
 					const response = await fetch(url, {
-
+                        //mode: 'no-cors',
 						method: 'POST',
 						body: JSON.stringify(newProducto),
 						headers: {
-						  'Access-Control-Allow-Origin': '*',
-						  'Content-Type': 'application/json',
+								  'Content-Type': 'application/json',
 						}
 						//withCredentials: true,
 						//credentials: 'same-origin',
@@ -249,7 +184,7 @@ export const ProductoNuevo = () =>{
 
 				console.log("Response:------> " + respuestaJson.status);
 			   
-				if( respuestaJson.status === 409 || respuestaJson.status === 500){
+				if( respuestaJson.status === 409 ||  respuestaJson.status === 500){
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
@@ -515,7 +450,7 @@ export const ProductoNuevo = () =>{
 					
 					</MensajeError>}
 						<center>
-						<Boton id= "guardarP" type="submit" onClick={onSubmit} s> Guardar </Boton>
+						<Boton id= "guardarP" type="submit" onClick={onSubmit} > Guardar </Boton>
 						</center>
 						<center>
 						<Boton id= "borrarP"  type="button" onClick={handleReset} className="btn mx-5"> Cancelar </Boton>
