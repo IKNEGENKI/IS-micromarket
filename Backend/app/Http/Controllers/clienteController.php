@@ -34,7 +34,7 @@ class clienteController extends Controller
 
 
 
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $cliente = cliente::firstOrCreate(
             ['correo' => $request->input('correo')],
@@ -51,36 +51,33 @@ class clienteController extends Controller
         } else {
             return response()->json(['mensaje' => 'Cliente ya existe'], 409);
         }
+    }*/
+
+    public function store(Request $request)
+    {
+        $cliente = cliente::where('nombre', $request->input('nombre'))
+            ->where('apellido', $request->input('apellido'))
+            ->orWhere('correo', $request->input('correo'))
+            ->orWhere('password', $request->input('password'))
+            ->first();
+    
+        if ($cliente) {
+            return response()->json(['mensaje' => 'Cliente ya existe'], 409);
+        }
+    
+        $cliente = new cliente([
+            'codcliente' => $request->input('codcliente'),
+            'nombre' => $request->input('nombre'),
+            'apellido' => $request->input('apellido'),
+            'correo' => $request->input('correo'),
+            'password' => $request->input('password')
+        ]);
+    
+        $cliente->save();
+    
+        return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
     }
-
-
-   /* public function store(Request $request)
-{
-    // Validar los datos del formulario
-    $validatedData = $request->validate([
-        'codcliente' => 'required',
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'correo' => 'required|email|unique:clientes',
-        'password' => 'required|min:6',
-    ]);
-
-    // Crear un nuevo cliente
-    $cliente = new cliente([
-        'codcliente' => $validatedData['codcliente'],
-        'nombre' => $validatedData['nombre'],
-        'apellido' => $validatedData['apellido'],
-        'correo' => $validatedData['correo'],
-        'password' => bcrypt($validatedData['password']),
-    ]);
-
-    // Guardar el cliente en la base de datos
-    $cliente->save();
-
-    // Retornar una respuesta de éxito
-    return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
-}*/
- 
+    
     public function show(string $id)
     {
         $cliente = cliente::find($id);
