@@ -3,6 +3,7 @@ import {Formulario, Label, ContenedorTerminos, ContenedorBotonCentrado, Boton, M
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
+import Swal from 'sweetalert2';
 //import '../css/estilos.css';
 //import '../css/registro.css';
 
@@ -17,7 +18,7 @@ export const RegistarCliente = () => {
 	const expresiones = {
 		nombre: /^[a-zA-ZÀ-ÿ]{1,30}$/, // Letras y espacios, pueden llevar acentos.
         apellido: /^[a-zA-ZÀ-ÿ]{1,30}$/, // Letras y espacios, pueden llevar acentos.
-		password: /^.{4,12}$/, // 4 a 12 digitos.
+		password: /^.[a-zA-Z0-9_.+-]{1}(.{2,10})$/, // 4 a 12 digitos.
 		correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	}
 
@@ -70,13 +71,29 @@ export const RegistarCliente = () => {
 
 			console.log("Response:------> " + respuestaJson.status);
 
-			cambiarFormularioValido(true);
-			cambiarApellido({campo: '', valido: ''});
-			cambiarNombre({campo: '', valido: null});
-			cambiarPassword({campo: '', valido: null});
-			cambiarCorreo({campo: '', valido: null});
+			if(respuestaJson.status === 409 ||  respuestaJson.status === 500){
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'El cliente ya se encuentra registrado, intenta con otros datos ',
+					//footer: '<a href="">Why do I have this issue?</a>'
+				})
+			}else{
+				cambiarFormularioValido(true);
+				cambiarApellido({campo: '', valido: ''});
+				cambiarNombre({campo: '', valido: null});
+				cambiarPassword({campo: '', valido: null});
+				cambiarCorreo({campo: '', valido: null});
 
-			// ... 
+
+				Swal.fire({
+					icon: 'success',
+					title: '¡Genial!',
+					text: '¡Datos guardados exitosamente!',
+					//footer: '<a href="">Why do I have this issue?</a>'
+				})
+				// ... 
+			}
 		} else {
 			cambiarFormularioValido(false);
 		}

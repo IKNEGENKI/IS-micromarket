@@ -13,7 +13,7 @@ export const LoginC = () => {
 	
 
 	const expresiones = {
-		password: /^.{4,12}$/, // 4 a 12 digitos.
+		password: /^.[a-zA-Z0-9_.+-]{1}(.{2,10})$/, // 4 a 12 digitos.
 		correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	}
 

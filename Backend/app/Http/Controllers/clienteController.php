@@ -11,10 +11,10 @@ class clienteController extends Controller
      */
     public function index()
     {
-        $clientes = cliente::all();
+        $cliente = cliente::all();
         //return response()->json($clientes);
         //return cliente::find($id);
-        //return $cliente;
+        return $cliente;
     }
   
     public function store(Request $request)
