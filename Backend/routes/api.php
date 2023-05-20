@@ -83,17 +83,10 @@ Route::put('/putStock/{id}', [stockController::class,'update']);
 
 //RUTAS PARA AGREGAR CLIENTE
 
-<<<<<<< HEAD
-Route::get('/cliente.index',[clienteController::class,'index']);
-Route::post('/cliente.store', [clienteController::class,'store']);
-Route::delete('/cliente.destroy/{id}',[clienteController::class,'destroy']);
-Route::put('/cliente.update/{id}', [clienteController::class,'update']);
-=======
 Route::get('/getCliente',[clienteController::class,'index']);
 Route::post('/postCliente', [clienteController::class,'store']);
 Route::delete('/delCliente/{id}',[clienteController::class,'destroy']);
 Route::put('/putCliente/{id}', [clienteController::class,'update']);
->>>>>>> 104935e347a80cfa11f5e19e297c95d26e7b1d43
 
 Route::get('/venta.index',[ventaController::class,'index']);
 Route::post('/venta.store', [ventaController::class,'store']);
