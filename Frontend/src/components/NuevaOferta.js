@@ -66,7 +66,7 @@ export const NuevaOferta = () => {
   //getImg retorna la constante img 
   async function getImg(codprod) {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProducto/${codprod}`);
+      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
       const prods1 = response.data.producto;
       const img = response.data.producto.image;
       console.log(prods1);
@@ -84,7 +84,7 @@ export const NuevaOferta = () => {
 
   async function getProd(codprod) {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProducto/${codprod}`);
+      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
       const prods1 = response.data.producto.producto;
       const img = response.data.producto.image;
       console.log(prods1);
