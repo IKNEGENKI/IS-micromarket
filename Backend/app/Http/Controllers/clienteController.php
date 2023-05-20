@@ -14,24 +14,46 @@ class clienteController extends Controller
         $clientes = cliente::all();
         //return response()->json($clientes);
         //return cliente::find($id);
-        //return $cliente;
+        return $clientes;
     }
   
-    public function store(Request $request)
+   /* public function store(Request $request)
     {
     $cliente = new cliente([
         'codprod' => $request->input('codprod'),
         'nombre' => $request->input('nombre'),
         'apellido' => $request->input('apellido'),
         'correo' => $request->input('correo'),
-        //'password' => bcrypt($request->input('password'))
         'password'=>$request->input('password')
         
     ]); 
     
     $cliente->save();   
     return response()->json(['mensaje' => 'Cliente registrado con éxito'],201);
+    }*/
+
+
+
+    public function store(Request $request)
+    {
+        $cliente = cliente::firstOrCreate(
+            ['correo' => $request->input('correo')],
+            [
+                'codprod' => $request->input('codprod'),
+                'nombre' => $request->input('nombre'),
+                'apellido' => $request->input('apellido'),
+                'password' => $request->input('password')
+            ]
+        );
+    
+        if ($cliente->wasRecentlyCreated) {
+            return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
+        } else {
+            return response()->json(['mensaje' => 'Cliente ya existe'], 409);
+        }
     }
+
+
    /* public function store(Request $request)
 {
     // Validar los datos del formulario
