@@ -17,7 +17,7 @@ class clienteController extends Controller
         //return $cliente;
     }
   
-    /*public function store(Request $request)
+    public function store(Request $request)
     {
     $cliente = new cliente([
         'codprod' => $request->input('codprod'),
@@ -31,12 +31,12 @@ class clienteController extends Controller
     
     $cliente->save();   
     return response()->json(['mensaje' => 'Cliente registrado con éxito'],201);
-    }*/
-    public function store(Request $request)
+    }
+   /* public function store(Request $request)
 {
     // Validar los datos del formulario
     $validatedData = $request->validate([
-        'codprod' => 'required',
+        'codcliente' => 'required',
         'nombre' => 'required',
         'apellido' => 'required',
         'correo' => 'required|email|unique:clientes',
@@ -45,7 +45,7 @@ class clienteController extends Controller
 
     // Crear un nuevo cliente
     $cliente = new cliente([
-        'codprod' => $validatedData['codprod'],
+        'codcliente' => $validatedData['codcliente'],
         'nombre' => $validatedData['nombre'],
         'apellido' => $validatedData['apellido'],
         'correo' => $validatedData['correo'],
@@ -57,10 +57,8 @@ class clienteController extends Controller
 
     // Retornar una respuesta de éxito
     return response()->json(['mensaje' => 'Cliente registrado con éxito'], 201);
-}
-    /**
-     * Display the specified resource.
-     */
+}*/
+ 
     public function show(string $id)
     {
         $cliente = cliente::find($id);
