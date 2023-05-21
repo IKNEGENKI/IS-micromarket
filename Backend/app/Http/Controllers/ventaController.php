@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\venta;
+use App\Models\detalle_venta;
+use App\Models\cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,20 +24,24 @@ class ventaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        // Obtener todos los detalles de venta para mostrar en el formulario de creación
-        $detallesVenta = detalle_venta::all();
-
-        // Obtener todos los clientes para mostrar en el formulario de creación
-        $clientes = cliente::all();
-
-        // Retornar una respuesta JSON con los detalles de venta y clientes
-        return response()->json(['detallesVenta' => $detallesVenta, 'clientes' => $clientes]);
-    }
     /**
      * Store a newly created resource in storage.
      */
+    
+    /* public function store(Request $request)
+     {
+         $venta = new venta([
+             'codetalle' => $request->input('codetalle'),
+             'costototal' => $request->input('costototal'),
+             'codcliente' => $request->input('codcliente'),
+             'estadocompra' => $request->input('estadocompra')
+         ]);
+     
+         $venta->save();
+     
+         return response()->json(['mensaje' => 'venta creada correctamente']);
+     }*/
+    
     public function store(Request $request)
     {
         
@@ -72,7 +78,7 @@ class ventaController extends Controller
             return response()->json(['error' => 'Venta no encontrada'], 404);
         }
     }
-    public function crearVenta($clienteId, $detalleVentaId)
+    /*public function crearVenta($clienteId, $detalleVentaId)
     {
         // Obtener el cliente por su ID
         $cliente = cliente::find($clienteId);
@@ -101,7 +107,7 @@ class ventaController extends Controller
         // Resto de la lógica...
 
         return response()->json(['message' => 'Venta creada con éxito']);
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.

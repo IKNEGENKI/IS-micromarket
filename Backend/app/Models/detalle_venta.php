@@ -11,7 +11,7 @@ class detalle_venta extends Model
     protected $table = 'detalle_venta';
     protected $primaryKey = 'codetalle';
     protected $fillable = ['codprod','cantidadprod','costodetalle'];
-    //public $timestamps = false;
+    public $timestamps = false;
 
         public function producto(){
             return $this->hasMany(producto::class,'codprod');

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('fechafin');
             $table->decimal('precioventa', 10, 2);
             $table->integer('estado');
-            $table->String('nombre');
-            $table->String('image');
+            $table->string('nombre');
+            $table->string('image');
 
         });
     }

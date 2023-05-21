@@ -22,7 +22,7 @@ export const NuevaOferta = () => {
 	const [formularioValido, cambiarFormularioValido] = useState(null);
   const valor = document.getElementById('select_prod');
   const URL_PRODUCTO = 'http://127.0.0.1:8000/api/postOferta';
-  
+  var prod = useState({campo: ''});
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10);
     const hoy = new Date();
@@ -30,8 +30,9 @@ export const NuevaOferta = () => {
     // Agregar un año a la fecha actual
     const maxFecha = new Date(hoy.getFullYear() + 1, hoy.getMonth(), hoy.getDate()).toISOString().split('T')[0];
    
-
-  
+ const dataArray = [];
+   const prods = '';
+   const img = '';
 
 	const expresiones = {
 		descripcion: /^[a-zA-Z]{1,2}([a-zA-Z0-9-|_|!|#|%|(|)|,|.\s]{9,98})$/, // Letras, numeros, guion y guion_bajo.
@@ -40,6 +41,62 @@ export const NuevaOferta = () => {
 		//codigo: /^\d{1,10}$/, // 1 a 10 numeros.
 		precio:/^(?!0(\.0{1,2})?$)(0|[1-9][0-9]{0,3})(\.[0-9]{1,2})?$/, // Numeros decimales, de uno a cuatro antes el punto y solo dos decimales despues.
 	}
+  function variable(a){
+    const  getProduct=async(a)=>{
+      await axios.get('http://127.0.0.1:8000/api/obtenerProducto/' + a)
+      .then(res=>{
+        prods = res.data.producto.producto;
+        img = res.data.producto.image;
+        
+  
+       
+      }).catch((error)=>{
+          console.log(error);
+      });
+  }
+    return prods;
+
+  }
+
+  
+
+  //recuperamos datos de un solo producto, por eso le pasamos parametro de entrada codprod// 
+  // la API  obtenerProducto devuelve la informacion de un solo producto, llamandolo por su key//
+
+  //getImg retorna la constante img 
+  async function getImg(codprod) {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
+      const prods1 = response.data.producto;
+      const img = response.data.producto.image;
+      console.log(prods1);
+      return img;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  //recuperamos datos de un solo producto, por eso le pasamos parametro de entrada codprod// 
+  // la API  obtenerProducto devuelve la informacion de un solo producto, llamandolo por su key//
+
+   //getProd recupera el nombre del producto
+
+  async function getProd(codprod) {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
+      const prods1 = response.data.producto.producto;
+      const img = response.data.producto.image;
+      console.log(prods1);
+      return prods1;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+  
+
+
 
     
     
@@ -50,23 +107,29 @@ export const NuevaOferta = () => {
 		
 			if(
 				descripcion.valido === 'true' &&
-			precio.valido === 'true' &&
 			inicio != null &&
 			fin != null
 				
 			){ /*mismo del controller*/
+      //aqui asignamos valores recuperandolos en getImg y GetProd///
+      const img = await getImg(valor.value);
+      const prod = await getProd(valor.value);
+
 				const newOferta ={
 					//consul log
-					codprod: 1,
+					codprod: valor.value,
 					desc: descripcion.campo,
           fechaini: inicio,
           fechafin: fin,
 					precioventa: precio.campo,
+          estado: 0 ,
+          nombre: prod,
+          image: img,
 				
 					
 				}
 				console.log(newOferta);
-                
+          
 		    	const postProducto = async (url, newOferta) => {
 					const response = await fetch(url, {
                       

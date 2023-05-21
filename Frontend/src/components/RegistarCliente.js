@@ -16,9 +16,9 @@ export const RegistarCliente = () => {
 	const URL_CLIENTE = "http://127.0.0.1:8000/api/postCliente";
 
 	const expresiones = {
-		nombre: /^[a-zA-ZÀ-ÿ]{1,30}$/, // Letras y espacios, pueden llevar acentos.
-        apellido: /^[a-zA-ZÀ-ÿ]{1,30}$/, // Letras y espacios, pueden llevar acentos.
-		password: /^.[a-zA-Z0-9_.+-]{1}(.{2,10})$/, // 4 a 12 digitos.
+		nombre: /^[a-zA-ZÀ-ÿ]{1,15}$/, // Letras y espacios, pueden llevar acentos.
+        apellido: /^[a-zA-ZÀ-ÿ]{1,15}$/, // Letras y espacios, pueden llevar acentos.
+		password: /^.[a-zA-Z0-9]{5,8}$/, // 5 a 8 digitos, numericos y alfabeticos.
 		correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	}
 
@@ -132,7 +132,7 @@ export const RegistarCliente = () => {
 					label="Apellido"
 					placeholder="Gutierrez"
 					name="apellido"
-					leyendaError="El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo."
+					leyendaError="El apellido solo puede contener letras y espacios."
 					expresionRegular={expresiones.apellido}
 				/>
 				<Input
@@ -141,7 +141,7 @@ export const RegistarCliente = () => {
 					tipo="password"
 					label="Contraseña"
 					name="password1"
-					leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
+					leyendaError="La contraseña tiene que ser de 5 a 8 dígitos, y sólo puede contener números y letras."
 					expresionRegular={expresiones.password}
 				/>
 				<Input
@@ -151,7 +151,7 @@ export const RegistarCliente = () => {
 					label="Correo Electrónico"
 					placeholder="soyalguien1@correo.com"
 					name="correo"
-					leyendaError="El correo solo puede contener letras, numeros, puntos, guiones y guion bajo."
+					leyendaError="El correo solo puede contener letras, números, puntos, guiones y guión bajo."
 					expresionRegular={expresiones.correo}
 				/>
 

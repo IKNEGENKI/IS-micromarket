@@ -4,7 +4,7 @@ import "../css/Carrito.css";
 import axios from "axios";
 import { Boton } from "../elementos/Formularios";
 import { BsFillTrash3Fill } from "react-icons/bs";
-
+import BorrarCarrito from "./pagescli/BorrarCarrito";
 class Carrito extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,7 @@ class Carrito extends Component {
     }
     this.getProductos = this.getProductos.bind(this);
     this.aumentarsubtotal= this.aumentarsubtotal.bind(this);
-    
+    this.eliminar= this.eliminar.bind(this);
   
   }
   componentDidMount() {
@@ -28,7 +28,7 @@ class Carrito extends Component {
   }
 
   getProductos = async () => {
-    await axios.get('http://127.0.0.1:8000/api/getProductos')
+    await axios.get('http://127.0.0.1:8000/api/detalle_venta.index ')
       .then(res => {
         this.setState({ productos: res.data });
         console.log(res.data)
@@ -37,7 +37,10 @@ class Carrito extends Component {
       });
       this.aumentarsubtotal();
   }
-
+ eliminar=(cod)=>{
+   BorrarCarrito(cod);
+   this.getProductos();
+ }
 
   aumentarsubtotal= () =>{
     this.setState({subtotal:0});
@@ -95,7 +98,7 @@ class Carrito extends Component {
                           <p>{this.id}</p>
                           </div>
                           <div className="basura">
-                          <a ><BsFillTrash3Fill/></a>
+                          <a onClick={this.eliminar(product.codprod)}><BsFillTrash3Fill/></a>
                           </div>
 
                       
