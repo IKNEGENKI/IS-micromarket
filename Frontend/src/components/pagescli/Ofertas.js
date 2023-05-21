@@ -25,7 +25,6 @@ class Ofertas extends  Component{
 
     
     componentDidMount(){
-        let fechaActual = new Date().toISOString().slice(0, 10);
         
         this.getProductos();
        
@@ -75,6 +74,7 @@ class Ofertas extends  Component{
             
           })
           .then((res) => {
+            
             console.log(res.data);
           })
           .catch((error) => {

@@ -38,6 +38,7 @@ import {default as Lista} from './components/Lista';
 import "./elementos/modal.js"
 import React, { useState } from "react";
 import Ofertas from './components/pagescli/Ofertas';
+import HomeOferta from './components/pagescli/HomeOfertas';
 function App() {
   const [navbarCliente, setNavbarCliente] = useState(true);
 
@@ -84,6 +85,8 @@ function App() {
            <Route exact path="/Snacks" element={<Snacks/>}/>
            <Route exact path="/Varios" element={<Varios/>}/>
            <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
+           
+           <Route exact path="/HomeOfertas" element={<HomeOferta/>}/>
            <Route exact path="*" element={<ErrorNotFound/>}/>
          
         </Routes>

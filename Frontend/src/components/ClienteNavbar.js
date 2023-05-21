@@ -64,7 +64,12 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
 
         <div class="menu-bar ">
             <div class="menu">
-
+            <a href="#">
+                            < NavLink to="/" >
+                              
+                                <a class="text nav-text" id="cat">HOME</a>
+                            </NavLink>
+                        </a>
             <li class="nav-link">
                         
                         <a href="#">
@@ -74,89 +79,26 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                             </NavLink>
                         </a>
                         <a href="#">
-                            < NavLink to="/Ofertas" >
+                            < NavLink to="/Abarrotes" >
                               
                                 <a class="text nav-text" id="cat">OFERTAS</a>
                             </NavLink>
                         </a>
                         
                         <a href="#">
-                            < NavLink to="/BebidasA" >
+                            < NavLink to="/HomeOfertas" >
                               
-                                <a class="text nav-text" id="cat">BEBIDAS ALCOHOLICAS</a>
+                                <a class="text nav-text" id="cat">CATEGORIAS</a>
                             </NavLink>
                         
                         </a>
                         <a href="#">
                             < NavLink to="/CuidadoP" >
                               
-                                <a class="text nav-text" id="cat">CUIDADO PERSONAL</a>
+                                <a class="text nav-text" id="cat">ACERCA DE NOSOTROS</a>
                             </NavLink>
                         </a>
-                        <a href="#">
-                            < NavLink to="/Enlatados" >
-                                
-                                <a class="text nav-text" id="cat">ENLATADOS</a>
-                                 
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/Abarrotes" >
-                              
-                                <a class="text nav-text" id="cat">ABARROTES</a>
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/Lacteos" >
-                              
-                                <a class="text nav-text" id="cat">LACTEOS</a>
-                            </NavLink>
-                        </a>
-                    </li>
-                
-                   
-                    <li class="nav-link">
-                        <a href="#">
-                            < NavLink to="/Farmacos" >
-                              
-                                <a class="text nav-text" id="cat">FARMACOS</a>
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/Golosinas" >
-                              
-                                <a class="text nav-text"id="cat">GOLOSINAS</a>
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/FiamyEmb" >
-                              
-                                <a class="text nav-text" id="cat">FIAMBRES Y EMBUTIDOS</a>
-                            </NavLink>
-                        </a>
-                        
-                        <a href="#">
-                            < NavLink to="/LimpiezaH" >
-                              
-                                <a class="text nav-text" id="cat">LIMPIEZA DEL HOGAR</a>
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/Panaderia" >
-                              
-                                <a class="text nav-text" id="cat">PANADERIA</a>
-                            </NavLink>
-                        </a>
-                        <a href="#">
-                            < NavLink to="/Snacks" >
-                              
-                                <a class="text nav-text" id="cat">SNACKS</a>
-                            </NavLink>
-                        </a>
-                        < NavLink to="/Varios" >
-                              
-                                <a class="text nav-text" id="cat">VARIOS</a>
-                            </NavLink>
+                       
                     </li>
                 
                 
