@@ -89,10 +89,10 @@ Route::put('/putCliente/{id}', [clienteController::class,'update']);
 
 //RUTAS PARA AGREGAR VENTA
 Route::get('/getVenta',[ventaController::class,'index']);
-Route::post('/postDenta', [ventaController::class,'store']);
+Route::post('/postVenta', [ventaController::class,'store']);
 Route::delete('/delVenta/{id}',[ventaController::class,'destroy']);
 Route::put('/putVenta/{id}', [ventaController::class,'update']);
-Route::post('/crearVenta/{id}/{id2}', [ventaController::class,'crearVenta']);
+//Route::post('/crearVenta/{id}/{id2}', [ventaController::class,'crearVenta']);
 
 //RUTAS PARA AGREGAR DETALLE_VENTA
 Route::get('/getDetalle_venta',[detalle_ventaController::class,'index']);

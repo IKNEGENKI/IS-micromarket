@@ -13,7 +13,10 @@
   top: 0;
   left: 0;
 }
-
+#vacio{
+  color: rgb(0, 0, 0);
+  font-size: 200px;
+}
 
 .carrito-overlay {
   position: fixed;
