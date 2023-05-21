@@ -86,6 +86,7 @@ Route::get('/getCliente',[clienteController::class,'index']);
 Route::post('/postCliente', [clienteController::class, 'store']);
 Route::delete('/delCliente/{id}',[clienteController::class,'destroy']);
 Route::put('/putCliente/{id}', [clienteController::class,'update']);
+Route::post('/loginCliente', [clienteController::class,'login']);
 
 //RUTAS PARA AGREGAR VENTA
 Route::get('/getVenta',[ventaController::class,'index']);

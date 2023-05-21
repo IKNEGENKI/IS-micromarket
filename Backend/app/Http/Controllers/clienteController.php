@@ -66,11 +66,12 @@ class clienteController extends Controller
         }
     
         $cliente = new cliente([
-            'codcliente' => $request->input('codcliente'),
+            //'codcliente' => $request->input('codcliente'),
             'nombre' => $request->input('nombre'),
             'apellido' => $request->input('apellido'),
             'correo' => $request->input('correo'),
-            'password' => $request->input('password')
+            //'password' => $request->input('password')
+            'password' =>  bcrypt($request->input('password'))
         ]);
     
         $cliente->save();
@@ -115,6 +116,7 @@ class clienteController extends Controller
     {
         $credentials = $request->only('correo', 'password');
 
+        
         if (Auth::attempt($credentials)) {
             // La autenticación fue exitosa
             return response()->json(['mensaje' => 'Inicio de sesión exitoso']);
