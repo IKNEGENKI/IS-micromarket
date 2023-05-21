@@ -1,7 +1,6 @@
 import React , {Component, useState}from "react";
 import axios from "axios";
 import '../../css/estilos.css'
-import '../../css/swip.css'
 import { Boton } from "../../elementos/Formularios";
 import VistaDetallada from "../VistaDetallada";
 
