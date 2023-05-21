@@ -91,13 +91,9 @@ agregarAlCarrito = async (cod, cantidad, costo) => {
 
           <p>{product.desc}</p>  
           
+          <h3>Cantidad: {product.stock} Unidad(es)</h3>
+          
           <center>
-              <select name="select">
-                <option>Cantidad:</option>
-                {selectOptions}
-                
-              </select>
-
           <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,product.stock, product.precio)}> Agregar al Carrito </Boton>
           </center>
         </div>
