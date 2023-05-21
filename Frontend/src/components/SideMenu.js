@@ -48,7 +48,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                 </div>
                
             </div>
-            <NavLink to="/prods" >
+            <NavLink to="/" >
             <a  className='bx ' onClick={toggleNavbar}><BsPersonCircle /></a>
             </NavLink>
             <i class='bx bx-chevron-right toggle'></i>
