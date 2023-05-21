@@ -10,6 +10,7 @@ class VistaDetallada extends Component {
       product: this.props.producto,
       id:this.props.producto.codprod,
       stock: null,
+      url:"http://127.0.0.1:8000/api/postDetalle_venta ",
     };
     this.getProductos = this.getProductos.bind(this);
     this.agregarAlCarrito= this.agregarAlCarrito.bind(this);
@@ -18,7 +19,7 @@ class VistaDetallada extends Component {
 
   componentDidMount(){
     this.getProductos(); 
-    
+ 
   }
   getProductos=async()=>{
     await axios.get('http://127.0.0.1:8000/api/getProductos')
@@ -35,43 +36,43 @@ class VistaDetallada extends Component {
     });
 }
 
-agregarAlCarrito = async (cod,cantidad,costo) => {
-	const newVenta = {
-	  codprod: cod,
-	  cantidadprod: cantidad,
-	  costodetalle: costo,
-    url:"http://127.0.0.1:8000/api/detalle_venta.store ",
-	};
-  
-	console.log(newVenta);
-  
-	try {
-	  const response = await fetch(this.state.url, {
-		method: 'POST',
-		body: JSON.stringify(newVenta),
-		headers: {
-		  'Content-Type': 'application/json',
-		},
-	  });
-  
-	  if (response.ok) {
-		const data = await response.json();
-		console.log(data); 
-  	  } else {
-		throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
-	  }
-	} catch (error) {
-	  console.error(error);
-	}
+agregarAlCarrito = async (cod, cantidad, costo) => {
+  const newVenta = {
+    codprod: cod.toString(),
+    cantidadprod: cantidad,
+    costodetalle: parseFloat(costo),
   };
+
+  console.log(newVenta);
+
+  try {
+    const response = await axios.post(this.state.url, newVenta, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status === 200) {
+      const data = response.data;
+      console.log(data);
+    } else {
+      throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  this.props.isClose();
+};
 
   render() {
     const { isClose } = this.props;
     const { product, stock  } = this.state;
+    const{cant}= 0;
     const selectOptions = [];
     if (stock) {
       for (let i = 1; i <= stock; i++) {
         selectOptions.push(<option value={i} key={i}>Cantidad: {i} Unidad(es) </option>);
+        
       }
     }
 
@@ -94,9 +95,10 @@ agregarAlCarrito = async (cod,cantidad,costo) => {
               <select name="select">
                 <option>Cantidad:</option>
                 {selectOptions}
+                
               </select>
 
-          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod, product.precio, product.stock)}> Agregar al Carrito </Boton>
+          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,product.stock, product.precio)}> Agregar al Carrito </Boton>
           </center>
         </div>
       </div>

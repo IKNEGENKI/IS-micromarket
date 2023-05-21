@@ -9,7 +9,7 @@ class agregarCarrito extends Component{
 	this.state={
       producto:'',
 	  costo:0,
-	  url:"http://127.0.0.1:8000/api/detalle_venta.store ",
+	  url:"http://127.0.0.1:8000/api/postDetalle_venta ",
 	}
 	this.agregar= this.agregar.bind(this);
 	
