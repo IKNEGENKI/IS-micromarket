@@ -15,6 +15,7 @@ class HomeCliente extends  Component{
             cantidad:0,
             codigoP:-1,
             hoveredCard: false,
+            hoveredCardIndex: -1
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -50,13 +51,13 @@ class HomeCliente extends  Component{
         this.setState({ showModal: false });
       }
 
-    handleCardMouseEnter = () => {
-        this.setState({ hoveredCard: true });
-    };
+    handleCardMouseEnter = (index) => {
+        this.setState({ hoveredCardIndex: index });
+      };
       
-    handleCardMouseLeave = () => {
-        this.setState({ hoveredCard: false });
-    };
+      handleCardMouseLeave = () => {
+        this.setState({ hoveredCardIndex: -1 });
+      };
 
     render(){
         
@@ -78,9 +79,9 @@ class HomeCliente extends  Component{
                             }
                         }
                     })
-                    .map(product=>
+                    .map((product, index) => (
                     <div class="producto" id="tarjetas" 
-                    onMouseEnter={this.handleCardMouseEnter}
+                    onMouseEnter={() => this.handleCardMouseEnter(index)}
                     onMouseLeave={this.handleCardMouseLeave}
                     onClick={() => this.openModal(product,product.codprod)}>
                     <center>
@@ -90,13 +91,13 @@ class HomeCliente extends  Component{
                         <img  src={product.image}/>
                         <p>Bs. {product.precio} </p>
                         <Boton type="button" id="borrarP" className="btn"
-                        style={{ display: this.state.hoveredCard ? "block" : "none" }}
+                        style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
                         > Ver </Boton>
                     </center>
                     </div>
                     </center>
                     </div>
-                    )
+                    ))
                 }  
                 <div>
                 {this.state.showModal && (
