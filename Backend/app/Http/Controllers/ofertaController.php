@@ -61,7 +61,7 @@ class ofertaController extends Controller
     if (!is_null($oferta)) {
     // Actualizar los datos del oferta con los datos del formulario
     $oferta->codprod = $request->input('codprod');
-    $oferta->descripcion = $request->input('descripcion');
+    $oferta->desc = $request->input('desc');
     $oferta->fechaini = $request->input('fechaini');
     $oferta->fechafin = $request->input('fechafin');
     $oferta->precioventa = $request->input('precioventa');
