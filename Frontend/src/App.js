@@ -41,12 +41,10 @@ import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
 import React, { useState } from "react";
 import Ofertas from './components/pagescli/Ofertas';
-<<<<<<< HEAD
 import  {ProtectedR}  from './components/router/ProtectedR';
 import Route1 from './components/router/Route1';
-=======
 import HomeOferta from './components/pagescli/HomeOfertas';
->>>>>>> fde57ac000a3f66d7b4cb1efd2e997142897ca1a
+import HomeOferta from './components/pagescli/HomeOfertas';
 function App() {
   const [navbarCliente, setNavbarCliente] = useState(true);
   const [user, setUser] = useState(null)
