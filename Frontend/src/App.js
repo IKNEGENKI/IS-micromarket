@@ -5,7 +5,7 @@ import { ClienteNavbar } from './components/ClienteNavbar';
 import { Header } from './components/Header';
 import { Home } from './components/Home';
 import { ErrorNotFound } from './components/ErrorNotFound';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AcercaDe } from './components/AcercaDe';
 import {EliminarProducto} from './components/EliminarProducto';
 import {ListaDeProducto} from './components/ListaDeProductos';
@@ -41,8 +41,11 @@ import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
 import React, { useState } from "react";
 import Ofertas from './components/pagescli/Ofertas';
+import  {ProtectedR}  from './components/router/ProtectedR';
+import Route1 from './components/router/Route1';
 function App() {
   const [navbarCliente, setNavbarCliente] = useState(true);
+  const [user, setUser] = useState(null)
 
   function toggleNavbar() {
     setNavbarCliente(!navbarCliente);
@@ -50,51 +53,93 @@ function App() {
   return (
 
     /*<div center>
-    {navbarCliente ? (
-       <BrowserRouter>
-       <SideMenu toggleNavbar={toggleNavbar}/>
-         <Routes>
-           <Route exact path="/" element={<Home/>}/>
-           <Route exact path="/home" element={<RegistarCliente/>}/>
-           <Route exact path="/eliminarProducto" element={<Delete/>}/>
-           <Route exact path="/listaProducto" element={<Lista/>}/>
-           <Route exact path="/modificarDatosN" element={<ModificarNegocio/>}/>
-           <Route exact path="/ofertaNueva" element={<NuevaOferta/>}/>
-           <Route exact path="/registrarProductoN" element={<ProductoNuevo/>}/>
-           <Route exact path="*" element={<ErrorNotFound/>}/>
-           
-         </Routes>
-     
-       </BrowserRouter>
-    ) : (
-      <BrowserRouter>
-      <ClienteNavbar toggleNavbar={toggleNavbar}/>
+      {navbarCliente ? (
+        <BrowserRouter>
+        <ClienteNavbar toggleNavbar={toggleNavbar}/>
         <Routes>
-        <Route exact path="/" element={<HomeCliente/>}/>
-           <Route exact path="/home" element={<HomeCliente/>}/>
-           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
-           <Route exact path="/Bebidas" element={<Bebidas/>}/>
-           <Route exact path="/BebidasA" element={<BebidasA/>}/>
-           <Route exact path="/CuidadoP" element={<CuidadoP/>}/>
-           <Route exact path="/Enlatados" element={<Enlatados/>}/>
-           <Route exact path="/Farmacos" element={<Farmacos/>}/>
-           <Route exact path="/FiamyEmb" element={<FiamyEmb/>}/>
-           <Route exact path="/Golosinas" element={<Golosinas/>}/>
-           <Route exact path="/Lacteos" element={<Lacteos/>}/>
-           <Route exact path="/LimpiezaH" element={<LimpiezaH/>}/>
-           <Route exact path="/Panaderia" element={<Panaderia/>}/>
-           <Route exact path="/Snacks" element={<Snacks/>}/>
-           <Route exact path="/Varios" element={<Varios/>}/>
-           <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
-           <Route exact path="*" element={<ErrorNotFound/>}/>
-         
+          <Route exact path="/" element={<HomeCliente/>}/>
+          <Route exact path="/homeC" element={<HomeCliente/>}/>
+          <Route exact path="/login" element={<LoginC/>}/>
+          <Route exact path="/registrar" element={<RegistarCliente/>}/>
+          <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
+          <Route exact path="/Bebidas" element={<Bebidas/>}/>
+          <Route exact path="/BebidasA" element={<BebidasA/>}/>
+          <Route exact path="/CuidadoP" element={<CuidadoP/>}/>
+          <Route exact path="/Enlatados" element={<Enlatados/>}/>
+          <Route exact path="/Farmacos" element={<Farmacos/>}/>
+          <Route exact path="/FiamyEmb" element={<FiamyEmb/>}/>
+          <Route exact path="/Golosinas" element={<Golosinas/>}/>
+          <Route exact path="/Lacteos" element={<Lacteos/>}/>
+          <Route exact path="/LimpiezaH" element={<LimpiezaH/>}/>
+          <Route exact path="/Panaderia" element={<Panaderia/>}/>
+          <Route exact path="/Snacks" element={<Snacks/>}/>
+          <Route exact path="/Varios" element={<Varios/>}/>
+          <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
+          <Route exact path="*" element={<ErrorNotFound/>}/>
+        
         </Routes>
-    
       </BrowserRouter>
-    )}*/
-    //{/* otros componentes de la página */}
-  //</div>
+      ) : (
+        <BrowserRouter>
+          <SideMenu toggleNavbar={toggleNavbar}/>
+          <Routes>
+            
+              <Route exact path="/" element={<Home/>}/>
+              <Route exact path="/homeA" element={<Home/>}/>
+              <Route exact path="/eliminarProducto" element={<Delete/>}/>
+              <Route exact path="/listaProducto" element={<Lista/>}/>
+              <Route exact path="/modificarDatosN" element={<ModificarNegocio/>}/>
+              <Route exact path="/ofertaNueva" element={<NuevaOferta/>}/>
+              <Route exact path="/registrarProductoN" element={<ProductoNuevo/>}/>
+              <Route exact path="*" element={<ErrorNotFound/>}/>
+           
+          </Routes>
+        </BrowserRouter>
+      )}*/
+      //{/* otros componentes de la página */}
+    //</div>
+  
+    <div center> 
     <BrowserRouter>
+          
+          <ClienteNavbar />
+          <Routes>
+            
+            <Route exact path="/" element={<HomeCliente/>}/>
+            <Route exact path="/homeC" element={<HomeCliente/>}/>
+            <Route exact path="/login" element={<LoginC/>}/>
+            <Route exact path="/registrar" element={<RegistarCliente/>}/>
+            <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
+            <Route exact path="/Bebidas" element={<Bebidas/>}/>
+            <Route exact path="/BebidasA" element={<BebidasA/>}/>
+            <Route exact path="/CuidadoP" element={<CuidadoP/>}/>
+            <Route exact path="/Enlatados" element={<Enlatados/>}/>
+            <Route exact path="/Farmacos" element={<Farmacos/>}/>
+            <Route exact path="/FiamyEmb" element={<FiamyEmb/>}/>
+            <Route exact path="/Golosinas" element={<Golosinas/>}/>
+            <Route exact path="/Lacteos" element={<Lacteos/>}/>
+            <Route exact path="/LimpiezaH" element={<LimpiezaH/>}/>
+            <Route exact path="/Panaderia" element={<Panaderia/>}/>
+            <Route exact path="/Snacks" element={<Snacks/>}/>
+            <Route exact path="/Varios" element={<Varios/>}/>
+            <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
+            <Route exact path="*" element={<Navigate to="homeC"/>}/>
+          
+
+          
+            <Route path="/admi/*" element={
+              <ProtectedR isAllowed={!!user && user.roles.includes('admi')}>
+              <SideMenu />
+            </ProtectedR>
+            }/>
+            <Route path='/*' element={<Route1/>}/>
+          
+          </Routes>
+    </BrowserRouter>
+  </div>
+    
+  
+  /*<BrowserRouter>
       <Routes>
       <Route exact path="/" element={<RegistarCliente/>}/>
       <Route exact path="/login" element={<LoginC/>}/>
@@ -103,7 +148,12 @@ function App() {
         
       </Routes>
   
-    </BrowserRouter>
+    </BrowserRouter>*/
+
+    /*<BrowserRouter>
+      <ClienteNavbar toggleNavbar={toggleNavbar}/>
+    </BrowserRouter>*/
+
   );
 }
 

@@ -1,5 +1,5 @@
 import React, {Component, useState, state, useEffect} from 'react';
-import {Formulario, Label, ContenedorTerminos, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../elementos/Formularios';
+import {Formulario, Label, ContenedorTerminos, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../elementos/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
@@ -13,7 +13,7 @@ export const LoginC = () => {
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
 	const [correo, cambiarCorreo] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
-	const URL_CLIENTE = "http://127.0.0.1:8000/api/postCliente";
+	const URL_CLIENTE = "http://127.0.0.1:8000/api/loginCliente";
 	const [cliente, setCliente] = useState([]);
 	const endpoint = "http://127.0.0.1:8000/api/getCliente"
 
@@ -63,27 +63,39 @@ export const LoginC = () => {
 			const respuestaJson = await postCliente(URL_CLIENTE, newCliente);
 
 			console.log("Response:------> " + respuestaJson.status);
-
-			if(respuestaJson.status === 409 ){
-				cambiarFormularioValido(true);
-				cambiarPassword({campo: '', valido: null});
-				cambiarCorreo({campo: '', valido: null});
-
+			if(correo.campo === 'admin1@gmail.com' && password.campo === 'admin123'){
+				console.log("Eres admin");
+				const logged = true;
 				Swal.fire({
 					icon: 'success',
 					title: '¡Genial!',
-					text: '¡Puedes ingresar!',
-					//footer: '<a href="">Why do I have this issue?</a>'
+					text: '¡Bienvenido vendedor!',
+					footer: '<a href="admi/homeA">Haz click aqui</a>'
 				})
 			}else{
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'No te encuentras registrado',
-					//footer: '<a href="">Why do I have this issue?</a>'
-				})
+				if(respuestaJson.status === 200 ){
+					cambiarFormularioValido(true);
+					cambiarPassword({campo: '', valido: null});
+					cambiarCorreo({campo: '', valido: null});
+
+					Swal.fire({
+						icon: 'success',
+						title: '¡Genial!',
+						text: '¡Puedes ingresar!',
+						
+						//footer: '<a href="">Why do I have this issue?</a>'
+					})
+				}else{
+					if(respuestaJson.status === 401){
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'El usuario o la contraseña son incorrectos',
+						//footer: '<a href="">Why do I have this issue?</a>'
+					})
+				}
+				}
 			}
-			
 			// ... 
 		} else {
 			cambiarFormularioValido(false);
@@ -93,7 +105,7 @@ export const LoginC = () => {
     const handleReset = () => {
 		cambiarPassword("");
 		cambiarCorreo("");
-		window.location.href = '/registro';
+		window.location.href = '/registrar';
 	  };
 
 
