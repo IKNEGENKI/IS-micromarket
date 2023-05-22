@@ -16,6 +16,7 @@ class Lacteos extends  Component{
             cantidad:0,
             codigoP:-1,
             hoveredCard: false,
+            hoveredCardIndex: -1
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -65,13 +66,13 @@ class Lacteos extends  Component{
         this.setState({ showModal: false });
       }
 
-    handleCardMouseEnter = () => {
-        this.setState({ hoveredCard: true });
-    };
+      handleCardMouseEnter = (index) => {
+        this.setState({ hoveredCardIndex: index });
+      };
       
-    handleCardMouseLeave = () => {
-        this.setState({ hoveredCard: false });
-    };
+      handleCardMouseLeave = () => {
+        this.setState({ hoveredCardIndex: -1 });
+      };
     
     render(){
         
@@ -97,29 +98,29 @@ class Lacteos extends  Component{
                                 }
                             }
                     }
-                        ).map((product,index)=>{
-                           if(product.codcat==10){ 
-                            return(
-                                <div class="producto" id = "tarjetas" 
-                                onMouseEnter={this.handleCardMouseEnter}
-                                onMouseLeave={this.handleCardMouseLeave}
-                                onClick={() => this.openModal(product,product.codprod)}>
-                                <center>
+                        )
+                        .map((product, index) => {
+                            if(product.codcat==10){ 
+                                return(
+                            <div class="producto" id="tarjetas" 
+                            onMouseEnter={() => this.handleCardMouseEnter(index)}
+                            onMouseLeave={this.handleCardMouseLeave}
+                            onClick={() => this.openModal(product,product.codprod)}>
+                            <center>
                                 <div >
-                                <center>
-                                    <h2>{product.producto}</h2>
-                                    <img  src={product.image}/>
-                                    <p>Bs. {product.precio} </p>
-                                    <Boton type="button" id="borrarP" className="btn" style={{ display: this.state.hoveredCard ? "block" : "none" }}> Agregar </Boton>
-                                </center>
-                                </div>
-                                </center>
-                                 </div>
-                                )
-                               }
-                               
-                            }
-                            )
+                            <center>
+                                <h2>{product.producto}</h2>
+                                <img  src={product.image}/>
+                                <p>Bs. {product.precio} </p>
+                                <Boton type="button" id="borrarP" className="btn"
+                                style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
+                                > Agregar </Boton>
+                            </center>
+                            </div>
+                            </center>
+                            </div>
+                                )}
+                            })
                         }
                      
                     

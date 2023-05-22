@@ -25,6 +25,7 @@ class Ofertas extends  Component{
 
     
     componentDidMount(){
+        
         this.getProductos();
        
     }
@@ -73,6 +74,7 @@ class Ofertas extends  Component{
             
           })
           .then((res) => {
+            
             console.log(res.data);
           })
           .catch((error) => {
@@ -111,8 +113,10 @@ class Ofertas extends  Component{
                 
                 <br></br>
                 
-                {
+                {   
+                
                     this.state.productos?.sort((o1, o2) =>{
+
                         if(o1.producto < o2.producto){
                             return -1;
                         }else{

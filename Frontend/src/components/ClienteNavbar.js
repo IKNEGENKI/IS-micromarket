@@ -36,8 +36,8 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
     <title>Pocket Store</title> 
 </head>
 <body>
-<nav class="sidebar  nav-container  ">
-      <div className='row'>
+<nav class="sidebar  nav-container  "/>
+      <div className='row'/>
                  
           <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
     <div class="col" >
@@ -55,6 +55,30 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
       </NavLink>
     </div>
   </div>
+    <title>SuperMarket TITA</title> 
+<body/>
+<nav class="sidebar  nav-container  ">
+    <div className='row'>
+        
+            
+                
+        <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
+  <div class="col" >
+    <span class="super">Super</span>
+    <span class="market">Market</span>
+    <span class="name">TITA</span>
+  </div>
+    <div class="col-auto">
+        <a className="stock" type="button" onClick={() => OpenModal()} > <ShoppingCartIcon/> </a>
+        {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
+    </div>
+  <div class="col-auto" >
+  < NavLink to="/home" >
+                              
+  <a onClick={toggleNavbar} class="icono" ><BsPersonCircle /></a>
+                          </NavLink>
+  </div>
+</div>
 
         
         
@@ -62,6 +86,12 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
         <div class="menu-bar ">
             <div class="menu">
 
+            <a href="#">
+                            < NavLink to="/" >
+                              
+                                <a class="text nav-text" id="cat">HOME</a>
+                            </NavLink>
+                        </a>
             <li class="nav-link">
                         
                         <a href="#">
@@ -81,6 +111,10 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                             < NavLink to="/BebidasA" >
                               
                                 <a class="text nav-text" id="cat">BEBIDAS ALCOHOLICAS</a>
+                            </NavLink>
+                            < NavLink to="/HomeCategorias" >
+                              
+                                <a class="text nav-text" id="cat">CATEGORIAS</a>
                             </NavLink>
                         
                         </a>
@@ -154,7 +188,12 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                               
                                 <a class="text nav-text" id="cat">VARIOS</a>
                             </NavLink>
-                    </li>
+                            <NavLink>
+                                <a class="text nav-text" id="cat">ACERCA DE NOSOTROS</a>
+                            </NavLink>
+                      </li> 
+                       
+                    
                 
                 
             </div>

@@ -41,8 +41,12 @@ import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
 import React, { useState } from "react";
 import Ofertas from './components/pagescli/Ofertas';
+<<<<<<< HEAD
 import  {ProtectedR}  from './components/router/ProtectedR';
 import Route1 from './components/router/Route1';
+=======
+import HomeOferta from './components/pagescli/HomeOfertas';
+>>>>>>> fde57ac000a3f66d7b4cb1efd2e997142897ca1a
 function App() {
   const [navbarCliente, setNavbarCliente] = useState(true);
   const [user, setUser] = useState(null)
@@ -57,6 +61,7 @@ function App() {
         <BrowserRouter>
         <ClienteNavbar toggleNavbar={toggleNavbar}/>
         <Routes>
+<<<<<<< HEAD
           <Route exact path="/" element={<HomeCliente/>}/>
           <Route exact path="/homeC" element={<HomeCliente/>}/>
           <Route exact path="/login" element={<LoginC/>}/>
@@ -77,6 +82,29 @@ function App() {
           <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
           <Route exact path="*" element={<ErrorNotFound/>}/>
         
+=======
+        <Route exact path="/" element={<HomeCliente/>}/>
+           <Route exact path="/home" element={<HomeCliente/>}/>
+           <Route exact path="/Ofertas" element={<Ofertas/>}/>
+           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
+           <Route exact path="/Bebidas" element={<Bebidas/>}/>
+           <Route exact path="/BebidasA" element={<BebidasA/>}/>
+           <Route exact path="/CuidadoP" element={<CuidadoP/>}/>
+           <Route exact path="/Enlatados" element={<Enlatados/>}/>
+           <Route exact path="/Farmacos" element={<Farmacos/>}/>
+           <Route exact path="/FiamyEmb" element={<FiamyEmb/>}/>
+           <Route exact path="/Golosinas" element={<Golosinas/>}/>
+           <Route exact path="/Lacteos" element={<Lacteos/>}/>
+           <Route exact path="/LimpiezaH" element={<LimpiezaH/>}/>
+           <Route exact path="/Panaderia" element={<Panaderia/>}/>
+           <Route exact path="/Snacks" element={<Snacks/>}/>
+           <Route exact path="/Varios" element={<Varios/>}/>
+           <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
+           
+           <Route exact path="/HomeCategorias" element={<HomeOferta/>}/>
+           <Route exact path="*" element={<ErrorNotFound/>}/>
+         
+>>>>>>> fde57ac000a3f66d7b4cb1efd2e997142897ca1a
         </Routes>
       </BrowserRouter>
       ) : (
