@@ -419,14 +419,13 @@ export const ProductoNuevo = () =>{
 						leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
 						expresionRegular={expresiones.descripcion}
 					/>
-						</ContenedorBotonCentrado>
-					<ContenedorBotonCentrado>
-						<div class="container">
+					</ContenedorBotonCentrado>
+				
+
+					<ContenedorBotonCentrado>	
+					<div class="container">
 							<center>
-								<label>Imagen*:</label>
-								<br></br>
 								<div class="card" id = "contenedorImagen"  >
-									
 									<img id="img-preview"/>
 										<div class="card-footer" id = "contenedorImagen">
 											<input accept="image/png,image/jpg" type="file" id="img-uploader" className='img-upload'></input>
@@ -435,8 +434,8 @@ export const ProductoNuevo = () =>{
 								</div>
 							</center>
 						</div>
-					
-						</ContenedorBotonCentrado>
+					</ContenedorBotonCentrado>
+						
 					{formularioValido === false && <MensajeError>
 						<p>
 							<FontAwesomeIcon icon={faExclamationTriangle}/>
