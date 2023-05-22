@@ -84,7 +84,10 @@ class Abarrotes extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+                        
+                        if(product.codcat==1){ 
+                            return(
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +105,8 @@ class Abarrotes extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+                        })
                         }
                      
                     

@@ -84,7 +84,9 @@ class Bebidas extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+                        if(product.codcat==2){ 
+                            return(
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +104,8 @@ class Bebidas extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+    })
                     }
                  
                 

@@ -84,7 +84,9 @@ class Enlatados extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+                        if(product.codcat==5){ 
+                            return(
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +104,8 @@ class Enlatados extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+    })
                         }
                      
                     

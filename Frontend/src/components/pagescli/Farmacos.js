@@ -84,7 +84,10 @@ class Farmacos extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+                        if(product.codcat==6){ 
+                            return(
+
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +105,8 @@ class Farmacos extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+                        })
                         }
                      
                     

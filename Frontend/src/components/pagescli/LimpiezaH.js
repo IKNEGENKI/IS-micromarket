@@ -84,7 +84,9 @@ class LimpiezaH extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+                        if(product.codcat==9){ 
+                            return(
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +104,8 @@ class LimpiezaH extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+                        })
                         }
                      
                     

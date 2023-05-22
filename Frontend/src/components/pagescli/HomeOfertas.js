@@ -3,7 +3,7 @@ import axios from "axios";
 import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
 import VistaDetallada from "../VistaDetallada";
-
+import { NavLink } from 'react-router-dom';
 class HomeOferta extends  Component{
     
     constructor(props){
@@ -58,6 +58,9 @@ class HomeOferta extends  Component{
         this.setState({ hoveredCard: false });
     };
     
+     redireccionarAbarrotes() {
+        window.location.href = "/";
+      }
     render(){
         
 
@@ -69,256 +72,244 @@ class HomeOferta extends  Component{
                   
                   
                   
-                            <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
+                <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Abarrotes</h2>
+                        <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684716096/IS/smijdqru9t299zr4ysge.jpg" alt="" />
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Abarrotes">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Bebidas</h2>
+                        <img src ="https://res.cloudinary.com/dymazwyut/image/upload/v1684716277/IS/ki3hwnqzsrlt20rdgwgn.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Bebidas">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Bebidas Alcoholicas</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716292/IS/lyjlscgkljgpunbub97r.png" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/BebidasA">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>CuidadoP</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716312/IS/r34acoasfznknjpjt0cg.png" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/CuidadoP">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Enlatados</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716333/IS/avbdr72borjfrmstcohb.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Enlatados">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Farmacos</h2>
+                        <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684716351/IS/kml66iw6qupp7jpnpgoj.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Farmacos">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Fiambres y Embutidos</h2>
+                        <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684716368/IS/f8ikckbwwrmiwdffziwv.webp" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/FiamyEmb">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Golosinas</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716427/IS/lwkoplq933jblolrkiet.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Golosinas">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Lacteos</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716445/IS/mrtgntqklnaszs8g7omn.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Lacteos">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Limpieza del Hogar</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716467/IS/olcqibq6dvuldbluiqlv.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/LimpiezaH">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Panaderia</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716486/IS/tdcbimnzwfwj25qjxvxl.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Panaderia">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Snacks</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716502/IS/mydt3izavjq1kii39mdg.jpg" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Snacks">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    <div className="producto" id="tarjetas">
+                    <center>
+                         <div>
+                         <center>
+                          <h2>Varios</h2>
+                        <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684716517/IS/itb4roqnwb9w7sb8uvap.png" alt = ""/>
+                         <Boton
+                         type="button"
+                         id="borrarP"
+                         className="btn"
+                         >
+                          <NavLink to="/Varios">Ir</NavLink>
+                         </Boton>
+                     </center>
+                         </div>
+                     </center>
+                    </div>
+
+                    
+
+
                             
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Abarrotes</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Bebidas</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Bebidas alcoholicas</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Cuidado Personal</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Enlatados</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Farmacos</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Fiambres y embutidos</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Golosinas</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Limpieza del hogar</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Lacteos</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Panaderia</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Snacks</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-                             <div class="producto" id = "tarjetas" 
-                            onMouseEnter={this.handleCardMouseEnter}
-                            onMouseLeave={this.handleCardMouseLeave}>
-                            
-                            <center>
-                            <div >
-                            <center>
-                                <h2>Golosinas</h2>
-                                <img />
-                                <p>vermas</p>
-                                <Boton type="button" id="borrarP" className="btn"
-                                style={{ display: this.state.hoveredCard ? "block" : "none" }}
-                                > Agregar </Boton>
-                            </center>
-                            </div>
-                            </center>
-                             </div>
-
-                             
-
-
-                             
-                           
         
            </body>
         

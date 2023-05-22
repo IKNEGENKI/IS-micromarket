@@ -86,7 +86,7 @@ function App() {
            <Route exact path="/Varios" element={<Varios/>}/>
            <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
            
-           <Route exact path="/HomeOfertas" element={<HomeOferta/>}/>
+           <Route exact path="/HomeCategorias" element={<HomeOferta/>}/>
            <Route exact path="*" element={<ErrorNotFound/>}/>
          
         </Routes>

@@ -84,7 +84,11 @@ class CuidadoP extends  Component{
                                 }
                             }
                     })
-                    .map((product, index) => (
+                    .map((product, index) => {
+
+                        if(product.codcat==4){ 
+                            return(
+                        
                         <div class="producto" id="tarjetas" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
@@ -102,7 +106,8 @@ class CuidadoP extends  Component{
                         </div>
                         </center>
                         </div>
-                        ))
+                            )}
+    })
                         }
                      
                     
