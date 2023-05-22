@@ -76,6 +76,14 @@ export const NuevaOferta = () => {
       return null;
     }
   }
+  function estado(){
+    let fechaActual = new Date().toISOString().slice(0, 10);
+    if(fechaActual == inicio){
+      return 1;
+    }else{
+      return 0;
+    }
+  }
 
   //recuperamos datos de un solo producto, por eso le pasamos parametro de entrada codprod// 
   // la API  obtenerProducto devuelve la informacion de un solo producto, llamandolo por su key//
@@ -94,6 +102,8 @@ export const NuevaOferta = () => {
       return null;
     }
   }
+
+  
   
 
 
@@ -122,7 +132,7 @@ export const NuevaOferta = () => {
           fechaini: inicio,
           fechafin: fin,
 					precioventa: precio.campo,
-          estado: 0 ,
+          estado: estado(inicio),
           nombre: prod,
           image: img,
 				
@@ -141,6 +151,7 @@ export const NuevaOferta = () => {
 						
 					});
           console.log(newOferta);
+          
 					return response;
 				}
 				

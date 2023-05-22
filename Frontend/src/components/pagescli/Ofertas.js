@@ -25,6 +25,8 @@ class Ofertas extends  Component{
 
     
     componentDidMount(){
+        let fechaActual = new Date().toISOString().slice(0, 10);
+        
         this.getProductos();
        
     }
@@ -111,8 +113,10 @@ class Ofertas extends  Component{
                 
                 <br></br>
                 
-                {
+                {   
+                
                     this.state.productos?.sort((o1, o2) =>{
+
                         if(o1.producto < o2.producto){
                             return -1;
                         }else{
