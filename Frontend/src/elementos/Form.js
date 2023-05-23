@@ -137,7 +137,7 @@ const Boton = styled.button`
 	height: 45px;
 	line-height: 45px;
 	width: 100px;
-    background-color: #ab61e7f4;
+    background-color: #9451ef;
 	color: #fff;
 	font-weight: bold; 
 	border: none;
@@ -148,7 +148,7 @@ const Boton = styled.button`
 	text-align:center;
 	&:hover {
 		box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-		background-color: #9239dbf4;
+		background-color: #7e28f0;
 	}
 `;
 

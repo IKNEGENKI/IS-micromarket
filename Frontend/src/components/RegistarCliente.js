@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
 import Swal from 'sweetalert2';
+import '../css/cardOfert.css';
+import { NavLink, Navigate } from 'react-router-dom'
 //import '../css/estilos.css';
 //import '../css/registro.css';
 
@@ -100,21 +102,18 @@ export const RegistarCliente = () => {
 	}
 
 	const handleReset = () => {
-
 		cambiarApellido("");
 		cambiarNombre("");
 		cambiarPassword("");
 		cambiarCorreo("");
 		window.location.href = '/login';
-	  };
+	};
 
 	return (
-		<main>
-			<center>
-			
+		<center>
 			<br/>
-			<Formulario action="" onSubmit={onSubmit}>
-			<ContenedorBotonCentrado><h1>Registro de cuenta</h1></ContenedorBotonCentrado>
+			<Formulario action="" onSubmit={onSubmit} id="loginF">
+				<ContenedorBotonCentrado><h1>Registro de cuenta</h1></ContenedorBotonCentrado>
 				<Input
 					estado={nombre}
 					cambiarEstado={cambiarNombre}
@@ -155,31 +154,32 @@ export const RegistarCliente = () => {
 					expresionRegular={expresiones.correo}
 				/>
 
-				
 				{formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>
 						<b>Error:</b> Por favor rellena el formulario correctamente.
 					</p>
 				</MensajeError>}
+
 				<ContenedorBotonCentrado>
 					<Boton type="submit">Enviar</Boton>
 				</ContenedorBotonCentrado>
+
 				<ContenedorBotonCentrado>
-				<ContenedorTerminos>
-					<Label>
-						¿Ya tienes una cuenta? Puedes ingresar aqui.
-					</Label>
-					
-					
-					<Boton type="reset" onClick={handleReset}>Ingresar</Boton>
-					
-				</ContenedorTerminos>
+					<ContenedorTerminos>
+						<Label>
+							¿Ya tienes una cuenta? Puedes ingresar aqui.
+							<a href="#">
+								< NavLink to="/login" >                
+									<a class="rere">Ingresar</a>
+								</NavLink>
+							</a> 
+						</Label>
+						
+					</ContenedorTerminos>
 				</ContenedorBotonCentrado>
 			</Formulario>
-			</center>
-			
-		</main>
+		</center>
 	);
 }
  

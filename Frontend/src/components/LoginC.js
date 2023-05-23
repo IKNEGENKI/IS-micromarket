@@ -5,6 +5,8 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import '../css/cardOfert.css';
+import { NavLink, Navigate } from 'react-router-dom'
 //import '../css/estilos.css';
 //import '../css/estilos.css';
 //import '../css/registro.css';
@@ -66,12 +68,13 @@ export const LoginC = () => {
 			if(correo.campo === 'admin1@gmail.com' && password.campo === 'admin123'){
 				console.log("Eres admin");
 				const logged = true;
-				Swal.fire({
+				/*Swal.fire({
 					icon: 'success',
 					title: '¡Genial!',
 					text: '¡Bienvenido vendedor!',
-					footer: '<a href="admi/homeA">Haz click aqui</a>'
-				})
+					footer: '<a href="/home">Haz click aqui</a>'
+				})*/
+				window.location.href="/";
 			}else{
 				if(respuestaJson.status === 200 ){
 					cambiarFormularioValido(true);
@@ -105,16 +108,16 @@ export const LoginC = () => {
     const handleReset = () => {
 		cambiarPassword("");
 		cambiarCorreo("");
-		window.location.href = '/registrar';
+		window.location = '/registrar';
+		
 	  };
 
 
 	return (
-		<main>
+		
 			<center>
 			
-			<br/>
-			<Formulario action="" onSubmit={onSubmit}>
+			<Formulario action="" onSubmit={onSubmit} id="loginF">
                 <ContenedorBotonCentrado><h1>Ingresar</h1></ContenedorBotonCentrado>
 
                 <Input
@@ -152,15 +155,21 @@ export const LoginC = () => {
 				<ContenedorTerminos>
 					<Label>
 					    ¿Aun no tienes una cuenta? Tranquilo registrate aqui
+						
+						<a href="#">
+							< NavLink to="/registrar" >                
+								<a class="rere">Registrar</a>
+							</NavLink>
+                    	</a> 
 					</Label>
 					
-					<Boton type="reset" onClick={handleReset}>Registrar</Boton>
+					
 				</ContenedorTerminos>
                 </ContenedorBotonCentrado>
 			</Formulario>
 			</center>
 			
-		</main>
+		
 	);
 }
  

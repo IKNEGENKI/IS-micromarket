@@ -15,19 +15,14 @@ class Ofertas extends  Component{
             cantidad:0,
             codigoP:-1,
             hoveredCard: false,
-
         }
         this.getProductos = this.getProductos.bind(this);
-        
     }
-    
-
     
     componentDidMount(){
-        
         this.getProductos();
-       
     }
+
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getOferta')
         .then(res=>{
@@ -74,11 +69,11 @@ class Ofertas extends  Component{
     
     openModal = (producto) => {
         this.setState({ showModal: true, productoSelec: producto });
-      }
+    }
     
     closeModal = () => {
         this.setState({ showModal: false });
-      }
+    }
 
     handleCardMouseEnter = () => {
         this.setState({ hoveredCard: true });
@@ -95,25 +90,23 @@ class Ofertas extends  Component{
 
     updateProducto = async (codoferta,fecha,fecha1,fecha2,codprod,desc,image,nombre,precioventa,precioanterior) => {
         if(fecha == fecha1 ){
-        await axios
-          .put('http://127.0.0.1:8000/api/putOferta/'+codoferta, {
-            'codprod':codprod,
-            'desc':desc,
-            'fechaini':fecha1,
-            'fechafin':fecha2,
-            'precioventa': precioventa,
-            'estado':1,
-            'nombre':nombre,
-            'image': image,
-            
-          })
-          .then((res) => {
-            
-            console.log(res.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+            await axios
+            .put('http://127.0.0.1:8000/api/putOferta/'+codoferta, {
+                'codprod':codprod,
+                'desc':desc,
+                'fechaini':fecha1,
+                'fechafin':fecha2,
+                'precioventa': precioventa,
+                'estado':1,
+                'nombre':nombre,
+                'image': image,
+            })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         }else{
             if(fecha == fecha2){
                 await axios
@@ -138,20 +131,14 @@ class Ofertas extends  Component{
                 console.log("no hay nada que hacer");
             }
         }
-      };
+    };
 
     render(){
-        
-
         return(
             <body id="bodyCardOf">
-                
                 <br></br>
-                
                 {   
-                
                     this.state.productos?.sort((o1, o2) =>{
-
                         if(o1.producto < o2.producto){
                             return -1;
                         }else{
@@ -162,6 +149,7 @@ class Ofertas extends  Component{
                             }
                         }
                     })
+
                     .map((product)=>{
                         let fechaActual = new Date().toISOString().slice(0, 10);
                         this.updateProducto(product.codoferta,fechaActual,product.fechaini,product.fechafin,product.codprod,product.desc,product.image,product.nombre,product.precioventa,product.precioanterior);
@@ -181,11 +169,11 @@ class Ofertas extends  Component{
                         
                         <img  src={product.image}/>
                         <br/>
-                        <span id="porci">ahorra bs.{product.precioanterior - product.precioventa} </span>
+                        <span id="porci">Ahorra Bs.{product.precioanterior - product.precioventa} </span>
                         <h2 id="labelTi">{product.nombre}</h2>
                         <p id="labelOf">Finaliza el: {product.fechafin} </p>
-                        <span id="precioA">Antes: bs. {product.precioanterior} </span>
-                        <span id="precioH"> <b>Ahora: bs. {product.precioventa}</b></span> <br/>
+                        <span id="precioA">Antes: Bs. {product.precioanterior} </span>
+                        <span id="precioH"> <b>Ahora: Bs. {product.precioventa}</b></span> <br/>
                        
                         <Boton type="button" id="borrarP" className="btn"
                         style={{ display: this.state.hoveredCard ? "block" : "none" }}
@@ -196,17 +184,16 @@ class Ofertas extends  Component{
                     </div>
                             )
                         }
-                    }
-                    )
-                }  
+                    })
+                } 
                 <div>
-                {this.state.showModal && (
-                                            <VistaDetallada
-                                                isClose={this.closeModal}
-                                                producto={this.state.productoSelec}
-                                                codigo={this.codigoP}
-                                            />
-                                            )}
+                    {this.state.showModal && (
+                        <VistaDetallada
+                            isClose={this.closeModal}
+                            producto={this.state.productoSelec}
+                            codigo={this.codigoP}
+                        />
+                    )}
                 </div>            
             </body>
                         

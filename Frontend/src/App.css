@@ -571,7 +571,7 @@ body.dark .home .text{
     }
   }
 .cardLista {
-    border: 1px solid #d4f532;
+    border: 1px solid #0d0d0d;
     height: 10rem;
     width: 12rem;
     position: relative;
@@ -588,11 +588,7 @@ body.dark .home .text{
 #bodyCard{
    margin-top: -40rem;
 }
-#cat{
-  text-align: center;
-  cursor: pointer;
-  padding: 10px;
-}
+
 .card-footer {
     position: absolute;
     bottom: 0px;
@@ -757,8 +753,12 @@ body.dark .home .text{
 }
 #flexCheckDefault:checked {
     background-color: rgb(130, 9, 160);
-    }
+}
 
+#categori {
+    color: #000000;
+    font-weight: bold;
+}
 /*----------select categorias-----------*/
 
 /******aaaaaaaaaaaaaa*/
