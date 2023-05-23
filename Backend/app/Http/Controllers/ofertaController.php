@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\oferta;
+use App\Models\producto;
 use Illuminate\Support\Facades\DB;
 
 class ofertaController extends Controller
@@ -15,12 +16,10 @@ class ofertaController extends Controller
     {
        // Obtener todos las ofertas de la base de datos
        $oferta = oferta::all();
-
+        return $oferta;
        // Retornar los oferta como respuesta
-       return response()->json(['ofeta' => $oferta], 200);
+      // return response()->json(['ofeta' => $oferta], 200);
     }
-
-   
 
     /**
      * Store a newly created resource in storage.
@@ -33,6 +32,7 @@ class ofertaController extends Controller
             'fechaini' => $request->input('fechaini'),
             'fechafin' => $request->input('fechafin'),
             'precioventa' => $request->input('precioventa'),
+            'precioanterior' =>$request->input('precioanterior'),
             'estado'=>$request->input('estado'),
             'nombre'=>$request->input('nombre'),
             'image'=>$request->input('image')
@@ -65,6 +65,7 @@ class ofertaController extends Controller
     $oferta->fechaini = $request->input('fechaini');
     $oferta->fechafin = $request->input('fechafin');
     $oferta->precioventa = $request->input('precioventa');
+    $oferta->precioventa = $request->input('precioanterior');
     $oferta->estado = $request->input('estado');
     $oferta->nombre = $request->input('nombre');
     $oferta->image = $request->input('image');
@@ -92,6 +93,6 @@ class ofertaController extends Controller
            // Realiza la eliminación
            $oferta->delete();
            // Retorna una respuesta
-           return response()->json(['mensaje' => 'oferta eliminado'], 200);
+           return response()->json(['mensaje' => 'oferta eliminada'], 200);
     }
 }

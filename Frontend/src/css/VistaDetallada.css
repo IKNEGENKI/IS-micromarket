@@ -3,23 +3,24 @@
 .vista{
   position: fixed;
   top: 50%;
-  left: 77%;
+  left: 73%;
   transform: translate(-50%, -35%);
   height: 66%;
   width: 90%;
+  z-index: 9999; /* Valor alto para asegurar que esté por encima de otros elementos */
  }
 
  .vista-content{
   display: flex;
   position: relative;
   font-size: 30px;
-  padding: 0px;
+  padding: 30px;
   margin: 0px;
   width:50%;
   height: 70%;
   max-height:'100%';
   max-width:'100%';
-  padding: 20px;
+
   overflow-y: auto;
   background-color:#cbcaca;
   border-radius: 10px;
