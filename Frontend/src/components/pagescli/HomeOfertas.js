@@ -70,6 +70,11 @@ console.log("escucho")
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -305,6 +310,7 @@ console.log("escucho")
                             
         
            </body>
+           </div>
         
         )
     }
