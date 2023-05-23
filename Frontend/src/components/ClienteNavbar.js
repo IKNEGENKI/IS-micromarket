@@ -32,34 +32,37 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
     
    
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'></link>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"></link>
+    <title>Pocket Store</title> 
     <title>Pocket Store</title> 
 </head>
 <body>
 <nav class="sidebar  nav-container  ">
     <div className='row'>
                 
-      <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
+      <div class="text row justify-content-between align-items-center" style={{backgroundColor:"#6b1cd4"}}>
       <div class="col" >
-      <span class="super">Pocket</span>
-      <span class="market">Store</span>
+      <span class="super" id="title">Pocket</span>
+      <span class="market" id="title">Store</span>
 
       </div>
 
       <div class="col-auto">
-        <a className="stock" type="button" onClick={() => OpenModal()} > <ShoppingCartIcon/> </a>
+        <a className="stock" type="button" onClick={() => OpenModal()} id="car"> <ShoppingCartIcon color='#fff'/> </a>
         {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
       </div>
 
       <div class="col-auto" >                    
-      <a class="icono" href='/login'><BsPersonCircle color='#000' /></a>                   
+      <a class="icono" href='/home'><BsPersonCircle color='#fff' /></a>                   
       </div>
       <div class="col-auto" >                    
       <a class="registro" href='/login'><span>Ingresar</span></a>                   
       </div>
     </div>
 
-        <div class="menu-bar ">
+        <div class="menu-bar " style={{backgroundColor:"#6b1cd4"}}>
             <div class="menu">
             <a href="#">
                             < NavLink to="/" >
