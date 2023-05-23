@@ -64,22 +64,26 @@ class Carrito extends Component {
   
     this.setState({ subtotal });
   }
-  getImg = async (codprod) => {
+  
+
+   getImg(codprod) {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
-      const prods1 = response.data.producto.image;
-      
-      console.log(prods1);
-      this.setState({imagen:prods1});
+      const response = axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
+      const prods1 = response.data.producto;
+      const img = response.data.producto.image;
+      console.log(img);
+      return img;
     } catch (error) {
       console.log(error);
       return null;
     }
   }
+
   getProd = async(codprod) =>{
     try {
       const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
       const prods1 = await response.data.producto.producto;
+
       console.log(prods1);
       this.setState({name:prods1});
     } catch (error) {
@@ -124,7 +128,7 @@ class Carrito extends Component {
                            
                           <div className="imagen">
                            
-                          <img src={ this.imagen} />
+                          <img src={ this.getImg} />
                           </div>
                           
                           <div className="precio">
