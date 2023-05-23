@@ -103,6 +103,19 @@ export const NuevaOferta = () => {
     }
   }
 
+  async function getPre(codprod) {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
+      const prods1 = response.data.producto.precio;
+      const img = response.data.producto.image;
+      console.log(prods1);
+      return prods1;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
   
   
 
@@ -124,7 +137,7 @@ export const NuevaOferta = () => {
       //aqui asignamos valores recuperandolos en getImg y GetProd///
       const img = await getImg(valor.value);
       const prod = await getProd(valor.value);
-
+      const precioAnt = await getPre(valor.value);
 				const newOferta ={
 					//consul log
 					codprod: valor.value,
@@ -132,6 +145,7 @@ export const NuevaOferta = () => {
           fechaini: inicio,
           fechafin: fin,
 					precioventa: precio.campo,
+          precioanterior: precioAnt,
           estado: estado(inicio),
           nombre: prod,
           image: img,
