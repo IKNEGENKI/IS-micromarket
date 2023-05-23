@@ -63,6 +63,11 @@ class HomeCliente extends  Component{
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id="bodyCard">
                 
                 <br></br>
@@ -109,7 +114,7 @@ class HomeCliente extends  Component{
                                             )}
                 </div>            
             </body>
-                        
+                  </div>      
         )
     }
 }

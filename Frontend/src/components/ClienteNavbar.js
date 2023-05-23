@@ -33,34 +33,31 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
    
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'></link>
     
-    <title>SuperMarket TITA</title> 
+    <title>Pocket Store</title> 
 </head>
 <body>
 <nav class="sidebar  nav-container  ">
     <div className='row'>
-        
-            
                 
-        <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
-  <div class="col" >
-    <span class="super">Super</span>
-    <span class="market">Market</span>
-    <span class="name">TITA</span>
-  </div>
-    <div class="col-auto">
+      <div class="text row justify-content-between align-items-center" style={{backgroundColor:"grey"}}>
+      <div class="col" >
+      <span class="super">Pocket</span>
+      <span class="market">Store</span>
+
+      </div>
+
+      <div class="col-auto">
         <a className="stock" type="button" onClick={() => OpenModal()} > <ShoppingCartIcon/> </a>
         {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
-    </div>
-  <div class="col-auto" >
-  < NavLink to="/home" >
-                              
-  <a onClick={toggleNavbar} class="icono" ><BsPersonCircle /></a>
-                          </NavLink>
-  </div>
-</div>
+      </div>
 
-        
-        
+      <div class="col-auto" >                    
+      <a class="icono" href='/login'><BsPersonCircle color='#000' /></a>                   
+      </div>
+      <div class="col-auto" >                    
+      <a class="registro" href='/login'><span>Ingresar</span></a>                   
+      </div>
+    </div>
 
         <div class="menu-bar ">
             <div class="menu">
@@ -93,7 +90,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                         
                         </a>
                         <a href="#">
-                            < NavLink to="/CuidadoP" >
+                            < NavLink to="/Nosotros" >
                               
                                 <a class="text nav-text" id="cat">ACERCA DE NOSOTROS</a>
                             </NavLink>

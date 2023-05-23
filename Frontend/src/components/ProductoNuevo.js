@@ -343,7 +343,7 @@ export const ProductoNuevo = () =>{
 		
 		</head>
 		<br></br>
-		<body class="homeForm">
+		<body class="homeFormRP">
 			
 		<br></br>
 			<head>

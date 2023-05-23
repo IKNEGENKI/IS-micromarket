@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('fechaini');
             $table->string('fechafin');
             $table->decimal('precioventa', 10, 2);
+            $table->decimal('precioanterior',10,2);
             $table->integer('estado');
             $table->string('nombre');
             $table->string('image');
-
+            $table->timestamps();
         });
     }
 
