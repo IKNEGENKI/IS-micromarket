@@ -58,9 +58,9 @@ export const SideMenu = ({ toggleNavbar }) => {
                                                 onClick={() => handleButtonClick('inicio')}
                                             >
                                             <i id = "iconobarra"><BiHomeHeart/>
-                                                <center>
-                                                    <p id = "pie">Inicio</p>
-                                                </center>
+                                                
+                                                    <a id = "pie">Inicio</a>
+                                                
                                             </i>
                                             <span class="text nav-text">Inicio</span>
                                             
@@ -75,7 +75,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                             onClick={() => handleButtonClick('producto')}
                                         >
                                             <i id = "iconobarra"><VscNotebook/>
-                                                <p id = "pie">Productos</p>
+                                                <a id = "pie">Productos</a>
                                             </i>
                                             <a  class="text nav-text">Registrar producto</a>
                                         </NavLink>
@@ -89,7 +89,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                             onClick={() => handleButtonClick('eliminar')}
                                         >
                                             <i id = "iconobarra"><BsFillTrash3Fill/>
-                                                <p id = "pie">Eliminar</p>
+                                                <a id = "pie">Eliminar</a>
                                             </i>
                                             <a class="text nav-text">Eliminar productos</a>
                                         </NavLink>
@@ -103,7 +103,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                             onClick={() => handleButtonClick('lista')}
                                         >
                                             <i id = "iconobarra"><HiClipboardDocumentList/>
-                                                <p id = "pie">Lista</p>
+                                                <a id = "pie">Lista</a>
                                             </i>
                                             <a class="text nav-text">Lista de productos</a>
                                         </NavLink>
@@ -117,7 +117,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                             onClick={() => handleButtonClick('negocio')}
                                             >
                                                 <i id = "iconobarra" ><BsShop/>
-                                                    <p id = "pie">Negocio</p>
+                                                    <a id = "pie">Negocio</a>
                                                 </i>
                                                 <a class="text nav-text">Modificar datos del negocio</a>
                                         </NavLink>
@@ -131,7 +131,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                                         onClick={() => handleButtonClick('oferta')}
                                         >
                                             <i id = "iconobarra" > <MdSell/> 
-                                                <p id = "pie">Oferta</p>
+                                                <a id = "pie">Oferta</a>
                                             </i>
                                             <a class="text nav-text" >Registrar oferta nueva</a>
                                     </NavLink>
@@ -142,18 +142,15 @@ export const SideMenu = ({ toggleNavbar }) => {
 
                         <div class="bottom-content">
                             <li class="">
-                                 <li class="">
-                                <NavLink to="/">
+                                <NavLink to="">
                                 <a>
                                      salir
-                                    <span class="text nav-text" id='salir' onClick={!toggleNavbar}></span>
+                                    <span class="text nav-text" id = "salir" style={{color: "white"}}onClick={toggleNavbar}>Logout</span>
                                 </a>
                                 </NavLink>
                             </li>
-                            </li>
 
-                            
-                        </div>
+                                                    </div>
                     </div>
                 </nav>
                 <script src="../src/index.js"></script>
@@ -161,4 +158,5 @@ export const SideMenu = ({ toggleNavbar }) => {
         </html>  
     )
 }
+
 
