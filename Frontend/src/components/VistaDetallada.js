@@ -94,7 +94,7 @@ agregarAlCarrito = async (cod, cantidad, costo) => {
           <h3>Cantidad: {product.stock} Unidad(es)</h3>
           
           <center>
-          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,product.stock, product.precio)}> Agregar al carrito </Boton>
+          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,1, product.precio)}> Agregar al carrito </Boton>
           </center>
         </div>
       </div>

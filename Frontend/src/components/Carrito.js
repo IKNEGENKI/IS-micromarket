@@ -59,7 +59,7 @@ class Carrito extends Component {
     let subtotal = 0;
     
     productos.forEach((producto) => {
-      subtotal += parseInt(producto.codetalle) ;
+      subtotal += parseInt(producto.costodetalle) ;
     });
   
     this.setState({ subtotal });
@@ -69,7 +69,7 @@ class Carrito extends Component {
    getImg(codprod) {
     try {
       const response = axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
-      const prods1 = response.data.producto;
+      
       const img = response.data.producto.image;
       console.log(img);
       return img;
@@ -102,6 +102,7 @@ class Carrito extends Component {
             <h4 className="modal-title">Carrito</h4>
           </Modal.Header>
           <ModalBody className="modal-body">
+            
           <div className="lista">
              
             {
@@ -135,13 +136,13 @@ class Carrito extends Component {
                           
                           <h2>{this.name}</h2>
                           <p>Bs. {product.costodetalle} </p>
-                          <p>{this.id}</p>
+                          <p>{this.state.id}</p>
                           </div>
                           <div className="basura">
                           <a onClick={() => this.eliminar(product.codetalle)}><BsFillTrash3Fill/></a>
                           </div>
 
-                      
+                     
                     </div>
 
                   )
@@ -152,10 +153,11 @@ class Carrito extends Component {
                 }
                 )
             }
-               <div id="vacio" className="container"> {vacio && (<BsFillCartXFill />)}</div>
+   
+               
             </div>
-          
-           
+            
+         
           </ModalBody>
 
 
