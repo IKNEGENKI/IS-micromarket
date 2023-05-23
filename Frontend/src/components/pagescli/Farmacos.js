@@ -64,6 +64,11 @@ class Farmacos extends  Component{
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -119,7 +124,7 @@ class Farmacos extends  Component{
                                                 )}
             
                </body>
-            
+               </div>
             )
         }
     }
