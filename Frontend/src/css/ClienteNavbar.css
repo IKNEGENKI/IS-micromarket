@@ -62,4 +62,20 @@
   font-size: 18px;
   margin-top: 5px;
 }
+
+.col-auto :hover{
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+.registro{
+  color: #000;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.registro :hover{
+  color: #f0f0f0;
+}
+
   
