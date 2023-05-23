@@ -35,7 +35,7 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
-import {Registro} from './components/Registro';
+
 import {RegistarCliente} from './components/RegistarCliente';
 import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
@@ -54,7 +54,24 @@ function App() {
   return (
 
     <div center>
+    <div center>
       {navbarCliente ? (
+        <BrowserRouter>
+        <SideMenu toggleNavbar={toggleNavbar}/>
+        <Routes>
+          
+            <Route exact path="/" element={<Home/>}/>
+            <Route exact path="/home" element={<Home/>}/>
+            <Route exact path="/eliminarProducto" element={<Delete/>}/>
+            <Route exact path="/listaProducto" element={<Lista/>}/>
+            <Route exact path="/modificarDatosN" element={<ModificarNegocio/>}/>
+            <Route exact path="/ofertaNueva" element={<NuevaOferta/>}/>
+            <Route exact path="/registrarProductoN" element={<ProductoNuevo/>}/>
+            <Route exact path="*" element={<ErrorNotFound/>}/>
+         
+        </Routes>
+      </BrowserRouter>
+      ) : (
         <BrowserRouter>
         <SideMenu toggleNavbar={toggleNavbar}/>
         <Routes>
@@ -79,6 +96,7 @@ function App() {
           <Route exact path="/login" element={<LoginC/>}/>
           <Route exact path="/registrar" element={<RegistarCliente/>}/>
           <Route exact path="/Ofertas" element={<Ofertas/>}/>
+          <Route exact path="/Ofertas" element={<Ofertas/>}/>
           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
           <Route exact path="/Bebidas" element={<Bebidas/>}/>
           <Route exact path="/BebidasA" element={<BebidasA/>}/>
@@ -99,6 +117,9 @@ function App() {
          
         </Routes>
       </BrowserRouter>
+      )}
+      {/* otros componentes de la página */}
+    </div>
       )}
       {/* otros componentes de la página */}
     </div>
@@ -140,7 +161,7 @@ function App() {
           
           </Routes>
     </BrowserRouter>
-  </div>*/
+  </div>
     
   
   /*<BrowserRouter>

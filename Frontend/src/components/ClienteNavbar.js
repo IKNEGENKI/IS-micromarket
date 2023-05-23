@@ -34,6 +34,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'></link>
     
     <title>Pocket Store</title> 
+    <title>Pocket Store</title> 
 </head>
 <body>
 <nav class="sidebar  nav-container  ">
@@ -52,7 +53,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
       </div>
 
       <div class="col-auto" >                    
-      <a class="icono" href='/home'><BsPersonCircle color='#000' /></a>                   
+      <a class="icono" href='/login'><BsPersonCircle color='#000' /></a>                   
       </div>
       <div class="col-auto" >                    
       <a class="registro" href='/login'><span>Ingresar</span></a>                   
