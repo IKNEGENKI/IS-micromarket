@@ -22,12 +22,11 @@ class HomeCliente extends  Component{
         
     }
     
-
-    
     componentDidMount(){
         this.getProductos();
        
     }
+
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
@@ -38,36 +37,29 @@ class HomeCliente extends  Component{
         });
     }
     
-    
     handleReset = () => {
         window.location.href = '/home';
     }
     
     openModal = (producto) => {
         this.setState({ showModal: true, productoSelec: producto });
-      }
+    }
     
     closeModal = () => {
         this.setState({ showModal: false });
-      }
+    }
 
     handleCardMouseEnter = (index) => {
         this.setState({ hoveredCardIndex: index });
-      };
+    };
       
-      handleCardMouseLeave = () => {
+    handleCardMouseLeave = () => {
         this.setState({ hoveredCardIndex: -1 });
-      };
+    };
 
     render(){
-        
-
         return(
             <div>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
             <body id="bodyCard">
                 
                 <br></br>
