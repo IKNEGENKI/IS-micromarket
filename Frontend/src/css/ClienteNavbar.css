@@ -90,6 +90,7 @@
 
 #car{
   color: #ffffff;
+  margin-left: 20px;
 }
 
 #car :hover{

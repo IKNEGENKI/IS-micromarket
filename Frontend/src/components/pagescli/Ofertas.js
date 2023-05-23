@@ -169,11 +169,11 @@ class Ofertas extends  Component{
                         
                         <img  src={product.image}/>
                         <br/>
-                        <span id="porci">ahorra bs.{product.precioanterior - product.precioventa} </span>
+                        <span id="porci">Ahorra Bs.{product.precioanterior - product.precioventa} </span>
                         <h2 id="labelTi">{product.nombre}</h2>
                         <p id="labelOf">Finaliza el: {product.fechafin} </p>
-                        <span id="precioA">Antes: bs. {product.precioanterior} </span>
-                        <span id="precioH"> <b>Ahora: bs. {product.precioventa}</b></span> <br/>
+                        <span id="precioA">Antes: Bs. {product.precioanterior} </span>
+                        <span id="precioH"> <b>Ahora: Bs. {product.precioventa}</b></span> <br/>
                        
                         <Boton type="button" id="borrarP" className="btn"
                         style={{ display: this.state.hoveredCard ? "block" : "none" }}

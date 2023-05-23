@@ -753,8 +753,12 @@ body.dark .home .text{
 }
 #flexCheckDefault:checked {
     background-color: rgb(130, 9, 160);
-    }
+}
 
+#categori {
+    color: #000000;
+    font-weight: bold;
+}
 /*----------select categorias-----------*/
 
 /******aaaaaaaaaaaaaa*/

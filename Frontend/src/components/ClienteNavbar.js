@@ -49,14 +49,15 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
                         </div>
 
                         <div class="col-auto" id="barrita">
-                            <a className="stock" type="button" onClick={() => OpenModal()} id="car"> <ShoppingCartIcon color='#fff'/> </a>
-                                {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
-                              
                             <a href="#">
                                 < NavLink to="/login" >                
                                     <a class="text nav-text" id="cat">Ingresar</a>
                                 </NavLink>
                             </a> 
+                            <a className="stock" type="button" onClick={() => OpenModal()} id="car"> <ShoppingCartIcon color='#fff'/> </a>
+                                {showModal && ( <Carrito onClose={() => setShowModal(false)} />)}
+                              
+                            
                         </div>
                     </div>
 

@@ -74,7 +74,7 @@ export const LoginC = () => {
 					text: '¡Bienvenido vendedor!',
 					footer: '<a href="/home">Haz click aqui</a>'
 				})*/
-				window.location.href="/home";
+				window.location.href="/";
 			}else{
 				if(respuestaJson.status === 200 ){
 					cambiarFormularioValido(true);
