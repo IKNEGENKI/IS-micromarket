@@ -5,7 +5,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from '../components/Input';
 import '../css/estilos.css';
 //import 'imagesLoad';
-import { Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 import configData from "../config/config.json";
 import axios from 'axios';
 import { useFormik, useField, useFormikContext } from "formik";
@@ -330,8 +330,13 @@ export const ProductoNuevo = () =>{
 	function myFunction(){
 		document.getElementById("img-uploader").enctype = "multipart/form-data";
 	}
+
+	function form_reset() 
+	{ 
+		window.location.reload();
+		console.log("Recarga");
+	} 
 	return (
-	
     <center>
 		<head>
 		<meta http-equiv="Access-Control-Allow-Origin" content="http://localhost:3000/"/>
@@ -349,7 +354,7 @@ export const ProductoNuevo = () =>{
           	<br/>
         
 			<main>
-				<Formulario action="" onSubmit={onSubmit}>
+				<Formulario action="" onSubmit={onSubmit} onReset={Formulario.reload}>
 					<Input
 						estado={producto}
 						cambiarEstado={cambiarProducto}

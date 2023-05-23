@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../images/logo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Navigate } from 'react-router-dom'
 import { Fragment } from 'react'
 import {AiFillFileAdd} from "react-icons/ai"
 import {VscNotebook} from "react-icons/vsc"

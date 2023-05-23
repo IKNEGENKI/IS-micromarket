@@ -113,7 +113,7 @@ class Lista extends  Component{
                                             )}
                                         </th>
                                         <th className="container" >
-                                         <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon/> </a>
+                                         <a className="stock" type="button" onClick={() => this.openModalStock(product,product.stock,product.codprod)}> <AddCircleOutlineIcon fontSize="small"/> </a>
                                          
                                         </th>
                                     
