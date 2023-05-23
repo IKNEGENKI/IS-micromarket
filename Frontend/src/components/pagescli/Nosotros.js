@@ -3,8 +3,9 @@ import '../../css/Nosotros.css'
 
 const Nosotros = () => {
   return (
-    <header>
-    <div > <body></body><ul>
+    
+    <body><br></br><br></br><br></br><br></br><br></br><br></br>
+    <div ><ul>
       <h3>Acerca de nosotros</h3>
       <h1>Horarios de atención</h1>
       <p>Lunes a Sabado: 7:00 AM - 10:00 PM</p>
@@ -28,7 +29,7 @@ const Nosotros = () => {
         <li>Correo electrónico: pocketstore@micromercado.com</li>
         <li>Dirección: Entre: Inti Raymi y Quilla, Cochabamba, Bolivia</li>
       </ul></ul>
-    </div></header>
+    </div></body>
   );
 };
 
