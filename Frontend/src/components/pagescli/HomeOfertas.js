@@ -190,7 +190,7 @@ console.log("escucho")
                     <center>
                          <div>
                          <center>
-                          <h2>Fiambres y Embutidos</h2>
+                          <h2>Fiambres </h2>
                         <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684716368/IS/f8ikckbwwrmiwdffziwv.webp" alt = ""/>
                         <br></br>
                          <br></br>
