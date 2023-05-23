@@ -35,7 +35,7 @@ import {default as Snacks} from './components/pagescli/Snacks';
 import {default as Varios} from './components/pagescli/Varios';
 import {default as OfertasCli} from './components/pagescli/OfertasCli';
 import {default as Lista} from './components/Lista';
-
+import {default as Nosotros} from './components/pagescli/Nosotros';
 import {RegistarCliente} from './components/RegistarCliente';
 import {LoginC} from './components/LoginC';
 import "./elementos/modal.js"
@@ -79,6 +79,7 @@ function App() {
           <Route exact path="/login" element={<LoginC/>}/>
           <Route exact path="/registrar" element={<RegistarCliente/>}/>
           <Route exact path="/Ofertas" element={<Ofertas/>}/>
+          <Route exact path="/Nosotros" element={<Nosotros/>}/>
           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
           <Route exact path="/Bebidas" element={<Bebidas/>}/>
           <Route exact path="/BebidasA" element={<BebidasA/>}/>
