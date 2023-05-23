@@ -178,20 +178,15 @@ class Ofertas extends  Component{
                     <center>
                         <div >
                     <center>
-<<<<<<< HEAD
-                        <h2>{this.obtenerImagen(product.codprod)}</h2>
-                        <h2>{product.precioanterior} </h2>
-=======
                         
                         <img  src={product.image}/>
                         <br/>
-                        <span id="porci">aqui va el porciento %</span>
+                        <span id="porci">ahorra bs.{product.precioanterior - product.precioventa} </span>
                         <h2 id="labelTi">{product.nombre}</h2>
                         <p id="labelOf">Finaliza el: {product.fechafin} </p>
-                        <span id="precioA">Antes: </span>
-                        <span id="precioH">Ahora: </span> <br/>
+                        <span id="precioA">Antes: bs. {product.precioanterior} </span>
+                        <span id="precioH"> <b>Ahora: bs. {product.precioventa}</b></span> <br/>
                        
->>>>>>> 79003ea0885f9919e69be348164e7799d7c52d25
                         <Boton type="button" id="borrarP" className="btn"
                         style={{ display: this.state.hoveredCard ? "block" : "none" }}
                         > Ver </Boton>
