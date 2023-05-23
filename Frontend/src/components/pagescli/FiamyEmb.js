@@ -92,16 +92,16 @@ class FiamyEmb extends  Component{
                     .map((product, index) => {
                         if(product.codcat==7){ 
                             return(
-                        <div class="producto" id="tarjetas" 
+                        <div class="producto" id="tarjetasFi" 
                         onMouseEnter={() => this.handleCardMouseEnter(index)}
                         onMouseLeave={this.handleCardMouseLeave}
                         onClick={() => this.openModal(product,product.codprod)}>
                         <center>
                             <div >
                         <center>
-                            <h2>{product.producto}</h2>
+                            <h2 id="labelT">{product.producto}</h2>
                             <img  src={product.image}/>
-                            <p>Bs. {product.precio} </p>
+                            <p id="labelT">Bs. {product.precio} </p>
                             <Boton type="button" id="borrarP" className="btn"
                             style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
                             > Agregar </Boton>

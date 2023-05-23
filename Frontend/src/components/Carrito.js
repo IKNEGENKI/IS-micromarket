@@ -99,7 +99,7 @@ class Carrito extends Component {
       <div className="carrito-overlay">
         <div className="carrito-container">
           <Modal.Header closeButton onClick={onClose} className="modal-header">
-            <h4 className="modal-title">Carrito</h4>
+            <h4 className="modal-title" id="tituloCa">Carrito</h4>
           </Modal.Header>
           <ModalBody className="modal-body">
           <div className="lista">
@@ -159,19 +159,19 @@ class Carrito extends Component {
           </ModalBody>
 
 
-          <ModalFooter className="modal-footer">
-            <div className="costo">
-            <div className="primero">
-            <div className="subtotal"> subtotal:</div>
-            <div className="preciosub">{this.state.subtotal} bs</div>
+          <ModalFooter className="modal-footer" id="modalF">
+            <div className="costo" id="modalF">
+            <div className="primero" id="modalF">
+            <div className="subtotal" id="modalF"> Subtotal:</div>
+            <div className="preciosub" id="modalF">{this.state.subtotal} Bs.</div>
             </div>
-            <div className="segundo">
-             <div className="descuento"> descuento:</div>
-             <div className="preciodescuento">-{this.state.descuentos} bs</div>
+            <div className="segundo" id="modalF">
+             <div className="descuento" id="modalF"> Descuento:</div>
+             <div className="preciodescuento" id="modalF">-{this.state.descuentos} Bs.</div>
             </div>
-            <div className="segundo">
-              <div className="total">total:</div>
-              <div className="preciototal">{this.state.subtotal-this.state.descuentos} bs</div>
+            <div className="segundo" id="modalF">
+              <div className="total" id="modalF">Total:</div>
+              <div className="preciototal" id="modalF">{this.state.subtotal-this.state.descuentos} Bs.</div>
              
               
             </div >
