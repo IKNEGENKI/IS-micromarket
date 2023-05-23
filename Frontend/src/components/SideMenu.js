@@ -142,12 +142,14 @@ export const SideMenu = ({ toggleNavbar }) => {
 
                         <div class="bottom-content">
                             <li class="">
+                                 <li class="">
                                 <NavLink to="/">
                                 <a>
-                                    <i class='bx bx-log-out icon' style={{fontSize:30}} ></i>
-                                    <span class="text nav-text" style={{fontSize:30}} onClick={toggleNavbar}>Logout</span>
+                                     salir
+                                    <span class="text nav-text" id='salir' onClick={!toggleNavbar}></span>
                                 </a>
                                 </NavLink>
+                            </li>
                             </li>
 
                             
