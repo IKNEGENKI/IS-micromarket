@@ -62,4 +62,33 @@
   font-size: 18px;
   margin-top: 5px;
 }
-  
+
+.col-auto :hover{
+  color: #928a8a;
+  cursor: pointer;
+}
+
+.registro{
+  color: #f1eeee;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.registro :hover{
+  color: #928a8a;
+}
+
+#title{
+  color: #ffffff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+}
+
+#car{
+  color: #ffffff;;
+}
+
+#car :hover{
+  color: #928a8a;
+}
+

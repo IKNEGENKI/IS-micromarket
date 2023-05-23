@@ -64,6 +64,11 @@ class Snacks extends  Component{
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -118,7 +123,7 @@ class Snacks extends  Component{
                                                 )}
             
                </body>
-            
+               </div>
             )
         }
     }

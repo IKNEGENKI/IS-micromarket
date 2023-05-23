@@ -571,14 +571,14 @@ body.dark .home .text{
     }
   }
 .cardLista {
-    border: 1px solid #610567;
+    border: 1px solid #d4f532;
     height: 10rem;
     width: 12rem;
     position: relative;
     font-size: 13px;
 }
 #tarjetas{
-    background: #ebc1ee;
+    background: #e9c1ee;
     border-radius: 15px;
     border-style:solid;
     border-color: #df99f8;
@@ -586,7 +586,7 @@ body.dark .home .text{
 }
 
 #bodyCard{
-   margin-top: -45rem;
+   margin-top: -40rem;
 }
 #cat{
   text-align: center;
@@ -634,7 +634,7 @@ body.dark .home .text{
     cursor: pointer;
 }
 .dark #guardar{
-    background-color: #3a3b3c;
+    background-color: #3b3c3a;
 }
 
 .card-footer input {
@@ -648,6 +648,56 @@ body.dark .home .text{
 
 #img-upload-bar{
     width: 100%;
+}
+
+/*----------Ofertas cards-----------*/
+#bodyCardOf{
+    margin-top: -40rem;
+}
+
+#tarjetasOf{
+    background: #f3e1ff;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #fdfbfa;
+    
+}
+
+.dark #tarjetasOf{
+    background-color: #959698;
+    border-color: #000000;
+}
+
+#labelOf{
+    color: #101010;
+    font-size: 15px;
+}
+
+#labelTi{
+    color:#55545e;
+    font-size: 20px;
+}
+
+#porci {
+    color: azure;
+    background-color: #8e94f8;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: #8e94f8;
+   border-width: 5px;
+   cursor: default;
+}
+
+#precioA {
+    color: #6c6a6a;
+}
+
+#precioH {
+    color: #000000;
+}
+
+.oferI {
+   
 }
 
 /*----------select categorias-----------*/

@@ -15,7 +15,7 @@
 }
 #vacio{
   color: rgb(0, 0, 0);
-  font-size: 200px;
+  transform: scale(730%);
 }
 
 .carrito-overlay {
@@ -135,9 +135,9 @@ margin-top: 2%;
   margin-left: 16%;
 }
 .preciodescuento{
-  margin-left: 7%;
+  margin-left: 10%;
 }
 .preciototal{
 
-  margin-left: 29%;
+  margin-left: 24%;
 }
