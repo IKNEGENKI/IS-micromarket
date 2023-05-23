@@ -68,6 +68,11 @@ class Oferta2 extends  Component{
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -120,7 +125,7 @@ class Oferta2 extends  Component{
                                                 )}
             
                </body>
-            
+               </div>
             )
         }
     }

@@ -64,6 +64,11 @@ class CuidadoP extends  Component{
         
 
         return(
+            <div>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -120,7 +125,7 @@ class CuidadoP extends  Component{
                                                 )}
             
                </body>
-            
+               </div>
             )
         }
     }
