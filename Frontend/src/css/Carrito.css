@@ -30,7 +30,7 @@
 }
 
 .modal-header {
-  background-color: #674188;
+  background-color: #6b1cd4;
 }
 
 .modal-body {
@@ -50,9 +50,9 @@
 }
 
 .costo{
-  background: #ebc1ee;
+  background: #452584;
   color: black;
-  border-color: #df99f8;
+  border-color: #fff9ff;
   width: 100%;
   height: 100%;
   border-radius: 15px;
@@ -141,4 +141,14 @@ margin-top: 2%;
 .preciototal{
 
   margin-left: 24%;
+}
+
+#tituloCa {
+  color: #ffffff;
+  cursor: default;
+}
+
+#modalF {
+  color: #ffffff;
+  cursor: default;
 }

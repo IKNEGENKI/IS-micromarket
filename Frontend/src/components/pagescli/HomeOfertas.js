@@ -71,16 +71,21 @@ console.log("escucho")
 
         return(
             <center>
+                <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+                <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&display=swap" rel="stylesheet"/>
+                </head>
             <div>  
                 <body id = "bodyCard">
                 
                     <br></br>
                 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasAH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Abarrotes</h2>
+                                    <h2 id="tituliyo">Abarrotes</h2>
                                     <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684834790/IS/ul9s1qnmrqmzkwllukzl.png" alt="" />
                                     <br></br>
                                     <br></br>
@@ -92,11 +97,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasBH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Bebidas</h2>
+                                    <h2 id="tituliyo">Bebidas</h2>
                                     <img src ="https://res.cloudinary.com/dymazwyut/image/upload/v1684835186/IS/yaqjlwg4xcx0hvoepmhj.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -108,11 +113,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasBAH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Bebidas Alcoholicas</h2>
+                                    <h2 id="tituliyo1">Bebidas Alcoholicas</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684835313/IS/efcqg57jp7fq62mth43h.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -124,11 +129,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasCPH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>CuidadoP</h2>
+                                    <h2 id="tituliyo">Cuidado Personal</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684835412/IS/siafxpeuu2cifqfspkke.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -140,11 +145,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasEH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Enlatados</h2>
+                                    <h2 id="tituliyo">Enlatados</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684835534/IS/jrjhmawssustgwrsia0u.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -156,11 +161,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas" onClick={this.redireccionarAFarmacos}>
+                    <div className="producto" id="tarjetasFH" onClick={this.redireccionarAFarmacos}>
                         <center>
                             <div>
                                 <center>
-                                    <h2>Farmacos</h2>
+                                    <h2 id="tituliyo">Farmacos</h2>
                                     <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684835617/IS/etwu01fehzhl1b1k4sxf.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -172,11 +177,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasFiH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Fiambres </h2>
+                                    <h2 id="tituliyo">Fiambres </h2>
                                     <img src= "https://res.cloudinary.com/dymazwyut/image/upload/v1684835743/IS/l6onbsnvv41vg8ojuhkm.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -188,11 +193,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasGH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Golosinas</h2>
+                                    <h2 id="tituliyo">Golosinas</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684835969/IS/oyescnd2pqwhjmvqguly.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -204,11 +209,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasLH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Lacteos</h2>
+                                    <h2 id="tituliyo">Lacteos</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836111/IS/oirkbjtycsi1kqpefkgf.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -220,11 +225,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasLiH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Limpieza del Hogar</h2>
+                                    <h2 id="tituliyo">Limpieza del Hogar</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836170/IS/eyefybtiuvhek9zjitil.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -236,11 +241,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasPH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Panaderia</h2>
+                                    <h2 id="tituliyo">Panaderia</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836228/IS/bmggny2mnctvvudw4ooc.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -252,11 +257,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasSH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Snacks</h2>
+                                    <h2 id="tituliyo">Snacks</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836307/IS/xyp8cyarspjdp3z285xe.png" alt = ""/>
                                     <br></br>
                                     <br></br>
@@ -268,11 +273,11 @@ console.log("escucho")
                         </center>
                     </div>
 
-                    <div className="producto" id="tarjetas">
+                    <div className="producto" id="tarjetasVH">
                         <center>
                             <div>
                                 <center>
-                                    <h2>Varios</h2>
+                                    <h2 id="tituliyo">Varios</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836384/IS/deyrtcrfbbsi8nkiz5dm.png" alt = ""/>
                                     <br></br>
                                     <br></br>
