@@ -1,7 +1,6 @@
 
 import React , {Component, useState}from "react";
 import axios from "axios";
-import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
 import VistaDetallada from "../VistaDetallada";
 
@@ -109,7 +108,7 @@ class Ofertas extends  Component{
         
 
         return(
-            <body id="bodyCard">
+            <body id="bodyCardOf">
                 
                 <br></br>
                 
@@ -135,16 +134,22 @@ class Ofertas extends  Component{
                         if(product.estado == 1){ //pregunta si la oferta esta activa
                             return(
 
-                    <div class="producto" id="tarjetas" 
+                    <div class="producto" id="tarjetasOf" 
                     onMouseEnter={this.handleCardMouseEnter}
                     onMouseLeave={this.handleCardMouseLeave}
                     onClick={() => this.openModal(product,product.codprod)}>
                     <center>
                         <div >
                     <center>
-                        <h2>{product.nombre}</h2>
+                        
                         <img  src={product.image}/>
-                        <p>Bs. {product.fechaini} </p>
+                        <br/>
+                        <span id="porci">aqui va el porciento %</span>
+                        <h2 id="labelTi">{product.nombre}</h2>
+                        <p id="labelOf">Finaliza el: {product.fechafin} </p>
+                        <span id="precioA">Antes: </span>
+                        <span id="precioH">Ahora: </span> <br/>
+                       
                         <Boton type="button" id="borrarP" className="btn"
                         style={{ display: this.state.hoveredCard ? "block" : "none" }}
                         > Ver </Boton>

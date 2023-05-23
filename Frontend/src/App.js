@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import { SideMenu } from './components/SideMenu';
 import { ClienteNavbar } from './components/ClienteNavbar';
@@ -54,24 +53,7 @@ function App() {
   return (
 
     <div center>
-    <div center>
       {navbarCliente ? (
-        <BrowserRouter>
-        <SideMenu toggleNavbar={toggleNavbar}/>
-        <Routes>
-          
-            <Route exact path="/" element={<Home/>}/>
-            <Route exact path="/home" element={<Home/>}/>
-            <Route exact path="/eliminarProducto" element={<Delete/>}/>
-            <Route exact path="/listaProducto" element={<Lista/>}/>
-            <Route exact path="/modificarDatosN" element={<ModificarNegocio/>}/>
-            <Route exact path="/ofertaNueva" element={<NuevaOferta/>}/>
-            <Route exact path="/registrarProductoN" element={<ProductoNuevo/>}/>
-            <Route exact path="*" element={<ErrorNotFound/>}/>
-         
-        </Routes>
-      </BrowserRouter>
-      ) : (
         <BrowserRouter>
         <SideMenu toggleNavbar={toggleNavbar}/>
         <Routes>
@@ -96,7 +78,6 @@ function App() {
           <Route exact path="/login" element={<LoginC/>}/>
           <Route exact path="/registrar" element={<RegistarCliente/>}/>
           <Route exact path="/Ofertas" element={<Ofertas/>}/>
-          <Route exact path="/Ofertas" element={<Ofertas/>}/>
           <Route exact path="/Abarrotes" element={<Abarrotes/>}/>
           <Route exact path="/Bebidas" element={<Bebidas/>}/>
           <Route exact path="/BebidasA" element={<BebidasA/>}/>
@@ -112,14 +93,12 @@ function App() {
           <Route exact path="/Varios" element={<Varios/>}/>
           <Route exact path="/OfertasCli" element={<OfertasCli/>}/>
           <Route exact path="*" element={<ErrorNotFound/>}/>
-          <Route exact path="/HomeCategorias" element={<HomeOferta/>}/>
-          <Route exact path="*" element={<ErrorNotFound/>}/>
+           
+           <Route exact path="/HomeCategorias" element={<HomeOferta/>}/>
+           <Route exact path="*" element={<ErrorNotFound/>}/>
          
         </Routes>
       </BrowserRouter>
-      )}
-      {/* otros componentes de la página */}
-    </div>
       )}
       {/* otros componentes de la página */}
     </div>
@@ -161,7 +140,7 @@ function App() {
           
           </Routes>
     </BrowserRouter>
-  </div>
+  </div>*/
     
   
   /*<BrowserRouter>
