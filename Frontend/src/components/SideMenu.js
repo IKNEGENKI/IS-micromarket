@@ -1,6 +1,6 @@
 import React , { useState }from 'react'
 import logo from '../images/logo.png'
-import { NavLink, useNavigate, Route, Routes} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Fragment } from 'react'
 import {AiFillFileAdd} from "react-icons/ai"
 import {VscNotebook} from "react-icons/vsc"
@@ -13,9 +13,6 @@ import { FaStore } from "react-icons/fa" ;
 import { TiThMenu } from "react-icons/ti";
 import { BsPersonCircle } from "react-icons/bs";
 import '../css/sidemenu.css';
-import '../components/router/Route1';
-
-import { ProductoNuevo } from './ProductoNuevo'
 export const SideMenu = ({ toggleNavbar }) => {
     const [activeButton, setActiveButton] = useState('inicio');
 
@@ -51,6 +48,10 @@ export const SideMenu = ({ toggleNavbar }) => {
                 </div>
                
             </div>
+            <NavLink to="/" >
+            <a  className='bx ' onClick={toggleNavbar}><BsPersonCircle /></a>
+            </NavLink>
+            <i class='bx bx-chevron-right toggle'></i>
         </header>
 
         <div class="menu-bar">
@@ -61,7 +62,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                 
                     <li class="nav-link">
                         <a href="#">
-                            <NavLink to="/homeA" 
+                            <NavLink to="/home" 
                             className={activeButton === 'inicio' ? 'active' : ''}
                             onClick={() => handleButtonClick('inicio')}
                             >
@@ -157,19 +158,15 @@ export const SideMenu = ({ toggleNavbar }) => {
 
             <div class="bottom-content">
             <li class="">
-                          <a href="/homeC">
-                              <i class='bx bx-log-out icon' style={{fontSize:30}} ></i>
-                              <span class="text nav-text" style={{fontSize:30}} >Logout</span>
+                          <a href="#">
+                              <i class='bx bx-log-out icon' style={{fontSize:40}} ></i>
+                              <span class="text nav-text" style={{fontSize:40}} >Logout</span>
                           </a>
-                          <NavLink to="/" >
-            <a  className='bx ' onClick={toggleNavbar}><BsPersonCircle color='#000'/></a>
-            </NavLink>
-            <i class='bx bx-chevron-right toggle'></i>
                       </li>
 
                 <li class="mode">
                     <div class="sun-moon">
-                        <i class='bx bx-moon icon moon' style={{fontSize:30}}></i>
+                        <i class='bx bx-moon icon moon' style={{fontSize:40}}></i>
                         <i class='bx bx-sun icon sun'></i>
                     </div>
                     <span class="mode-text text" >Dark mode</span>
@@ -185,11 +182,8 @@ export const SideMenu = ({ toggleNavbar }) => {
     </nav>
 
     <script src="../src/index.js"></script>
-    <Routes>
-    <Route exact path="/registrarProductoN" element={<ProductoNuevo/>}/>
-    </Routes>
-</body>
-</html> 
 
+</body>
+</html>  
   )
 }
