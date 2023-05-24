@@ -38,7 +38,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
             <title>Pocket Store</title> 
             <title>Pocket Store</title> 
         </head>
-        <body>
+        
             <nav class="sidebar  nav-container  " style={{backgroundColor:"#6b1cd4"}}>
                 <div className='row'>
                             
@@ -100,7 +100,7 @@ export const ClienteNavbar = ({ toggleNavbar }) => {
 
             <script src="../src/index.js"></script>
 
-        </body>
+        
     </html>  
   )
 }
