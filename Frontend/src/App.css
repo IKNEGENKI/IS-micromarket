@@ -468,6 +468,12 @@ body.dark .home .text{
     color:green;
 }
 
+#salida {
+	color: #fff;
+	justify-content: center;
+	font-weight: bold;
+}
+
 
 /*------------------------------barra css--------------------------------*/
 /*----------imagen en formulario----------------------*/
@@ -585,7 +591,7 @@ body.dark .home .text{
 }
 
 #bodyCard{
-   margin-top: -40rem;
+   margin-top: -35rem;
 }
 
 .card-footer {

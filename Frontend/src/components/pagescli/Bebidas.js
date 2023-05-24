@@ -65,65 +65,53 @@ class Bebidas extends  Component{
 
         return(
             <div>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
-            <body id = "bodyCard">
-                
-                <br></br>
-               
-                  
-                  
-                    {
-
-                      
-                        this.state.productos?.sort((o1, o2) =>{
-                            if(o1.producto < o2.producto){
-                                return -1;
-                            }else{
-                                if(o1.producto > o2.producto){
-                                    return 1;
+                <body id = "bodyCard">
+                    <br></br>
+                        {
+                            this.state.productos?.sort((o1, o2) =>{
+                                if(o1.producto < o2.producto){
+                                    return -1;
                                 }else{
-                                    return 0;
+                                    if(o1.producto > o2.producto){
+                                        return 1;
+                                    }else{
+                                        return 0;
+                                    }
                                 }
-                            }
-                    })
-                    .map((product, index) => {
-                        if(product.codcat==2){ 
-                            return(
-                        <div class="producto" id="tarjetasB" 
-                        onMouseEnter={() => this.handleCardMouseEnter(index)}
-                        onMouseLeave={this.handleCardMouseLeave}
-                        onClick={() => this.openModal(product,product.codprod)}>
-                        <center>
-                            <div >
-                        <center>
-                            <h2 id="labelT">{product.producto}</h2>
-                            <img  src={product.image}/>
-                            <p id="labelT">Bs. {product.precio} </p>
-                            <Boton type="button" id="borrarP" className="btn"
-                            style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
-                            > Agregar </Boton>
-                        </center>
-                        </div>
-                        </center>
-                        </div>
-                            )}
-    })
-                    }
-                 
-                
-                 {this.state.showModal && (
-                                            <VistaDetallada
-                                                isClose={this.closeModal}
-                                                producto={this.state.productoSelec}
-                                                codigo={this.codigoP}
-                                            />
-                                            )}
+                            })
+                            .map((product, index) => {
+                                if(product.codcat==2){ 
+                                    return(
+                                    <div class="producto" id="tarjetasB" 
+                                        onMouseEnter={() => this.handleCardMouseEnter(index)}
+                                        onMouseLeave={this.handleCardMouseLeave}
+                                        onClick={() => this.openModal(product,product.codprod)}>
+                                        <center>
+                                            <div >
+                                                <center>
+                                                    <h2 id="labelT">{product.producto}</h2>
+                                                    <img  src={product.image}/>
+                                                    <p id="labelT">Bs. {product.precio} </p>
+                                                    <Boton type="button" id="borrarP" className="btn"
+                                                    style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
+                                                    > Agregar </Boton>
+                                                </center>
+                                            </div>
+                                        </center>
+                                    </div>
+                                )}
+                            })
+                        }
         
-           </body>
-           </div>
+                        {this.state.showModal && (
+                            <VistaDetallada
+                                isClose={this.closeModal}
+                                producto={this.state.productoSelec}
+                                codigo={this.codigoP}
+                            />
+                        )}
+                </body>
+            </div>
         )
     }
 }

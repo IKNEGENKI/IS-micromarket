@@ -229,7 +229,7 @@ console.log("escucho")
                         <center>
                             <div>
                                 <center>
-                                    <h2 id="tituliyo">Limpieza del Hogar</h2>
+                                    <h2 id="tituliyo1">Limpieza del Hogar</h2>
                                     <img src = "https://res.cloudinary.com/dymazwyut/image/upload/v1684836170/IS/eyefybtiuvhek9zjitil.png" alt = ""/>
                                     <br></br>
                                     <br></br>

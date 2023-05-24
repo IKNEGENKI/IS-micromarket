@@ -29,6 +29,7 @@ class BebidasA extends  Component{
         this.getProductos();
        
     }
+
     getProductos=async()=>{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
@@ -46,38 +47,26 @@ class BebidasA extends  Component{
     
     openModal = (producto) => {
         this.setState({ showModal: true, productoSelec: producto });
-      }
+    }
     
     closeModal = () => {
         this.setState({ showModal: false });
-      }
+    }
 
-      handleCardMouseEnter = (index) => {
+    handleCardMouseEnter = (index) => {
         this.setState({ hoveredCardIndex: index });
-      };
+    };
       
-      handleCardMouseLeave = () => {
+    handleCardMouseLeave = () => {
         this.setState({ hoveredCardIndex: -1 });
-      };
+    };
     
     render(){
-        
-
         return(
             <div>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
-                <br/><br/>
-            <body id = "bodyCard">
-                
-                <br></br>
-               
-                  
-                  
+                <body id = "bodyCard">
+                <br></br>                  
                     {
-
-                      
                         this.state.productos?.sort((o1, o2) =>{
                             if(o1.producto < o2.producto){
                                 return -1;
@@ -88,45 +77,44 @@ class BebidasA extends  Component{
                                     return 0;
                                 }
                             }
-                    })
-                    .map((product, index) => {
-                        if(product.codcat==3){ 
-                            return(
-                        <div class="producto" id="tarjetasBA" 
-                        onMouseEnter={() => this.handleCardMouseEnter(index)}
-                        onMouseLeave={this.handleCardMouseLeave}
-                        onClick={() => this.openModal(product,product.codprod)}>
-                        <center>
-                            <div >
-                        <center>
-                            <h2 id="labelT">{product.producto}</h2>
-                            <img  src={product.image}/>
-                            <p id="labelT">Bs. {product.precio} </p>
-                            <Boton type="button" id="borrarP" className="btn"
-                            style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
-                            > Agregar </Boton>
-                        </center>
-                        </div>
-                        </center>
-                        </div>
-                            )}
-    })
-                        }
-                     
-                    
-                     {this.state.showModal && (
-                                                <VistaDetallada
-                                                    isClose={this.closeModal}
-                                                    producto={this.state.productoSelec}
-                                                    codigo={this.codigoP}
-                                                />
-                                                )}
-            
-               </body>
-               </div>
-            )
-        }
+                        })
+                        .map((product, index) => {
+                            if(product.codcat==3){ 
+                                return(
+                                    <div class="producto" id="tarjetasBA" 
+                                        onMouseEnter={() => this.handleCardMouseEnter(index)}
+                                        onMouseLeave={this.handleCardMouseLeave}
+                                        onClick={() => this.openModal(product,product.codprod)}>
+                                        <center>
+                                            <div >
+                                                <center>
+                                                    <h2 id="labelT">{product.producto}</h2>
+                                                    <img  src={product.image}/>
+                                                    <p id="labelT">Bs. {product.precio} </p>
+                                                    <Boton type="button" id="borrarP" className="btn"
+                                                    style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
+                                                    > Agregar </Boton>
+                                                </center>
+                                            </div>
+                                        </center>
+                                    </div>
+                                )}
+                        })
+                    }
+                        
+                    {this.state.showModal && (
+                        <VistaDetallada
+                            isClose={this.closeModal}
+                            producto={this.state.productoSelec}
+                            codigo={this.codigoP}
+                        />
+                    )}
+                
+                </body>
+            </div>
+        )
     }
+}
 export default BebidasA;
 
 
