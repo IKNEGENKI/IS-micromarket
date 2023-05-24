@@ -143,7 +143,7 @@ export const SideMenu = ({ toggleNavbar }) => {
                         <div class="bottom-content">
                             <li class="">
                                 <NavLink to="">
-                                <a>
+                                <a id="salida">
                                      salir
                                     <span class="text nav-text" id = "salir" style={{color: "white"}}onClick={toggleNavbar}>Logout</span>
                                 </a>
