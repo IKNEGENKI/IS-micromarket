@@ -3,6 +3,7 @@ import React , {Component, useState}from "react";
 import axios from "axios";
 import { Boton } from "../elementos/Formularios";
 import VistaDetallada from "./VistaDetallada";
+import "../css/Cards.css";
 
 class HomeCliente extends  Component{
     
@@ -14,7 +15,6 @@ class HomeCliente extends  Component{
             productoSelec:"",
             cantidad:0,
             codigoP:-1,
-            hoveredCard: false,
             hoveredCardIndex: -1
 
         }
@@ -60,6 +60,9 @@ class HomeCliente extends  Component{
     render(){
         return(
             <div>
+                <br></br>
+                <br></br>
+                <br></br>
             <body id="bodyCard">
                 
                 <br></br>
@@ -77,7 +80,8 @@ class HomeCliente extends  Component{
                         }
                     })
                     .map((product, index) => (
-                    <div class="producto" id="tarjetas" 
+                    <div className={`cardi${this.state.hoveredCardIndex === index ? " active" : ""}`}
+                    id="tarjetas" 
                     onMouseEnter={() => this.handleCardMouseEnter(index)}
                     onMouseLeave={this.handleCardMouseLeave}
                     onClick={() => this.openModal(product,product.codprod)}>
@@ -85,11 +89,14 @@ class HomeCliente extends  Component{
                         <div >
                     <center>
                         <h2>{product.producto}</h2>
+                        <br></br>
                         <img  src={product.image}/>
+                        <br></br>
                         <p>Bs. {product.precio} </p>
-                        <Boton type="button" id="borrarP" className="btn"
-                        style={{display:this.state.hoveredCardIndex === index ? "block" : "none"}}
-                        > Ver </Boton>
+                        <br></br>
+                        {this.state.hoveredCardIndex === index && (
+                            <Boton type="button" id="borrarP" className="btn">Agregar</Boton>
+                        )}
                     </center>
                     </div>
                     </center>

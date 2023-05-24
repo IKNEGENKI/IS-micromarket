@@ -1,0 +1,44 @@
+.cardi {
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: 10px;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Agregado */
+  }
+  
+  .cardi.active {
+    border: 2px solid blue; /* Ejemplo: resaltar el card cuando el cursor está sobre él */
+  }
+  
+  .cardi img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .cardi h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .cardi p {
+    font-size: 18px;
+    margin-top: 5px;
+    color: #000000;
+  }
+  
+  .cardi .btn {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .cardi.active .btn {
+    display: block;
+  }
+  
