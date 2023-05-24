@@ -46,7 +46,7 @@
   
   /* Estilos para la imagen */
   .vista-content img {
-    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    width: 230px; /* Ajusta el tamaño según tus necesidades */
     margin-right: 15px; /* Espacio entre la imagen y los demás elementos */
   }
   
@@ -69,6 +69,12 @@
 
   }
   
+  .vista-content h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   .vista-content p {
     margin-top: 10px;
     font-size: 20px;
