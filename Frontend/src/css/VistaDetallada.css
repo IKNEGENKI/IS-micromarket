@@ -104,6 +104,7 @@
     align-items: center;
     font-size: 19px;
     margin: 4px 2px;
+    margin-top: 50px;
     cursor: pointer;
     transition: .1s ease all;
     white-space: nowrap; /* Asegura que el texto se mantenga en una sola línea */

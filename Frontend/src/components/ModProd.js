@@ -65,7 +65,7 @@ class ModificarProducto extends Component {
         Swal.fire({
           icon: 'success',
           title: '¡Genial!',
-          text: '¡Producto nuevo guardado exitosamente!',
+          text: '¡Producto modificado exitosamente!',
           //footer: '<a href="">Why do I have this issue?</a>'
         })
         
