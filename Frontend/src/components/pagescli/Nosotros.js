@@ -4,7 +4,7 @@ import '../../css/Nosotros.css';
 const Nosotros = () => {
   return (
     <body>
-      <br></br><br></br><br></br><br></br><br></br>
+      <br></br><br></br><br></br><br></br>
       <div className="nosotros-container">
         <center>
           <ul>
