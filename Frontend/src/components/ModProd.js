@@ -6,6 +6,7 @@ import '../css/Stock.css';
 import '../css/modPro.css';
 import { Modal } from 'react-bootstrap';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 class ModificarProducto extends Component {
   constructor(props) {
@@ -61,6 +62,13 @@ class ModificarProducto extends Component {
       ) { 
         await this.updateProducto();
         this.props.isClose();
+        Swal.fire({
+          icon: 'success',
+          title: '¡Genial!',
+          text: '¡Producto modificado exitosamente!',
+          //footer: '<a href="">Why do I have this issue?</a>'
+        })
+        
       }
   }
 
@@ -87,7 +95,7 @@ class ModificarProducto extends Component {
 
   handleDescChange = (event) => {
     const valor = event.target.value;
-    const descValidoExp = /^[a-zA-Z]{1,2}([a-zA-Z0-9-|_|!|#|%|(|)|,|.\s]{9,98})$/; 
+    const descValidoExp = /^[a-zA-ZñÑ]{1,2}([a-zA-Z0-9-|_|!|#|%|(|)|,|.\s]{9,98})$/;
     const esValido = descValidoExp.test(valor);
     this.setState({desc: valor, descValido: esValido});
   };
@@ -115,7 +123,7 @@ class ModificarProducto extends Component {
     return (
     <div className="modpro">
         <div className="modal-content">
-          <Modal.Header closeButton onClick={isClose}>
+          <Modal.Header>
             <h4 className="modal-title">Modificar Producto</h4>
           </Modal.Header>
           <form action="" onSubmit={this.handleSubmit} className="formulario">
@@ -184,7 +192,7 @@ class ModificarProducto extends Component {
 								</div>
 							</center>
 						</div>
-
+            <br></br>
             {formularioValido === false && (
             <MensajeError>
               <p>
@@ -194,10 +202,10 @@ class ModificarProducto extends Component {
             </MensajeError>
           )}
 
-            <div className="button-container">
+              <center>
               <Boton id="guardarP" type="submit">Guardar</Boton>
               <Boton id="borrarP" type="button" onClick={isClose} className="btn mx-5">Cancelar</Boton>
-            </div>
+              </center>    
           </form>
         </div>
       </div>

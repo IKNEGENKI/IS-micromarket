@@ -2,7 +2,7 @@
 import React , {Component, useState}from "react";
 import axios from "axios";
 import { Boton } from "../../elementos/Formularios";
-import VistaDetallada from "../VistaDetallada";
+import VistaDetalladaOferta from "../VistaDetalladaOferta";
 
 class Ofertas extends  Component{
     
@@ -188,7 +188,7 @@ class Ofertas extends  Component{
                 } 
                 <div>
                     {this.state.showModal && (
-                        <VistaDetallada
+                        <VistaDetalladaOferta
                             isClose={this.closeModal}
                             producto={this.state.productoSelec}
                             codigo={this.codigoP}
