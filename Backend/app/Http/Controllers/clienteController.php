@@ -111,6 +111,20 @@ class clienteController extends Controller
         return response()->json(['mensaje' => 'datos actualizados']); 
     }
     
+    public function updatePassword(Request $request)
+{
+    $cliente = cliente::where('correo', $request->input('correo'))->first();
+
+    if (!$cliente) {
+        return response()->json(['mensaje' => 'Cliente no encontrado'], 404);
+    }else{
+
+        $cliente->password = bcrypt($request->input('password'));
+        $cliente->save();
+        
+        return response()->json(['mensaje' => 'Contraseña actualizada con éxito'], 200);
+    }
+}
 
     public function login(Request $request)
     {
