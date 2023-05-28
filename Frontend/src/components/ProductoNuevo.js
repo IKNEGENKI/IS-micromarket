@@ -5,7 +5,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from '../components/Input';
 import '../css/estilos.css';
 //import 'imagesLoad';
-import { Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 import configData from "../config/config.json";
 import axios from 'axios';
 import { useFormik, useField, useFormikContext } from "formik";
@@ -330,15 +330,20 @@ export const ProductoNuevo = () =>{
 	function myFunction(){
 		document.getElementById("img-uploader").enctype = "multipart/form-data";
 	}
+
+	function form_reset() 
+	{ 
+		window.location.reload();
+		console.log("Recarga");
+	} 
 	return (
-	
     <center>
 		<head>
 		<meta http-equiv="Access-Control-Allow-Origin" content="http://localhost:3000/"/>
 		
 		</head>
 		<br></br>
-		<body class="homeForm">
+		<body class="homeFormRP">
 			
 		<br></br>
 			<head>
@@ -349,7 +354,7 @@ export const ProductoNuevo = () =>{
           	<br/>
         
 			<main>
-				<Formulario action="" onSubmit={onSubmit}>
+				<Formulario action="" onSubmit={onSubmit} onReset={Formulario.reload}>
 					<Input
 						estado={producto}
 						cambiarEstado={cambiarProducto}
@@ -419,14 +424,13 @@ export const ProductoNuevo = () =>{
 						leyendaError="La descripción debe ser de 10 a 100 caracteres, y contener letras, números y caracteres especiales como ser: _ - ! % ()"
 						expresionRegular={expresiones.descripcion}
 					/>
-						</ContenedorBotonCentrado>
-					<ContenedorBotonCentrado>
-						<div class="container">
+					</ContenedorBotonCentrado>
+				
+
+					<ContenedorBotonCentrado>	
+					<div class="container">
 							<center>
-								<label>Imagen*:</label>
-								<br></br>
 								<div class="card" id = "contenedorImagen"  >
-									
 									<img id="img-preview"/>
 										<div class="card-footer" id = "contenedorImagen">
 											<input accept="image/png,image/jpg" type="file" id="img-uploader" className='img-upload'></input>
@@ -435,8 +439,8 @@ export const ProductoNuevo = () =>{
 								</div>
 							</center>
 						</div>
-					
-						</ContenedorBotonCentrado>
+					</ContenedorBotonCentrado>
+						
 					{formularioValido === false && <MensajeError>
 						<p>
 							<FontAwesomeIcon icon={faExclamationTriangle}/>

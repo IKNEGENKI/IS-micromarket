@@ -4,6 +4,7 @@ import axios from "axios";
 import '../../css/estilos.css'
 import { Boton } from "../../elementos/Formularios";
 import VistaDetallada from "../VistaDetallada";
+import '../../css/Cards.css'
 
 class Varios extends  Component{
     
@@ -15,7 +16,7 @@ class Varios extends  Component{
             productoSelec:"",
             cantidad:0,
             codigoP:-1,
-            hoveredCard: false,
+            hoveredCardIndex: -1
 
         }
         this.getProductos = this.getProductos.bind(this);
@@ -51,18 +52,19 @@ class Varios extends  Component{
         this.setState({ showModal: false });
       }
     
-    handleCardMouseEnter = () => {
-        this.setState({ hoveredCard: true });
-    };
+      handleCardMouseEnter = (index) => {
+        this.setState({ hoveredCardIndex: index });
+      };
       
-    handleCardMouseLeave = () => {
-        this.setState({ hoveredCard: false });
-    };
+      handleCardMouseLeave = () => {
+        this.setState({ hoveredCardIndex: -1 });
+      };
     
     render(){
         
 
         return(
+            <div>
             <body id = "bodyCard">
                 
                 <br></br>
@@ -83,29 +85,33 @@ class Varios extends  Component{
                                 }
                             }
                     })
-                        .map((product,index)=>{
-                           if(product.codcat==13){ 
+                    .map((product, index) => {
+                        if(product.codcat==13){ 
                             return(
-                                <div class="producto" id = "tarjetas" 
-                                onMouseEnter={this.handleCardMouseEnter}
+
+                                <div className={`cardi${this.state.hoveredCardIndex === index ? " active" : ""}`}
+                                id="tarjetasB" 
+                                onMouseEnter={() => this.handleCardMouseEnter(index)}
                                 onMouseLeave={this.handleCardMouseLeave}
                                 onClick={() => this.openModal(product,product.codprod)}>
                                 <center>
-                                <div >
+                                    <div >
                                 <center>
-                                    <h2>{product.producto}</h2>
+                                    <h2 id="labelT">{product.producto}</h2>
+                                    <br></br>
                                     <img  src={product.image}/>
-                                    <p>Bs. {product.precio} </p>
-                                    <Boton type="button" id="borrarP" className="btn" style={{ display: this.state.hoveredCard ? "block" : "none" }}> Agregar </Boton>
-                                </center>
-                                </div>
-                                </center>
-                                 </div>
-                                )
-                               }
-                               
-                            }
-                            )
+                                    <br></br>
+                                    <p id="labelT">Bs. {product.precio} </p>
+                                    <br></br>
+                                    {this.state.hoveredCardIndex === index && (
+                                    <Boton type="button" id="borrarP" className="btn">Agregar</Boton>
+                                )}
+                        </center>
+                        </div>
+                        </center>
+                        </div>
+                            )}
+                        })
                         }
                      
                     
@@ -118,7 +124,7 @@ class Varios extends  Component{
                                                 )}
             
                </body>
-            
+               </div>
             )
         }
     }

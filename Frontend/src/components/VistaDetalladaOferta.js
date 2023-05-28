@@ -3,7 +3,8 @@ import { Boton} from '../elementos/MiniForm';
 import '../css/VistaDetallada.css';
 import axios from 'axios';
 import agregarCarrito from "./agregarCarrito";
-class VistaDetallada extends Component {
+
+class VistaDetalladaOferta extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,16 +86,15 @@ agregarAlCarrito = async (cod, cantidad, costo) => {
         </div> 
 
         <div>
-          <h4>{product.producto}</h4>
-
-          <h3>Bs. {product.precio}</h3>
-
-          <p>{product.desc}</p>  
-          
-          <h3>Cantidad: {product.stock} Unidad(es)</h3>
-          
+            <h4>{product.nombre}</h4>
+            <h2>{product.desc}</h2>  
+            <h2>Precio antes: {product.precioanterior} bs</h2>
+            <h2>Precio ahora: {product.precioventa} bs</h2>
+            <h2>Ahorra: {product.precioanterior - product.precioventa} bs</h2>
+            <h2>Inicia el: {product.fechaini} </h2>
+            <h2>Finaliza el: {product.fechafin} </h2>
           <center>
-          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,1, product.precio)}> Agregar al carrito </Boton>
+          <Boton type="button" id="agregar" className="btn" onClick={() =>this.agregarAlCarrito(product.codprod,product.stock, product.precio)}> Agregar al carrito </Boton>
           </center>
         </div>
       </div>
@@ -104,4 +104,4 @@ agregarAlCarrito = async (cod, cantidad, costo) => {
 }
 
 
-export default VistaDetallada;
+export default VistaDetalladaOferta;

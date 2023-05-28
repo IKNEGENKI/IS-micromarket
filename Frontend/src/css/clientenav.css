@@ -30,11 +30,10 @@
   .market {
     font-size: 2rem; /* Esto aumenta el tamaño de la fuente a 1.2 veces el tamaño predeterminado */
     margin-left: 20px; /* Esto agrega un poco de espacio entre los elementos "TITA" y "SuperMarket" */
-    margin-right: 500px;
   }
   .icono {
     font-size: 2rem; /* Esto aumenta el tamaño de la fuente a 1.2 veces el tamaño predeterminado */
-    margin-left: 20px; /* Esto agrega un poco de espacio entre los elementos "TITA" y "SuperMarket" */
+    margin-left: 1000px; /* Esto agrega un poco de espacio entre los elementos "TITA" y "SuperMarket" */
     
 }
   
@@ -64,46 +63,19 @@
   margin-top: 5px;
 }
 
+
 .col-auto :hover{
-  color: #928a8a;
+  color: #f0f0f0;
   cursor: pointer;
 }
 
-
-
 .registro{
-  color: #f1eeee;
+  color: #000;
   text-decoration: none;
   font-size: 22px;
-  position: absolute;
 }
 
 .registro :hover{
-  color: #928a8a;
+  color: #f0f0f0;
 }
-
-#title{
-  color: #ffffff;
-  font-family: 'Dancing Script', cursive;
-  font-size: 50px;
-}
-
-#car{
-  color: #ffffff;
-  margin-left: 20px;
-}
-
-#car :hover{
-  color: #928a8a;
-}
-
-#barrita {
   
-}
-
-#cat{
-  text-align: center;
-  cursor: pointer;
-  padding: 10px;
- 
-}

@@ -1,6 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&display=swap');
 
 
 
@@ -49,7 +48,11 @@
   orm: translateX(10px);
 }*/
 
-
+#link_cat{
+    
+    text-decoration: none;
+    font-size: larger;
+}
 .App-link {
   color: #61dafb;
 }
@@ -78,7 +81,7 @@
 :root{
     /* ===== Colors ===== */
     --body-color: #c8c8c8; /*color de fondo*/
-    --sidebar-color: #674188;/*color barra*/
+    --sidebar-color: #6b1cd4;/*color barra*/
     --primary-color: #ffffff;/*boton flecha*/
     --primary-color-light: #cfcfcf; /*busqueda y dark*/
     --toggle-color: #ffffff;/*toogle dark*/
@@ -465,6 +468,12 @@ body.dark .home .text{
     color:green;
 }
 
+#salida {
+	color: #fff;
+	justify-content: center;
+	font-weight: bold;
+}
+
 
 /*------------------------------barra css--------------------------------*/
 /*----------imagen en formulario----------------------*/
@@ -567,14 +576,14 @@ body.dark .home .text{
     }
   }
 .cardLista {
-    border: 1px solid #610567;
+    border: 1px solid #0d0d0d;
     height: 10rem;
     width: 12rem;
     position: relative;
     font-size: 13px;
 }
 #tarjetas{
-    background: #ebc1ee;
+    background: #e9c1ee;
     border-radius: 15px;
     border-style:solid;
     border-color: #df99f8;
@@ -582,13 +591,9 @@ body.dark .home .text{
 }
 
 #bodyCard{
-   margin-top: -45rem;
+   margin-top: -35rem;
 }
-#cat{
-  text-align: center;
-  cursor: pointer;
-  padding: 10px;
-}
+
 .card-footer {
     position: absolute;
     bottom: 0px;
@@ -630,7 +635,7 @@ body.dark .home .text{
     cursor: pointer;
 }
 .dark #guardar{
-    background-color: #3a3b3c;
+    background-color: #3b3c3a;
 }
 
 .card-footer input {
@@ -644,6 +649,283 @@ body.dark .home .text{
 
 #img-upload-bar{
     width: 100%;
+}
+
+/*----------Categorias cards-----------*/
+#tarjetasA{
+    background: #c9a58f;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #916b56;
+    color: #fff;
+    font-family: cursive;
+}
+
+#labelT{
+    color: #fff;
+
+}
+
+#tituliyo{
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+}
+
+#tituliyo1{
+    font-family: 'Courgette', cursive;
+    font-size: 29px;
+}
+
+#tarjetasAH{
+    background: linear-gradient(#916b56, #c9a58f);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #916b56;
+    color: #fff;
+    font-family: 'Courgette', cursive;
+}
+
+#tarjetasB{
+    background: #fd8c9f;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #f86981;
+    color: #fff;
+}
+
+#tarjetasBH{
+    background: linear-gradient(#dc4e66, #fd8c9f);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #f86981;
+    color: #fff;
+}
+
+#tarjetasBA{
+    background: #5e6060;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #434545;
+    color: #fff;
+}
+
+#tarjetasBAH{
+    background: linear-gradient(#434545, #757878);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #434545;
+    color: #fff;
+}
+
+#tarjetasCP{
+    background: #74a7e4;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #5589c4;
+    color: #fff;
+}
+
+#tarjetasCPH{
+    background: linear-gradient(#1c426f, #74a7e4);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #5589c4;
+    color: #fff;
+}
+
+#tarjetasE{
+    background: #44aa6f;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #1f8c53;
+    color: #fff;
+}
+
+#tarjetasEH{
+    background: linear-gradient(#186b40, #44aa6f);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #1f8c53;
+    color: #fff;
+}
+
+#tarjetasF{
+    background: #ffb369;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #ffad5e;
+    color: #fff;
+}
+
+#tarjetasFH{
+    background: linear-gradient(#dc7c22, #ffb369);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #ffad5e;
+    color: #fff;
+}
+
+#tarjetasFi{
+    background: #f9adc7;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #e690af;
+    color: #fff;
+}
+
+#tarjetasFiH{
+    background: linear-gradient(#ef6b9b, #f9adc7);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #e690af;
+    color: #fff;
+}
+
+#tarjetasG{
+    background: #f86981;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #e24a64;
+    color: #fff;
+}
+
+#tarjetasGH{
+    background: linear-gradient(#cd3851, #f78699);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #e24a64;
+    color: #fff;
+}
+
+#tarjetasL{
+    background: #aeb0b0;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #909292;
+    color: #fff;
+}
+
+#tarjetasLH{
+    background: linear-gradient(#5e6060, #909292);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #909292;
+    color: #fff;
+}
+
+#tarjetasLi{
+    background: #4578b1;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #315c93;
+    color: #fff;
+}
+
+#tarjetasLiH{
+    background: linear-gradient(#1f4371, #4578b1);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #315c93;
+    color: #fff;
+}
+
+#tarjetasP{
+    background: #916b56;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #73503c;
+    color: #fff;
+}
+
+#tarjetasPH{
+    background: linear-gradient(#634534, #916b56);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #73503c;
+    color: #fff;
+}
+
+#tarjetasS{
+    background: #4cc8c2;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #2ea9a4;
+    color: #fff;
+}
+
+#tarjetasSH{
+    background: linear-gradient(#248380, #5ae2db);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #2ea9a4;
+    color: #fff;
+}
+
+#tarjetasV{
+    background: linear-gradient(#633fa2, white);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #633fa2;
+    color: #fff;
+}
+
+#tarjetasVH{
+    background: linear-gradient(#633fa2, pink);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #2ea9a4;
+    color: #fff;
+}
+
+
+/*----------Ofertas cards-----------*/
+#bodyCardOf{
+    margin-top: -40rem;
+}
+
+#tarjetasOf{
+    background: #f3e1ff;
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #fdfbfa;
+    
+}
+
+.dark #tarjetasOf{
+    background-color: #959698;
+    border-color: #000000;
+}
+
+#labelOf{
+    color: #101010;
+    font-size: 15px;
+}
+
+#labelTi{
+    color:#55545e;
+    font-size: 20px;
+}
+
+#porci {
+    color: azure;
+    background-color: #8e94f8;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: #8e94f8;
+   border-width: 5px;
+   cursor: default;
+}
+
+#precioA {
+    color: #6c6a6a;
+}
+
+#precioH {
+    color: #000000;
+}
+
+.oferI {
+   
 }
 
 /*----------select categorias-----------*/
@@ -703,8 +985,54 @@ body.dark .home .text{
 }
 #flexCheckDefault:checked {
     background-color: rgb(130, 9, 160);
-    }
+}
 
+#categori {
+    color: #fff;
+    font-weight: bold;
+}
 /*----------select categorias-----------*/
 
+/******aaaaaaaaaaaaaa*/
 
+.homeFormON{
+    width: 100%;
+    margin-top: -900px;
+    margin-left: 50%;
+    transform: translate(50%, 25%);
+    transition: var(--tran-05);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #000000;
+}
+
+
+.homeFormRP{
+    
+    position:absolute;
+    top: 10px;
+    margin-top: -150px;
+    left: 250px;
+    margin-left: 5%;
+    transform: translate(250px, 25%);
+    transition: var(--tran-05);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #000000;
+    
+}
+
+.homeFormMD{
+    
+    position:absolute;
+    top: 10px;
+    margin-top: -150px;
+    left: 250px;
+    margin-left: 10%;
+    transform: translate(250px, 25%);
+    transition: var(--tran-05);
+    border-radius: 15px;
+    border-style:solid;
+    border-color: #000000;
+    
+}

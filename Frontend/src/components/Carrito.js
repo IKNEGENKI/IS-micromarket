@@ -18,12 +18,13 @@ class Carrito extends Component {
       total:0,
       id:0,
       vacio:true,
+      despacho:0,
       
     }
     this.getProductos = this.getProductos.bind(this);
     this.aumentarsubtotal= this.aumentarsubtotal.bind(this);
     this.eliminar= this.eliminar.bind(this);
-   
+    this.aumentarDespacho= this.aumentarDespacho.bind(this);
   
   }
   componentDidMount() {
@@ -43,7 +44,7 @@ class Carrito extends Component {
         console.log(error);
       });
       this.aumentarsubtotal();
-     
+      this.aumentarDespacho();
   }
  
  eliminar=async(cod)=>{
@@ -52,34 +53,48 @@ class Carrito extends Component {
   this.getProductos();
     
  }
+ aumentarDespacho= () =>{
+  this.setState({despacho:0});
+  const { productos } = this.state;
+  let despacho = 0;
+  
+  productos.forEach((producto) => {
+    despacho += parseInt(producto.cantidadprod) ;
+  });
 
+  this.setState({ despacho });
+}
   aumentarsubtotal= () =>{
     this.setState({subtotal:0});
     const { productos } = this.state;
     let subtotal = 0;
     
     productos.forEach((producto) => {
-      subtotal += parseInt(producto.codetalle) ;
+      subtotal += parseInt(producto.costodetalle) ;
     });
   
     this.setState({ subtotal });
   }
-  getImg = async (codprod) => {
+  
+
+   getImg(codprod) {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
-      const prods1 = response.data.producto.image;
+      const response = axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
       
-      console.log(prods1);
-      this.setState({imagen:prods1});
+      const img = response.data.producto.image;
+      console.log(img);
+      return img;
     } catch (error) {
       console.log(error);
       return null;
     }
   }
+
   getProd = async(codprod) =>{
     try {
       const response = await axios.get(`http://127.0.0.1:8000/api/obtenerProductos/${codprod}`);
       const prods1 = await response.data.producto.producto;
+
       console.log(prods1);
       this.setState({name:prods1});
     } catch (error) {
@@ -95,79 +110,75 @@ class Carrito extends Component {
       <div className="carrito-overlay">
         <div className="carrito-container">
           <Modal.Header closeButton onClick={onClose} className="modal-header">
-            <h4 className="modal-title">Carrito</h4>
+            <h4 className="modal-title" id="tituloCa">Carrito</h4>
           </Modal.Header>
           <ModalBody className="modal-body">
-          <div className="lista">
-             
-            {
-
-
-              this.state.productos?.sort((o1, o2) => {
-                if (o1.producto < o2.producto) {
-                  return -1;
-                } else {
-                  if (o1.producto > o2.producto) {
-                    return 1;
-                  } else {
-                    return 0;
-                  }
-                }
-              })
-                .map((product, index) => {
-                  
-                 
-                  return (
-                    
-                    <div className="contenido " id="card">
-                    
-                           
-                          <div className="imagen">
-                           
-                          <img src={ this.imagen} />
-                          </div>
-                          
-                          <div className="precio">
-                          
-                          <h2>{this.name}</h2>
-                          <p>Bs. {product.costodetalle} </p>
-                          <p>{this.id}</p>
-                          </div>
-                          <div className="basura">
-                          <a onClick={() => this.eliminar(product.codetalle)}><BsFillTrash3Fill/></a>
-                          </div>
-
-                      
-                    </div>
-
-                  )
-
-
-
-
-                }
-                )
-            }
-               <div id="vacio" className="container"> {vacio && (<BsFillCartXFill />)}</div>
+          {vacio ? (
+            <div className="row" id="vacio">
+              <div className="icono">
+              <BsFillCartXFill/>
+              </div>
+              <div className="textoIcono">
+              <h2>Tu carrito se encuentra vacio</h2>
+              </div>
+            
             </div>
-          
            
+          ) : (
+            <div className="lista">
+              {this.state.productos
+                ?.sort((o1, o2) => {
+                  if (o1.producto < o2.producto) {
+                    return -1;
+                  } else {
+                    if (o1.producto > o2.producto) {
+                      return 1;
+                    } else {
+                      return 0;
+                    }
+                  }
+                })
+                .map((product, index) => {
+                  return (
+                    <div className="contenido" id="card">
+                      <div className="imagen">
+                        <img src={this.getImg} />
+                      </div>
+                      <div className="precio">
+                        <h2>{this.name}</h2>
+                        <p>Bs. {product.costodetalle}</p>
+                        <p>{product.cantidadprod}</p>
+                      </div>
+                      <div className="basura">
+                        <a onClick={() => this.eliminar(product.codetalle)}>
+                          <BsFillTrash3Fill />
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          )}
           </ModalBody>
 
 
-          <ModalFooter className="modal-footer">
-            <div className="costo">
-            <div className="primero">
-            <div className="subtotal"> subtotal:</div>
-            <div className="preciosub">{this.state.subtotal} bs</div>
+          <ModalFooter className="modal-footer" id="modalF">
+            <div className="costo" id="modalF">
+            <div className="primero" id="modalF">
+            <div className="subtotal" id="modalF"> Subtotal:</div>
+            <div className="preciosub" id="modalF">{this.state.subtotal} Bs.</div>
             </div>
-            <div className="segundo">
-             <div className="descuento"> descuento:</div>
-             <div className="preciodescuento">-{this.state.descuentos} bs</div>
+            <div className="segundo" id="modalF">
+             <div className="descuento" id="modalF"> Despacho:</div>
+             <div className="despacho" id="modalF">{this.state.despacho} producto(s)</div>
             </div>
-            <div className="segundo">
-              <div className="total">total:</div>
-              <div className="preciototal">{this.state.subtotal-this.state.descuentos} bs</div>
+            <div className="segundo" id="modalF">
+             <div className="descuento" id="modalF"> Descuento:</div>
+             <div className="preciodescuento" id="modalF">-{this.state.descuentos} Bs.</div>
+            </div>
+            <div className="segundo" id="modalF">
+              <div className="total" id="modalF">Total:</div>
+              <div className="preciototal" id="modalF">{this.state.subtotal-this.state.descuentos} Bs.</div>
              
               
             </div >

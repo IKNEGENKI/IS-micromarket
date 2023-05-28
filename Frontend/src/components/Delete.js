@@ -24,7 +24,7 @@ class Delete extends Component{
         await axios.get('http://127.0.0.1:8000/api/getProductos')
         .then(res=>{
             this.setState({productos: res.data});
-            console.log(res.data.producto)
+            console.log(res.data)
         }).catch((error)=>{
             console.log(error);
         });
